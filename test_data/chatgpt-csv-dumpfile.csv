@@ -1,0 +1,4 @@
+Recipient Name,Address 1,Address 2,Address 3,Country,Postal Code,City,State,Phone Number,Email,Weight,Service,Reference Number,Package Count
+John Doe,123 Main St,,,US,10001,New York,NY,555-1234,john.doe@example.com,2,Ground,REF12345,1
+Jane Smith,456 Elm St,Apt 5,,US,90001,Los Angeles,CA,555-5678,jane.smith@example.com,5,2nd Day Air,REF67890,2
+Acme Corp,789 Maple Ave,Suite 100,,US,60601,Chicago,IL,555-8765,contact@acmecorp.com,10,Next Day Air,REF54321,3
