@@ -1,0 +1,244 @@
+{
+  "data": [
+    {
+      "name": "Anna Müller",
+      "company": "Müller & Co.",
+      "street": "Hauptstraße 12",
+      "region": "10115 Berlin,",
+      "country": "Deutschland",
+      "tel": "+491711234567"
+    },
+    {
+      "name": "Max Mustermann",
+      "company": null,
+      "street": "Lindenstraße 5",
+      "region": "80331 München, Bayern",
+      "country": "Deutschland",
+      "tel": "089/2345678"
+    },
+    {
+      "name": "Sophie Schmidt",
+      "company": "Schmidt Solutions",
+      "street": "Kirchweg 23",
+      "region": "40212 Düsseldorf,",
+      "country": "Deutschland",
+      "tel": null
+    },
+    {
+      "name": "Paul Fischer",
+      "company": null,
+      "street": "Blumenweg 4",
+      "region": "50667 Köln,",
+      "country": "Deutschland",
+      "tel": "0221 4567890"
+    },
+    {
+      "name": "Marie Weber",
+      "company": "Weber & Partner",
+      "street": "Bergstraße 8",
+      "region": "60594 Frankfurt am Main,",
+      "country": "Deutschland",
+      "tel": "+49695678901"
+    },
+    {
+      "name": "Lucas Wagner",
+      "company": null,
+      "street": "Seestraße 14",
+      "region": "78462 Konstanz,",
+      "country": "Deutschland",
+      "tel": "07616789012"
+    },
+    {
+      "name": "Julia Braun",
+      "company": null,
+      "street": "Mozartstraße 3",
+      "region": "04109 Leipzig,",
+      "country": "Deutschland",
+      "tel": "+493417890123"
+    },
+    {
+      "name": "Daniel Wolf",
+      "company": null,
+      "street": "Rheinstraße 19",
+      "region": "55116 Mainz,",
+      "country": "Deutschland",
+      "tel": "+4961318901234"
+    },
+    {
+      "name": "Lena Krause",
+      "company": "Krause IT",
+      "street": "Bahnhofstraße 7",
+      "region": "30159 Hannover,",
+      "country": "Deutschland",
+      "tel": null
+    },
+    {
+      "name": "Tom Meier",
+      "company": null,
+      "street": "Friedrichstraße 10",
+      "region": "01067 Dresden,",
+      "country": "Deutschland",
+      "tel": "+493510123456"
+    },
+    {
+      "name": "Clara Becker",
+      "company": null,
+      "street": "Wilhelmstraße 15",
+      "region": "70173 Stuttgart,",
+      "country": "Deutschland",
+      "tel": "0711/1234567"
+    },
+    {
+      "name": "Jonas Hoffmann",
+      "company": null,
+      "street": "Brückenstraße 11",
+      "region": "22767 Hamburg,",
+      "country": "Deutschland",
+      "tel": "+49402345678"
+    },
+    {
+      "name": "Emma Schwarz",
+      "company": "Schwarz GmbH",
+      "street": "Parkstraße 9",
+      "region": "1020 Wien,",
+      "country": "Österreich",
+      "tel": "+436763456789"
+    },
+    {
+      "name": "Leo Schmidt",
+      "company": null,
+      "street": "Bundesstraße 21",
+      "region": "8001 Zürich,",
+      "country": "Schweiz",
+      "tel": "+41444567890"
+    },
+    {
+      "name": "Sara Fischer",
+      "company": null,
+      "street": "Luxemburger Straße 22",
+      "region": "1011 Luxemburg,",
+      "country": "Luxemburg",
+      "tel": "+352621567890"
+    },
+    {
+      "name": "Peter Keller",
+      "company": "Keller Bau",
+      "street": "Ringstraße 18",
+      "region": "50674 Köln, NRW",
+      "country": "Deutschland",
+      "tel": "02212345678"
+    },
+    {
+      "name": "Mia Vogel",
+      "company": null,
+      "street": "Bergweg 2",
+      "region": "69117 Heidelberg,",
+      "country": "Deutschland",
+      "tel": "+4962213456789"
+    },
+    {
+      "name": "Hannah Mayer",
+      "company": null,
+      "street": "Am Markt 6",
+      "region": "28195 Bremen,",
+      "country": "Deutschland",
+      "tel": null
+    },
+    {
+      "name": "Niklas Schuster",
+      "company": "Schuster AG",
+      "street": "Neustraße 1",
+      "region": "90402 Nürnberg,",
+      "country": "Deutschland",
+      "tel": "09114567890"
+    },
+    {
+      "name": "Lea Winter",
+      "company": null,
+      "street": "Hafenstraße 4",
+      "region": "20095 Hamburg,",
+      "country": "Deutschland",
+      "tel": "+491756789012"
+    },
+    {
+      "name": "Oliver Hartmann",
+      "company": null,
+      "street": "Finkenweg 3",
+      "region": "44135 Dortmund,",
+      "country": "Deutschland",
+      "tel": "+492318901234"
+    },
+    {
+      "name": "Laura Berg",
+      "company": null,
+      "street": "Erlenweg 5",
+      "region": "60311 Frankfurt am Main,",
+      "country": "Deutschland",
+      "tel": "017112345678"
+    },
+    {
+      "name": "Tim Neumann",
+      "company": null,
+      "street": "Kastanienallee 12",
+      "region": "28215 Bremen,",
+      "country": "Deutschland",
+      "tel": "+494215678901"
+    },
+    {
+      "name": "Elena Hoffmann",
+      "company": null,
+      "street": "Buchenweg 6",
+      "region": "79104 Freiburg,",
+      "country": "Deutschland",
+      "tel": "076112345678"
+    },
+    {
+      "name": "Jonas Weber",
+      "company": null,
+      "street": "Lindenplatz 8",
+      "region": "60487 Frankfurt,",
+      "country": "Deutschland",
+      "tel": "06972345678"
+    },
+    {
+      "name": "Maja Fischer",
+      "company": null,
+      "street": "Friedensstraße 23",
+      "region": "66111 Saarbrücken, Saarland",
+      "country": "Deutschland",
+      "tel": "06817890123"
+    },
+    {
+      "name": "Ben Meyer",
+      "company": null,
+      "street": "Schulstraße 4",
+      "region": "1050 Wien,",
+      "country": "Österreich",
+      "tel": "+4311234567"
+    },
+    {
+      "name": "Clara Lehmann",
+      "company": null,
+      "street": "Ringstraße 7",
+      "region": "50674 Köln,",
+      "country": "Deutschland",
+      "tel": "02212345678"
+    },
+    {
+      "name": "Erik Richter",
+      "company": null,
+      "street": "Hauptstraße 19",
+      "region": "20457 Hamburg,",
+      "country": "Deutschland",
+      "tel": null
+    },
+    {
+      "name": "Mila Keller",
+      "company": null,
+      "street": "Bahnhofstraße 3",
+      "region": "89073 Ulm,",
+      "country": "Deutschland",
+      "tel": "+497315678901"
+    }
+  ]
+}
