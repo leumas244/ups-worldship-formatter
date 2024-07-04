@@ -62,6 +62,7 @@ def get_files_to_parse() -> list[str]:
         print_info(f"Das Programm beendet sich mit Problemen")
         exit()
 
+
 def check_on_none_value(value: str) -> str:
     if value:
         return value
@@ -90,7 +91,6 @@ def get_output_string(packages: list[Package]) -> str:
         line += f"{check_on_none_value(package.packageCount)}\n"
         output += line
     return output
-
 
 
 def write_packages_to_csv_file(packages: list[Package], excel_file: str) -> str:
@@ -132,7 +132,9 @@ def main() -> None:
                 continue
 
             try:
-                package = address_parser.sort_assignment_to_package(address_assignment, package)
+                package = address_parser.sort_assignment_to_package(
+                    address_assignment, package
+                )
                 output_packages.append(package)
             except Exception as e:
                 excel_file_has_a_problem = True

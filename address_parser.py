@@ -82,12 +82,14 @@ def parse_address(address_string: str) -> dict[str, str]:
 
     return address_assignment
 
+
 def concatenate_strings_from_second_element(lst: list[str]) -> str:
     result = ""
     for i, item in enumerate(lst):
         if i > 0 and isinstance(item, str):
             result += item + " "
     return result.strip()
+
 
 def sort_assignment_to_package(address_assignment: dict[str, str], package: Package) -> Package:
     package.recipientName = address_assignment["name"]
@@ -96,7 +98,7 @@ def sort_assignment_to_package(address_assignment: dict[str, str], package: Pack
     package.phoneNumber = address_assignment["tel"]
 
     package.service = "Standart"
-    # TODO: Frage ob das gewicht bei einem Doppeltem Packet verdoppelt werden muss
+    # TODO: Frage ob das Gewicht bei einem doppeltem Packet verdoppelt werden muss
     package.weight = 10.0
 
     if address_assignment["company"]:

@@ -1,5 +1,7 @@
 class Package:
-    def __init__(self, excelReciverString: str, excel_row: int, excel_column: int) -> None:
+    def __init__(
+        self, excelReciverString: str, excel_row: int, excel_column: int
+    ) -> None:
         self.excelReciverString: str = excelReciverString
         self.excel_row: int = excel_row
         self.excel_column: int = excel_column
@@ -18,7 +20,6 @@ class Package:
         self.service: str = None
         self.referenceNumber: str = None
         self.packageCount: str = None
-    
+
     def __str__(self) -> str:
         return f"Empfaenger: '{self.recipientName}'"
-
