@@ -65,37 +65,6 @@ def get_files_to_parse() -> list[str]:
         exit()
 
 
-def check_on_none_value(value: str) -> str:
-    if value:
-        return value
-    else:
-        return ""
-
-
-def get_output_string(packages: list[Package]) -> str:
-    output = "Recipient Name,Recipient Name Additonal,Address 1,Address 2,Address 3,Country,Postal Code,City,State,Phone Number,Email,Weight,Service,Reference Number,Package Count\n"
-    for package in packages:
-        line = ""
-        line += f"{check_on_none_value(package.recipientName)},"
-        line += f"{check_on_none_value(package.recipientNameAddtional)},"
-        line += f"{check_on_none_value(package.address1)},"
-        line += f"{check_on_none_value(package.address2)},"
-        line += f"{check_on_none_value(package.address3)},"
-        line += f"{check_on_none_value(package.country)},"
-        line += f"{check_on_none_value(package.postalCode)},"
-        line += f"{check_on_none_value(package.city)},"
-        line += f"{check_on_none_value(package.state)},"
-        line += f"{check_on_none_value(package.phoneNumber)},"
-        line += f"{check_on_none_value(package.email)},"
-        line += f"{check_on_none_value(package.weight)},"
-        line += f"{check_on_none_value(package.service)},"
-        line += f"{check_on_none_value(package.referenceNumber)},"
-        line += f"{check_on_none_value(package.packageCount)}\n"
-        output += line
-    return output
-
-
-
 def write_packages_to_xml_file(packages: list[Package], excel_file: str) -> str:
     now_variable = datetime.now()
     file_name = f"-{get_file_name_from_file_path(excel_file).replace('.xlsx', '')}-parsed_at_{now_variable.strftime('%d.%m.%Y_%H-%M-%S')}.xml"

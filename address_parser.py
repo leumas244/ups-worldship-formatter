@@ -98,8 +98,7 @@ def sort_assignment_to_package(address_assignment: dict[str, str], package: Pack
     package.phoneNumber = address_assignment["tel"]
 
     package.service = "Standart"
-    # TODO: Frage ob das Gewicht bei einem doppeltem Packet verdoppelt werden muss
-    package.weight = 10.0
+    package.weight = 10.0 * package.packageCount
 
     if address_assignment["company"]:
         package.recipientNameAddtional = address_assignment["company"]
