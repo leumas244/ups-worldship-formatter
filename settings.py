@@ -8,7 +8,7 @@ parsed_excel_file_folder: str = "data/analysierte_Excel_Dateien/"
 # Ordner für Excel-Datei, bei denen es ein Problem gab.
 parsed_excel_file_with_problems_folder: str = "data/analysierte_Excel_Dateien_mit_PROBLEMEN/"
 # Ordner für csv Datei Ausgabe.
-csv_output_file_folder: str = "data/csv_Ausgabe_Dateien_fuer_UPS-WorldShip/"
+csv_output_file_folder: str = "data/xml_Ausgabe_Dateien_fuer_UPS-WorldShip/"
 
 all_needed_folders: list[str] = [
     not_parsed_excel_file_folder,

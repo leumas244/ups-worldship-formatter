@@ -1,0 +1,54 @@
+XML Auto Import Log - 07/09/2024 11:04:06.714
+
+07/09/2024 11:04:06.716 - Sitzung wird gestartet
+
+07/09/2024 11:04:08.783 - 1 Datensatz/-sätze müssen importiert werden.
+
+07/09/2024 11:04:09.425 - Datensatz 1 wird importiert
+
+07/09/2024 11:04:09.464 -   Paketdatensatz wird erstellt: 1
+
+07/09/2024 11:04:09.589 - 1 Datensatz/-sätze bearbeitet.
+Importing from OpenShipments3.xml
+Datensatz 1 wird importiert
+  Paketdatensatz wird erstellt: 1
+1 Datensatz/-sätze bearbeitet.
+
+
+Test-CompanyOrName
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+07/09/2024 11:04:22.713 - Sitzung wird angehalten.
+
+07/09/2024 11:04:22.720 - Importierte Sendungen: 1  Erfolgreiche Sendungen: 1   Fehlgeschlagene Sendungen  0
+
+07/09/2024 11:10:10.786 - Sitzung wird gestartet
+
+07/09/2024 11:10:14.631 - C:\Users\Czychun\Desktop\UPS_Formatter_(von-Samuel)\test_data\UPS-XML-Import\OpenShipments3.xml Error on line 1, Wechseln zwischen aktueller und angegebener Kodierung wird nicht unterstützt.
+
+
+07/09/2024 11:10:43.237 - 1 Datensatz/-sätze müssen importiert werden.
+
+07/09/2024 11:10:43.867 - Datensatz 1 wird importiert
+
+07/09/2024 11:10:43.905 -   Paketdatensatz wird erstellt: 1
+
+07/09/2024 11:10:43.975 - 1 Datensatz/-sätze bearbeitet.
+Importing from OpenShipments3.xml
+Datensatz 1 wird importiert
+  Paketdatensatz wird erstellt: 1
+1 Datensatz/-sätze bearbeitet.
+
+
+Test-CompanyOrName
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+07/09/2024 11:10:53.779 - Sitzung wird angehalten.
+
+07/09/2024 11:10:53.786 - Importierte Sendungen: 1  Erfolgreiche Sendungen: 1   Fehlgeschlagene Sendungen  1

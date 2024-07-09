@@ -1,11 +1,13 @@
 import os
 import shutil
 from datetime import datetime
+import xml.etree.ElementTree as ET
 
 import settings
 import excel_converter
 import address_parser
 from data_classes import Package
+import export_manager
 
 
 def print_info(info: str) -> None:
@@ -93,12 +95,12 @@ def get_output_string(packages: list[Package]) -> str:
 
 
 
-def write_packages_to_csv_file(packages: list[Package], excel_file: str) -> str:
+def write_packages_to_xml_file(packages: list[Package], excel_file: str) -> str:
     now_variable = datetime.now()
-    file_name = f"csv_output--{get_file_name_from_file_path(excel_file).replace('.xlsx', '')}--parsed_at_{now_variable.strftime('%d.%m.%Y_%H-%M-%S')}.csv"
+    file_name = f"-{get_file_name_from_file_path(excel_file).replace('.xlsx', '')}-parsed_at_{now_variable.strftime('%d.%m.%Y_%H-%M-%S')}.xml"
     file_path = os.path.join(settings.csv_output_file_folder, file_name)
-    with open(file_path, "w", encoding="UTF-8") as file_output:
-        file_output.write(get_output_string(packages))
+    xml_tree = export_manager.get_xml_tree(packages)
+    xml_tree.write(file_path, encoding="utf-8", xml_declaration=True)
     return file_name
 
 
@@ -142,7 +144,7 @@ def main() -> None:
                 )
                 continue
 
-            output_file_name = write_packages_to_csv_file(output_packages, excel_file)
+            output_file_name = write_packages_to_xml_file(output_packages, excel_file)
 
         if excel_file_has_a_problem:
             move_file(excel_file, settings.parsed_excel_file_with_problems_folder)
