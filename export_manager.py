@@ -62,13 +62,13 @@ def get_xml_tree(packages: list[Package]) -> ET.ElementTree:
         NumberOfPackages = ET.SubElement(ShipmentInformation, "NumberOfPackages")
         NumberOfPackages.text = str(package.packageCount)
         ShipmentActualWeight = ET.SubElement(ShipmentInformation, "ShipmentActualWeight")
-        ShipmentActualWeight.text = str(package.weight)
+        ShipmentActualWeight.text = str(package.weight).replace(".", ",")
         
         Package = ET.SubElement(OpenShipment, "Package")
         PackageType = ET.SubElement(Package, "PackageType")
         PackageType.text = "Package"
         Weight = ET.SubElement(Package, "Weight")
-        Weight.text = str(package.weight)
+        Weight.text = str(package.weight).replace(".", ",")
         Reference1 = ET.SubElement(Package, "Reference1")
         Reference1.text = package.referenceNumber
         Length = ET.SubElement(Package, "Length")
