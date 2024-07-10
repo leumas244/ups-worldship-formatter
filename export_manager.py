@@ -1,7 +1,4 @@
 import xml.etree.ElementTree as ET
-import os
-import shutil
-from datetime import datetime
 
 from data_classes import Package
 
