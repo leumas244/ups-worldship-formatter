@@ -25,6 +25,7 @@ def print_info(info: str) -> None:
     else:
         print(info)
     
+
 def split_string_by_length(s, length):
     return [s[i:i+length] for i in range(0, len(s), length)]
 
@@ -123,8 +124,8 @@ def int_to_alphabet(num):
 
 def main() -> None:
     print_info(f"Das Programm startet.")
-    print()
     inital_check_on_existing_file_infrastructure()
+    print()
 
     excel_files_to_parse = get_files_to_parse()
 

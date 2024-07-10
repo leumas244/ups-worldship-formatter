@@ -105,7 +105,7 @@ def sort_assignment_to_package(address_assignment: dict[str, str], package: Pack
         package.recipientNameAddtional = address_assignment["company"]
     
     elif address_assignment["country_name_short"] != 'DE' and not address_assignment["company"]:
-        package.recipientNameAddtional = settings.foreign_country_placeholder
+        package.recipientNameAddtional = package.recipientName
 
     region = address_assignment["region"]
     region_parts = region.split(",")

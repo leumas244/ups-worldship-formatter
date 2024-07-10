@@ -7,7 +7,7 @@ not_parsed_excel_file_folder: str = "data/noch_NICHT_analysierte_Excel_Dateien/"
 parsed_excel_file_folder: str = "data/analysierte_Excel_Dateien/"
 # Ordner für Excel-Datei, bei denen es ein Problem gab.
 parsed_excel_file_with_problems_folder: str = (
-    "data/analysierte_Excel_Dateien_mit_PROBLEMEN/"
+    "data/Excel_Dateien_mit_PROBLEMEN/"
 )
 # Ordner für csv Datei Ausgabe.
 csv_output_file_folder: str = "data/xml_Ausgabe_Dateien_fuer_UPS-WorldShip/"
@@ -24,9 +24,6 @@ all_needed_folders: list[str] = [
 street_pattern = re.compile(r"^[^\d /-]{1}.+ \d+[a-zA-Z]?$")
 region_pattern = re.compile(r"^\d{4,5} [^\d/-]{1}.+$")
 phone_pattern = re.compile(r"^\+?\d+([ ]?[/]?[ ]?\d+)*$")
-
-# Platzhalter für zusätzlichen Namen, der nötig ist ausserhalb Deutschlands
-foreign_country_placeholder: str = "Zuzustellen"
 
 # Erkennbare Länder
 european_countrys: dict[str, str] = {
