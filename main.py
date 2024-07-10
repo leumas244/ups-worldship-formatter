@@ -183,7 +183,6 @@ def main() -> None:
             move_file(excel_file, settings.parsed_excel_file_folder)
 
     print_info(f"Das Programm ist beendet.")
-    print_info(f"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.")
     print()
 
 
