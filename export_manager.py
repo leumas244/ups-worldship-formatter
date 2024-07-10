@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 
 from data_classes import Package
+import settings
 
 def get_xml_tree(packages: list[Package]) -> ET.ElementTree:
     OpenShipments = ET.Element("OpenShipments")
@@ -26,9 +27,8 @@ def get_xml_tree(packages: list[Package]) -> ET.ElementTree:
         CityOrTown = ET.SubElement(ShipTo, "CityOrTown")
         CityOrTown.text = package.city
         
-        if package.country == "Deutschland":
-            CountryTerritory = ET.SubElement(ShipTo, "CountryTerritory")
-            CountryTerritory.text = "DE"
+        CountryTerritory = ET.SubElement(ShipTo, "CountryTerritory")
+        CountryTerritory.text = package.country
         
         PostalCode = ET.SubElement(ShipTo, "PostalCode")
         PostalCode.text = str(package.postalCode)

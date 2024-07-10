@@ -26,18 +26,36 @@ region_pattern = re.compile(r"^\d{4,5} [^\d/-]{1}.+$")
 phone_pattern = re.compile(r"^\+?\d+([ ]?[/]?[ ]?\d+)*$")
 
 # Platzhalter für zusätzlichen Namen, der nötig ist ausserhalb Deutschlands
-foreign_country_placeholder: str = "Auslandsplatzhalter"
+foreign_country_placeholder: str = "Zuzustellen"
 
 # Erkennbare Länder
-european_countrys: list[str] = [
-    "Deutschland",
-    "Österreich",
-    "Schweiz",
-    "Luxemburg",
-    "Luxembourg",
-    "Niederlande",
-    "Nederland",
-    "Frankreich",
-    "France",
-    "Belgien",
-]
+european_countrys: dict[str, str] = {
+    "Deutschland": "DE",
+    "Germany": "DE",
+    "Dänemark": "DK",
+    "Denmark": "DK",
+    "Danmark": "DK",
+    "Polen": "PL",
+    "Poland": "PL",
+    "Polska": "PL",
+    "Tschechien": "CZ",
+    "Tschechische Republik": "CZ",
+    "Czech Republic": "CZ",
+    "Česká republika": "CZ",
+    "Österreich": "AT",
+    "Austria": "AT",
+    "Schweiz": "CH",
+    "Switzerland": "CH",
+    "Suisse": "CH",
+    "Frankreich": "FR",
+    "France": "FR",
+    "Luxemburg": "LU",
+    "Luxembourg": "LU",
+    "Lëtzebuerg": "LU",
+    "Belgien": "BE",
+    "Belgium": "BE",
+    "Belgique": "BE",
+    "Niederlande": "NL",
+    "Netherlands": "NL",
+    "Nederland": "NL",
+}

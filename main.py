@@ -10,8 +10,23 @@ import export_manager
 
 
 def print_info(info: str) -> None:
+    columns, rows = shutil.get_terminal_size()
+    columns -= 1
     now_variable = datetime.now()
-    print(f"[main_process | {now_variable.strftime('%d/%m/%Y %H:%M:%S')}] {info}")
+    pre_print_info = f"[main_process | {now_variable.strftime('%d/%m/%Y %H:%M:%S')}] "
+    print(pre_print_info, end="")
+    if (len(pre_print_info) + len(info)) > columns:
+        result = split_string_by_length(info, (columns-len(pre_print_info)))
+        for part in result:
+            if result.index(part) == 0:
+                print(part)
+            else:
+                print((" "*len(pre_print_info)) + part)
+    else:
+        print(info)
+    
+def split_string_by_length(s, length):
+    return [s[i:i+length] for i in range(0, len(s), length)]
 
 
 def get_file_name_from_file_path(path_to_file: str) -> str:
@@ -73,8 +88,42 @@ def write_packages_to_xml_file(packages: list[Package], excel_file: str) -> str:
     return file_name
 
 
+def has_package_all_needed_informations(package: Package) -> bool:
+    if not package.recipientName:
+        print_info("Kein Name")
+        return False
+    elif not package.address1:
+        print_info("Keine Adresse")
+        return False
+    elif not package.country:
+        print_info("Kein Land")
+        return False
+    elif not package.postalCode:
+        print_info("Keine PLZ")
+        return False
+    elif not package.city:
+        print_info("Keine Stadt")
+        return False
+    elif not package.referenceNumber:
+        print_info("Keine Referenznummer")
+        return False
+    else:
+        return True
+
+
+def int_to_alphabet(num):
+    """Konvertiert eine Zahl in einen entsprechenden Buchstaben oder eine Buchstabenfolge nach dem Alphabet."""
+    result = ""
+    while num > 0:
+        num -= 1  # Um den Index bei 0 zu beginnen (A = 0, B = 1, ...)
+        result = chr(num % 26 + 65) + result
+        num //= 26
+    return result
+
+
 def main() -> None:
     print_info(f"Das Programm startet.")
+    print()
     inital_check_on_existing_file_infrastructure()
 
     excel_files_to_parse = get_files_to_parse()
@@ -98,7 +147,7 @@ def main() -> None:
                 excel_file_has_a_problem = True
                 print_info({str(e)})
                 print_info(
-                    f"Bite gib die Adresse in der Datei '{get_file_name_from_file_path(excel_file)}' in Zeile {package.excel_row} manuel ein!"
+                    f"Bite gib die Adresse in der Datei '{get_file_name_from_file_path(excel_file)}' in Zelle {int_to_alphabet(package.excel_column)}{package.excel_row} manuel ein!"
                 )
                 continue
 
@@ -111,11 +160,22 @@ def main() -> None:
                 excel_file_has_a_problem = True
                 print_info({str(e)})
                 print_info(
-                    f"Bite gib die Adresse in der Datei '{get_file_name_from_file_path(excel_file)}' in Zeile {package.excel_row} manuel ein!"
+                    f"Bite gib die Adresse in der Datei '{get_file_name_from_file_path(excel_file)}' in Zelle {int_to_alphabet(package.excel_column)}{package.excel_row} manuel ein!"
                 )
                 continue
 
-            output_file_name = write_packages_to_xml_file(output_packages, excel_file)
+            package_state = has_package_all_needed_informations(package)
+
+            if package_state:
+                output_file_name = write_packages_to_xml_file(
+                    output_packages, excel_file
+                )
+            else:
+                excel_file_has_a_problem = True
+                print_info(
+                    f"Bite gib die Adresse in der Datei '{get_file_name_from_file_path(excel_file)}' in Zelle {int_to_alphabet(package.excel_column)}{package.excel_row} manuel ein!"
+                )
+                continue
 
         if excel_file_has_a_problem:
             move_file(excel_file, settings.parsed_excel_file_with_problems_folder)
@@ -123,6 +183,7 @@ def main() -> None:
             move_file(excel_file, settings.parsed_excel_file_folder)
 
     print_info(f"Das Programm ist beendet.")
+    print_info(f"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.")
     print()
 
 

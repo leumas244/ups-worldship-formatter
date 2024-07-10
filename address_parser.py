@@ -25,8 +25,8 @@ def parse_address(address_string: str) -> dict[str, str]:
         "company": None,
         "street": None,
         "region": None,
-        "country": None,
-        "tel": None,
+        "country_name_short": None,
+        "phonenumber": None,
     }
 
     if len(address_parts) >= 7:
@@ -38,36 +38,37 @@ def parse_address(address_string: str) -> dict[str, str]:
 
     while address_parts_left != []:
         for part in address_parts:
+            part_strip = part.strip()
             if not address_assignment["name"] and address_parts.index(part) == 0:
                 address_parts_left.remove(address_parts[0])
                 address_assignment["name"] = address_parts[0]
                 continue
 
-            if not address_assignment["tel"] and settings.phone_pattern.match(part):
+            if not address_assignment["phonenumber"] and settings.phone_pattern.match(part_strip):
                 address_parts_left.remove(part)
-                address_assignment["tel"] = part
+                address_assignment["phonenumber"] = part
                 continue
 
-            if not address_assignment["region"] and settings.region_pattern.match(part):
+            if not address_assignment["region"] and settings.region_pattern.match(part_strip):
                 address_parts_left.remove(part)
                 address_assignment["region"] = part
                 continue
 
-            if not address_assignment["street"] and settings.street_pattern.match(part):
+            if not address_assignment["street"] and settings.street_pattern.match(part_strip):
                 address_parts_left.remove(part)
                 address_assignment["street"] = part
                 continue
 
-            if not address_assignment["country"] and part in settings.european_countrys:
+            if not address_assignment["country_name_short"] and part_strip in settings.european_countrys:
                 address_parts_left.remove(part)
-                address_assignment["country"] = part
+                address_assignment["country_name_short"] = settings.european_countrys[part_strip]
                 continue
 
-            if not address_assignment["country"]:
-                highest_country = get_highest_country_match(part)
+            if not address_assignment["country_name_short"]:
+                highest_country = get_highest_country_match(part_strip)
                 if highest_country[0] > 90:
                     address_parts_left.remove(part)
-                    address_assignment["country"] = highest_country[1]
+                    address_assignment["country_name_short"] = highest_country[1]
                     continue
 
         if len(address_parts_left) == 1:
@@ -94,8 +95,8 @@ def concatenate_strings_from_second_element(lst: list[str]) -> str:
 def sort_assignment_to_package(address_assignment: dict[str, str], package: Package) -> Package:
     package.recipientName = address_assignment["name"]
     package.address1 = address_assignment["street"]
-    package.country = address_assignment["country"]
-    package.phoneNumber = address_assignment["tel"]
+    package.country = address_assignment["country_name_short"]
+    package.phoneNumber = address_assignment["phonenumber"]
 
     package.service = "Standart"
     package.weight = 10.0 * package.packageCount
@@ -103,7 +104,7 @@ def sort_assignment_to_package(address_assignment: dict[str, str], package: Pack
     if address_assignment["company"]:
         package.recipientNameAddtional = address_assignment["company"]
     
-    elif address_assignment["country"] != 'Deutschland' and not address_assignment["company"]:
+    elif address_assignment["country_name_short"] != 'DE' and not address_assignment["company"]:
         package.recipientNameAddtional = settings.foreign_country_placeholder
 
     region = address_assignment["region"]

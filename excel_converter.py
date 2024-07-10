@@ -1,8 +1,9 @@
 from openpyxl import load_workbook
-import re
+import warnings
 
 from data_classes import Package
 
+warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
 def get_packages_from_excel_file(excel_file: str) -> list[Package]:
     workbook = load_workbook(filename=excel_file)
