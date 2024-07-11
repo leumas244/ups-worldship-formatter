@@ -36,8 +36,9 @@ def get_xml_tree(packages: list[Package]) -> ET.ElementTree:
         StateProvinceCounty = ET.SubElement(ShipTo, "StateProvinceCounty")
         StateProvinceCounty.text = package.state
         
-        Telephone = ET.SubElement(ShipTo, "Telephone")
-        Telephone.text = package.phoneNumber
+        if package.phoneNumber:
+            Telephone = ET.SubElement(ShipTo, "Telephone")
+            Telephone.text = package.phoneNumber
         
         ShipFrom = ET.SubElement(OpenShipment, "ShipFrom")
         CompanyOrName_from = ET.SubElement(ShipFrom, "CompanyOrName")
