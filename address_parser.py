@@ -10,7 +10,7 @@ def get_highest_country_match(search_part: str) -> list[int, str]:
         ratio = fuzz.partial_ratio(search_part, country)
         if ratio > highest_ratio[0]:
             highest_ratio[0] = ratio
-            highest_ratio[1] = country
+            highest_ratio[1] = settings.european_countrys[country]
     return highest_ratio
 
 
@@ -104,7 +104,7 @@ def sort_assignment_to_package(address_assignment: dict[str, str], package: Pack
     if address_assignment["company"]:
         package.recipientNameAddtional = address_assignment["company"]
     
-    elif address_assignment["country_name_short"] != 'DE' and not address_assignment["company"]:
+    elif address_assignment["country_name_short"] != "DE" and not address_assignment["company"]:
         package.recipientNameAddtional = package.recipientName
 
     region = address_assignment["region"]

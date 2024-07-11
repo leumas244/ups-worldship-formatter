@@ -16,18 +16,18 @@ def print_info(info: str) -> None:
     pre_print_info = f"[main_process | {now_variable.strftime('%d/%m/%Y %H:%M:%S')}] "
     print(pre_print_info, end="")
     if (len(pre_print_info) + len(info)) > columns:
-        result = split_string_by_length(info, (columns-len(pre_print_info)))
+        result = split_string_by_length(info, (columns - len(pre_print_info)))
         for part in result:
             if result.index(part) == 0:
                 print(part)
             else:
-                print((" "*len(pre_print_info)) + part)
+                print((" " * len(pre_print_info)) + part)
     else:
         print(info)
-    
+
 
 def split_string_by_length(s, length):
-    return [s[i:i+length] for i in range(0, len(s), length)]
+    return [s[i : i + length] for i in range(0, len(s), length)]
 
 
 def get_file_name_from_file_path(path_to_file: str) -> str:
@@ -122,6 +122,50 @@ def int_to_alphabet(num):
     return result
 
 
+def ckeck_package_on_abroad_and_dublicate(package: Package) -> list[Package]:
+    output_list = []
+    if package.country != "DE" and package.packageCount > 1:
+        packageCount = package.packageCount
+        package = set_package_to_single_package(package)
+        output_list.append(package)
+        for i in range(1, packageCount):
+            dublicate_of_package = dublicate_package(package)
+            output_list.append(dublicate_of_package)
+        return output_list
+    else:
+        return [package]
+
+
+def set_package_to_single_package(package: Package) -> Package:
+    package.packageCount = 1
+    package.weight = 10.0
+    return package
+
+
+def dublicate_package(package: Package) -> Package:
+    new_package = Package(
+        excelReciverString=package.excelReciverString,
+        excel_row=package.excel_row,
+        excel_column=package.excel_column,
+    )
+    new_package.recipientName = package.recipientName
+    new_package.recipientNameAddtional = package.recipientNameAddtional
+    new_package.address1 = package.address1
+    new_package.address2 = package.address2
+    new_package.address3 = package.address3
+    new_package.country = package.country
+    new_package.postalCode = package.postalCode
+    new_package.city = package.city
+    new_package.state = package.state
+    new_package.phoneNumber = package.phoneNumber
+    new_package.email = package.email
+    new_package.weight = package.weight
+    new_package.service = package.service
+    new_package.referenceNumber = package.referenceNumber
+    new_package.packageCount = package.packageCount
+    return new_package
+
+
 def main() -> None:
     print_info(f"Das Programm startet.")
     inital_check_on_existing_file_infrastructure()
@@ -156,7 +200,6 @@ def main() -> None:
                 package = address_parser.sort_assignment_to_package(
                     address_assignment, package
                 )
-                output_packages.append(package)
             except Exception as e:
                 excel_file_has_a_problem = True
                 print_info({str(e)})
@@ -167,16 +210,21 @@ def main() -> None:
 
             package_state = has_package_all_needed_informations(package)
 
+            additonal_packages_for_abroads = ckeck_package_on_abroad_and_dublicate(
+                package
+            )
+
             if package_state:
-                output_file_name = write_packages_to_xml_file(
-                    output_packages, excel_file
-                )
+                for ready_packages in additonal_packages_for_abroads:
+                    output_packages.append(ready_packages)
             else:
                 excel_file_has_a_problem = True
                 print_info(
                     f"Bite gib die Adresse in der Datei '{get_file_name_from_file_path(excel_file)}' in Zelle {int_to_alphabet(package.excel_column)}{package.excel_row} manuel ein!"
                 )
                 continue
+
+        output_file_name = write_packages_to_xml_file(output_packages, excel_file)
 
         if excel_file_has_a_problem:
             move_file(excel_file, settings.parsed_excel_file_with_problems_folder)
