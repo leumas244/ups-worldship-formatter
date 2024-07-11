@@ -9,12 +9,14 @@ from data_classes import Package
 import export_manager
 
 
-def print_info(info: str) -> None:
+def print_info(info: str, tab: int = 0, time_stamp: bool = True) -> None:
     columns, rows = shutil.get_terminal_size()
     columns -= 1
-    now_variable = datetime.now()
-    pre_print_info = f"[main_process | {now_variable.strftime('%d/%m/%Y %H:%M:%S')}] "
-    print(pre_print_info, end="")
+    pre_print_info = get_pre_print_info() + ("   " * tab)
+    if time_stamp:
+        print(pre_print_info, end="")
+    else:
+        print(" " * len(pre_print_info), end="")
     if (len(pre_print_info) + len(info)) > columns:
         result = split_string_by_length(info, (columns - len(pre_print_info)))
         for part in result:
@@ -24,14 +26,29 @@ def print_info(info: str) -> None:
                 print((" " * len(pre_print_info)) + part)
     else:
         print(info)
+        
+def get_pre_print_info() -> str:
+    now_variable = datetime.now()
+    pre_print_info = f"[{now_variable.strftime('%d/%m/%Y %H:%M:%S')}] "
+    return pre_print_info
 
 
-def split_string_by_length(s, length):
+def split_string_by_length(s: str, length: int) -> list[str]:
     return [s[i : i + length] for i in range(0, len(s), length)]
 
 
 def get_file_name_from_file_path(path_to_file: str) -> str:
     return os.path.basename(path_to_file)
+
+
+def print_excel_file_info(excel_files_to_parse: list[str]) -> None:
+    pre_print_info = get_pre_print_info()
+    info = "Gefundene Datei(en) zum analysieren:"
+    print(pre_print_info + info)
+    for excel_file in excel_files_to_parse:
+        file_name = get_file_name_from_file_path(excel_file)
+        print((" " * len(pre_print_info)) + "- " + file_name)
+    print()
 
 
 def move_file(source_file: str, destination_folder: str):
@@ -42,13 +59,13 @@ def move_file(source_file: str, destination_folder: str):
 
         shutil.move(source_file, destination_file)
         print_info(
-            f"Die Datei '{file_name}' wurde erfolgreich nach '{destination_folder}' verschoben."
+            f"Die Datei '{file_name}' wurde erfolgreich nach '{destination_folder}' verschoben.", 1
         )
 
     except Exception as e:
-        print_info(f"Fehler beim Verschieben der Datei: {e}")
+        print_info(f"Fehler beim Verschieben der Datei: {e}", 1)
         print_info(
-            f"Das Programm arbeitet weiter, aber die ausgewerteten Excel-Dateien wurden nicht verschoben!"
+            f"Das Programm arbeitet weiter, aber die ausgewerteten Excel-Dateien wurden nicht verschoben!", 1
         )
 
 
@@ -166,33 +183,61 @@ def dublicate_package(package: Package) -> Package:
     return new_package
 
 
+def print_adress_info(packages: list[Package], number_of_packages: int, packageCount: int) -> None:
+    package = packages[0]
+    print_info(f"({str(packageCount)}/{str(number_of_packages)}) Adresse erkannt:", 1)
+    print_info(f"Name: {package.recipientName}", 2, False)
+    if package.recipientNameAddtional:
+        print_info(f"zu H.: {package.recipientNameAddtional}", 2, False)
+    print_info(f"Adresse: {package.address1}", 2, False)
+    print_info(f"PLZ: {str(package.postalCode)}", 2, False)
+    print_info(f"Stadt: {package.city}", 2, False)
+    if package.state:
+        if not package.state == " ":
+            print_info(f"Region: {package.state}", 2, False)
+    print_info(f"Land: {package.country}", 2, False)
+    if package.phoneNumber:
+        print_info(f"Region: {package.phoneNumber}", 2, False)
+    print_info(f"Ref-Nummer: {package.referenceNumber}", 2, False)
+    if len(packages) > 1:
+        print_info(f"Dieses Paket geht ins Ausland und hat eine Anzahl von {str(len(packages))}. Es wurde zusätzlich {str(len(packages) -1)} mal hinzugefügt", 2, False)
+    else:
+        print_info(f"Anzahl: {str(package.packageCount)}", 2, False)
+        
+    
 def main() -> None:
     print_info(f"Das Programm startet.")
     inital_check_on_existing_file_infrastructure()
     print()
 
     excel_files_to_parse = get_files_to_parse()
+    print_excel_file_info(excel_files_to_parse)
 
     for excel_file in excel_files_to_parse:
+        print_info("Starte Analyse von " + get_file_name_from_file_path(excel_file))
         excel_file_has_a_problem = False
+        
         try:
             packages = excel_converter.get_packages_from_excel_file(excel_file)
         except Exception as e:
-            print_info(f"Fehler beim Auswerten der Excel-Datei '{excel_file}': {e}")
-            print_info(f"Das Datei wird übersprungen!")
+            print_info(f"Fehler beim Auswerten der Excel-Datei '{excel_file}': {e}. Die Datei wird übersprungen!")
             continue
-
+        
+        number_of_packages = len(packages)
+        print_info(f"Es wurden {number_of_packages} Pakete gefunden", 1)
+        
         output_packages: list[Package] = []
+        packageCount = 0
         for package in packages:
+            packageCount += 1
             try:
                 address_assignment = address_parser.parse_address(
                     package.excelReciverString
                 )
             except Exception as e:
                 excel_file_has_a_problem = True
-                print_info({str(e)})
                 print_info(
-                    f"Bite gib die Adresse in der Datei '{get_file_name_from_file_path(excel_file)}' in Zelle {int_to_alphabet(package.excel_column)}{package.excel_row} manuel ein!"
+                    f"Bitte gib die Adresse in der Datei '{get_file_name_from_file_path(excel_file)}' in Zelle {int_to_alphabet(package.excel_column)}{package.excel_row} manuel ein!", 1
                 )
                 continue
 
@@ -202,9 +247,8 @@ def main() -> None:
                 )
             except Exception as e:
                 excel_file_has_a_problem = True
-                print_info({str(e)})
                 print_info(
-                    f"Bite gib die Adresse in der Datei '{get_file_name_from_file_path(excel_file)}' in Zelle {int_to_alphabet(package.excel_column)}{package.excel_row} manuel ein!"
+                    f"Bite gib die Adresse in der Datei '{get_file_name_from_file_path(excel_file)}' in Zelle {int_to_alphabet(package.excel_column)}{package.excel_row} manuel ein!", 1
                 )
                 continue
 
@@ -217,12 +261,14 @@ def main() -> None:
             if package_state:
                 for ready_packages in additonal_packages_for_abroads:
                     output_packages.append(ready_packages)
+                print_adress_info(additonal_packages_for_abroads, number_of_packages, packageCount)
             else:
                 excel_file_has_a_problem = True
                 print_info(
-                    f"Bite gib die Adresse in der Datei '{get_file_name_from_file_path(excel_file)}' in Zelle {int_to_alphabet(package.excel_column)}{package.excel_row} manuel ein!"
+                    f"Bite gib die Adresse in der Datei '{get_file_name_from_file_path(excel_file)}' in Zelle {int_to_alphabet(package.excel_column)}{package.excel_row} manuel ein!", 1
                 )
                 continue
+            print()
 
         output_file_name = write_packages_to_xml_file(output_packages, excel_file)
 
@@ -230,6 +276,8 @@ def main() -> None:
             move_file(excel_file, settings.parsed_excel_file_with_problems_folder)
         else:
             move_file(excel_file, settings.parsed_excel_file_folder)
+        
+        print()
 
     print_info(f"Das Programm ist beendet.")
     print()
