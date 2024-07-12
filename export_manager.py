@@ -1,7 +1,6 @@
 import xml.etree.ElementTree as ET
 
 from data_classes import Package
-import settings
 
 def get_xml_tree(packages: list[Package]) -> ET.ElementTree:
     OpenShipments = ET.Element("OpenShipments")
@@ -32,9 +31,6 @@ def get_xml_tree(packages: list[Package]) -> ET.ElementTree:
         
         PostalCode = ET.SubElement(ShipTo, "PostalCode")
         PostalCode.text = str(package.postalCode)
-        
-        StateProvinceCounty = ET.SubElement(ShipTo, "StateProvinceCounty")
-        StateProvinceCounty.text = package.state
         
         if package.phoneNumber:
             Telephone = ET.SubElement(ShipTo, "Telephone")

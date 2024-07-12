@@ -5,13 +5,30 @@ from data_classes import Package
 
 
 def get_highest_country_match(search_part: str) -> list[int, str]:
-    highest_ratio = [0, ""]
+    highest_ratio = [0, "", ""]
     for country in settings.european_countrys:
         ratio = fuzz.partial_ratio(search_part, country)
         if ratio > highest_ratio[0]:
             highest_ratio[0] = ratio
             highest_ratio[1] = settings.european_countrys[country]
+            highest_ratio[2] = country
     return highest_ratio
+
+
+def check_on_phonenumber_behind_country(search_part: str, recognized_country: str) -> str:
+    try:
+        search_part_without_country = search_part.replace(recognized_country, "")
+        search_part_without_country = search_part_without_country.strip()
+        if settings.phone_pattern.match(search_part_without_country):
+            return search_part_without_country
+    except:
+        if " " in search_part:
+            search_part_split = search_part.split(" ")
+            for part in search_part_split:
+                part = part.strip()
+                if settings.phone_pattern.match(part):
+                    return search_part_without_country
+    return
 
 
 def parse_address(address_string: str) -> dict[str, str]:
@@ -67,6 +84,9 @@ def parse_address(address_string: str) -> dict[str, str]:
             if not address_assignment["country_name_short"]:
                 highest_country = get_highest_country_match(part_strip)
                 if highest_country[0] > 90:
+                    phone_number = check_on_phonenumber_behind_country(part_strip, highest_country[2])
+                    if phone_number:
+                        address_assignment["phonenumber"] = phone_number
                     address_parts_left.remove(part)
                     address_assignment["country_name_short"] = highest_country[1]
                     continue
