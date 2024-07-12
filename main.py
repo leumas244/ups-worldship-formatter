@@ -53,17 +53,25 @@ def print_excel_file_info(excel_files_to_parse: list[str]) -> None:
     print()
 
 
-def move_file(source_file: str, destination_folder: str):
+def move_file(source_file: str) -> str:
+    folder_for_file = settings.parsed_excel_file_folder + get_file_name_from_file_path(source_file).replace(".xlsx", "/")
+    try:
+        if not os.path.exists(folder_for_file):
+            os.makedirs(folder_for_file)
+    except:
+        print_info(f"Fehler beim erstellen des Ordners '{folder_for_file}'", 1)
+        return
     try:
         file_name = os.path.basename(source_file)
 
-        destination_file = os.path.join(destination_folder, file_name)
+        destination_file = os.path.join(folder_for_file, file_name)
 
         shutil.move(source_file, destination_file)
         print_info(
-            f"Die Datei '{file_name}' wurde erfolgreich nach '{destination_folder}' verschoben.",
+            f"Die Datei '{file_name}' wurde erfolgreich nach '{folder_for_file}' verschoben.",
             1,
         )
+        return folder_for_file
 
     except Exception as e:
         print_info(f"Fehler beim Verschieben der Datei: {e}", 1)
@@ -71,6 +79,17 @@ def move_file(source_file: str, destination_folder: str):
             f"Das Programm arbeitet weiter, aber die ausgewerteten Excel-Dateien wurden nicht verschoben!",
             1,
         )
+        return
+        
+        
+def create_text_file_with_problem_information(folder_for_file: str, cell_list: list[str]) -> None:
+    output = 'Bitte trage die folgenden Zellen selbst ein:\n'
+    for cell in cell_list:
+        output = output + f"- {cell}\n"
+    file_name = os.path.join(folder_for_file, "SELBSTEINTRAGEN.txt")
+    with open(file_name, "w", encoding="utf-8") as file_out:
+        file_out.write(output)
+    
 
 
 def inital_check_on_existing_file_infrastructure() -> None:
@@ -107,7 +126,7 @@ def get_files_to_parse() -> list[str]:
 def write_packages_to_xml_file(packages: list[Package], excel_file: str) -> str:
     now_variable = datetime.now()
     file_name = f"-{get_file_name_from_file_path(excel_file).replace('.xlsx', '')}-parsed_at_{now_variable.strftime('%d.%m.%Y_%H-%M-%S')}.xml"
-    file_path = os.path.join(settings.csv_output_file_folder, file_name)
+    file_path = os.path.join(settings.xml_output_file_folder, file_name)
     xml_tree = export_manager.get_xml_tree(packages)
     xml_tree.write(file_path, encoding="utf-8", xml_declaration=True)
     return file_name
@@ -188,7 +207,7 @@ def print_adress_error(
 ) -> None:
     print_info(f"({str(packageCount)}/{str(number_of_packages)}) Adresse:", 1)
     print_info(
-        f"Bitte gib die Adresse in Zelle \033[1m{int_to_alphabet(excel_column)}{excel_row}\033[0m manuel ein!",
+        f"Bitte gib die Adresse in Zelle {int_to_alphabet(excel_column)}{excel_row} manuel ein!",
         2,
         False,
     )
@@ -241,7 +260,7 @@ def main() -> None:
 
     for excel_file in excel_files_to_parse:
         print_info(f"Starte Analyse von '{get_file_name_from_file_path(excel_file)}'")
-        excel_file_has_a_problem = False
+        excel_file_has_a_problem = [False, []]
 
         try:
             packages = excel_converter.get_packages_from_excel_file(excel_file)
@@ -263,7 +282,8 @@ def main() -> None:
                     package.excelReciverString
                 )
             except Exception as e:
-                excel_file_has_a_problem = True
+                excel_file_has_a_problem[0] = True
+                excel_file_has_a_problem[1].append(f"{int_to_alphabet(package.excel_column)}{package.excel_row}")
                 print_adress_error(package.excel_row, package.excel_column, number_of_packages, packageCount)
                 continue
 
@@ -272,7 +292,8 @@ def main() -> None:
                     address_assignment, package
                 )
             except Exception as e:
-                excel_file_has_a_problem = True
+                excel_file_has_a_problem[0] = True
+                excel_file_has_a_problem[1].append(f"{int_to_alphabet(package.excel_column)}{package.excel_row}")
                 print_adress_error(package.excel_row, package.excel_column, number_of_packages, packageCount)
                 continue
 
@@ -289,7 +310,8 @@ def main() -> None:
                     additonal_packages_for_abroads, number_of_packages, packageCount
                 )
             else:
-                excel_file_has_a_problem = True
+                excel_file_has_a_problem[0] = True
+                excel_file_has_a_problem[1].append(f"{int_to_alphabet(package.excel_column)}{package.excel_row}")
                 print_adress_info_with_incomplete_address(
                     package, package_state[1], packageCount, number_of_packages
                 )
@@ -297,10 +319,12 @@ def main() -> None:
 
         output_file_name = write_packages_to_xml_file(output_packages, excel_file)
 
-        if excel_file_has_a_problem:
-            move_file(excel_file, settings.parsed_excel_file_with_problems_folder)
+        if excel_file_has_a_problem[0]:
+            output_folder = move_file(excel_file)
+            if output_folder:
+                create_text_file_with_problem_information(output_folder, excel_file_has_a_problem[1])
         else:
-            move_file(excel_file, settings.parsed_excel_file_folder)
+            move_file(excel_file)
 
         print()
 
