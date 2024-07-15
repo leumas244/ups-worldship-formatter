@@ -5,6 +5,7 @@ from data_classes import Package
 
 warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
+
 def get_packages_from_excel_file(excel_file: str) -> list[Package]:
     workbook = load_workbook(filename=excel_file)
     sheet = workbook.active
@@ -14,6 +15,8 @@ def get_packages_from_excel_file(excel_file: str) -> list[Package]:
     reciverColum = None
     referenceColum = None
     packageCountColum = None
+    shippingServiceColum = None
+    trackingNumberColum = None
 
     for rowCounter in range(1, 4):
         if not titleRow:
@@ -29,6 +32,10 @@ def get_packages_from_excel_file(excel_file: str) -> list[Package]:
                     referenceColum = columCounter
                 elif cell.value == "Menge":
                     packageCountColum = columCounter
+                elif cell.value == "Versand-Dienstleister":
+                    shippingServiceColum = columCounter
+                elif cell.value == "Sendungs-Nummer":
+                    trackingNumberColum = columCounter
 
     packages: list[Package] = []
 
@@ -48,15 +55,26 @@ def get_packages_from_excel_file(excel_file: str) -> list[Package]:
                     excel_column=reciverColum,
                 )
 
-                newPackage.referenceNumber = sheet.cell(
-                    row=row, column=referenceColum
-                ).value
+                newPackage.referenceNumbers.append(
+                    sheet.cell(row=row, column=referenceColum).value
+                )
                 newPackage.packageCount = int(
                     sheet.cell(row=row, column=packageCountColum).value
                 )
 
                 packages.append(newPackage)
             else:
-                break
+                if sheet.cell(row=row, column=referenceColum).value:
+                    packages.remove(newPackage)
+                    newPackage.referenceNumbers.append(
+                        sheet.cell(row=row, column=referenceColum).value
+                    )
+                    newPackage.packageCount = newPackage.packageCount + (
+                        int(sheet.cell(row=row, column=packageCountColum).value)
+                    )
+                    packages.append(newPackage)
+
+                else:
+                    break
 
     return packages

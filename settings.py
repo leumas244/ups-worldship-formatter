@@ -23,7 +23,7 @@ all_needed_folders: list[str] = [
 # reguläre Ausdrücker
 street_pattern = re.compile(r"^[^\d /-]{1}.+ \d+[a-zA-Z]?$")
 region_pattern = re.compile(r"^\d{4,5} [^\d/-]{1}.+$")
-phone_pattern = re.compile(r"^\+?\d+([ ]?[/]?[ ]?\d+)*$")
+phone_pattern = re.compile(r"^\+?\d+([ ]?[/-]?[ ]?\d+)*$")
 
 # Erkennbare Länder
 european_countrys: dict[str, str] = {

@@ -63,8 +63,17 @@ def get_xml_tree(packages: list[Package]) -> ET.ElementTree:
         PackageType.text = "Package"
         Weight = ET.SubElement(Package, "Weight")
         Weight.text = str(package.weight).replace(".", ",")
-        Reference1 = ET.SubElement(Package, "Reference1")
-        Reference1.text = package.referenceNumber
+
+        referenceNumberCounter = 0
+        for referenceNumber in package.referenceNumbers:
+            referenceNumberCounter += 1
+            if referenceNumberCounter > 5:
+                # ToDo: Fehler werfen!
+                break
+            else:
+                Reference = ET.SubElement(Package, ("Reference" + str(referenceNumberCounter)))
+                Reference.text = referenceNumber
+        
         Length = ET.SubElement(Package, "Length")
         Length.text = "0"
         Width = ET.SubElement(Package, "Width")

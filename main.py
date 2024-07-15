@@ -143,7 +143,7 @@ def has_package_all_needed_informations(package: Package) -> list[bool, str]:
         return [False, "Keine PLZ gefunden"]
     elif not package.city:
         return [False, "Keine Stadt gefunden"]
-    elif not package.referenceNumber:
+    elif not package.referenceNumbers:
         return [False, "Keine Referenznummer gefunden"]
     else:
         return [True, ""]
@@ -198,7 +198,7 @@ def dublicate_package(package: Package) -> Package:
     new_package.email = package.email
     new_package.weight = package.weight
     new_package.service = package.service
-    new_package.referenceNumber = package.referenceNumber
+    new_package.referenceNumbers = package.referenceNumbers
     new_package.packageCount = package.packageCount
     return new_package
 
@@ -227,7 +227,7 @@ def print_adress_info(
     print_info(f"Land: {package.country}", 2, False)
     if package.phoneNumber:
         print_info(f"Telefon: {package.phoneNumber}", 2, False)
-    print_info(f"Ref-Nummer: {package.referenceNumber}", 2, False)
+    print_info(f"Ref-Nummer: {package.referenceNumbers}", 2, False)
     if len(packages) > 1:
         print_info(
             f"Dieses Paket geht ins Ausland und hat eine Anzahl von {str(len(packages))}. Es wurde zusätzlich {str(len(packages) -1)} mal hinzugefügt",

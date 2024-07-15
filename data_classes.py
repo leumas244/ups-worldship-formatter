@@ -18,7 +18,7 @@ class Package:
         self.email: str = None
         self.weight: float = None
         self.service: str = None
-        self.referenceNumber: str = None
+        self.referenceNumbers: list[str] = []
         self.packageCount: str = None
 
     def __str__(self) -> str:
