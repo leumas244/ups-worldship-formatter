@@ -1,0 +1,1566 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<OpenShipments xmlns="x-schema:OpenShipments.xdr">
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Volker Aring</CompanyOrName>
+			<Address1>Hopfenstra�e 1</Address1>
+			<CityOrTown>Gilching</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>82205</PostalCode>
+			<Telephone>+491749788305</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>1</NumberOfPackages>
+			<ShipmentActualWeight>10,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>10,0</Weight>
+			<Reference1>MC4400DBSD / Royal blau</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>25,31</Published>
+						<CCC>5,93</CCC>
+						<Negotiated>5,93</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>25,31</Published>
+						<CCC>5,93</CCC>
+						<Negotiated>5,93</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<ResidentialSurcharge>
+					<Rate>
+						<Published>3,15</Published>
+						<CCC>1,57</CCC>
+						<Negotiated>1,57</Negotiated>
+					</Rate>
+				</ResidentialSurcharge>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536847366295</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536847366295</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053HGKW4</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400DBSD / Royal blau</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Rainer Vogt</CompanyOrName>
+			<Address1>Badstra�e 6</Address1>
+			<CityOrTown>Ahorn</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>96482</PostalCode>
+			<Telephone>017660178273</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>2</NumberOfPackages>
+			<ShipmentActualWeight>20,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>20,0</Weight>
+			<Reference1>MC4400DBSD / Royal blau</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>64,47</Published>
+						<CCC>9,31</CCC>
+						<Negotiated>9,31</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>64,47</Published>
+						<CCC>9,31</CCC>
+						<Negotiated>9,31</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<ResidentialSurcharge>
+					<Rate>
+						<Published>3,15</Published>
+						<CCC>1,57</CCC>
+						<Negotiated>1,57</Negotiated>
+					</Rate>
+				</ResidentialSurcharge>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536848468503</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536846007317</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536848468503</TrackingNumber>
+				<TrackingNumber>1Z8VY0536846007317</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053HNSXF</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400DBSD / Royal blau</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Marianne Kehl</CompanyOrName>
+			<Address1>Am Dreieck 3</Address1>
+			<CityOrTown>Crailsheim</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>74564</PostalCode>
+			<Telephone>01717182916</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>1</NumberOfPackages>
+			<ShipmentActualWeight>10,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>10,0</Weight>
+			<Reference1>MC4400GRSD / grau</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>25,31</Published>
+						<CCC>5,93</CCC>
+						<Negotiated>5,93</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>25,31</Published>
+						<CCC>5,93</CCC>
+						<Negotiated>5,93</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<ResidentialSurcharge>
+					<Rate>
+						<Published>3,15</Published>
+						<CCC>1,57</CCC>
+						<Negotiated>1,57</Negotiated>
+					</Rate>
+				</ResidentialSurcharge>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536846018725</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536846018725</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053H4VL7</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400GRSD / grau</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Thomas Wunderlich</CompanyOrName>
+			<Address1>R�nhagenweg 1</Address1>
+			<CityOrTown>Olfen</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>59399</PostalCode>
+			<Telephone>01739707664</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>1</NumberOfPackages>
+			<ShipmentActualWeight>10,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>10,0</Weight>
+			<Reference1>MC4400ANSD / anthrazit</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>21,51</Published>
+						<CCC>4,24</CCC>
+						<Negotiated>4,24</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>21,51</Published>
+						<CCC>4,24</CCC>
+						<Negotiated>4,24</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536847098736</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536847098736</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053HDZCZ</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400ANSD / anthrazit</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Stefan Mettler</CompanyOrName>
+			<Address1>In der Igelsheck 23</Address1>
+			<CityOrTown>Merzig</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>66663</PostalCode>
+			<Telephone>0686177441</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>1</NumberOfPackages>
+			<ShipmentActualWeight>10,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>10,0</Weight>
+			<Reference1>MC4400ANSD / anthrazit</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>25,31</Published>
+						<CCC>5,93</CCC>
+						<Negotiated>5,93</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>25,31</Published>
+						<CCC>5,93</CCC>
+						<Negotiated>5,93</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<ResidentialSurcharge>
+					<Rate>
+						<Published>3,15</Published>
+						<CCC>1,57</CCC>
+						<Negotiated>1,57</Negotiated>
+					</Rate>
+				</ResidentialSurcharge>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536847003346</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536847003346</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053HDJ97</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400ANSD / anthrazit</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Friederike Warnke</CompanyOrName>
+			<Address1>Rosa-heinzelmann-stra�e 7</Address1>
+			<CityOrTown>Kirchheim Unter Teck</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>73230</PostalCode>
+			<Telephone>0173 - 150 93 90</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>1</NumberOfPackages>
+			<ShipmentActualWeight>10,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>10,0</Weight>
+			<Reference1>MC4400GRSD / grau</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>21,51</Published>
+						<CCC>4,24</CCC>
+						<Negotiated>4,24</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>21,51</Published>
+						<CCC>4,24</CCC>
+						<Negotiated>4,24</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536846248558</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536846248558</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053H88L4</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400GRSD / grau</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Helene Zorzi</CompanyOrName>
+			<Attention>Helene Zorzi</Attention>
+			<Address1>Mittererstra�e 2</Address1>
+			<CityOrTown>Innsbruck</CityOrTown>
+			<CountryTerritory>AT</CountryTerritory>
+			<PostalCode>6020</PostalCode>
+			<Telephone>05224-67556</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>1</NumberOfPackages>
+			<ShipmentActualWeight>10,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>10,0</Weight>
+			<Reference1>MC4400GRSD / grau</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>75,92</Published>
+						<CCC>10,79</CCC>
+						<Negotiated>10,79</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>75,92</Published>
+						<CCC>10,79</CCC>
+						<Negotiated>10,79</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536848710366</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536848710366</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053HQ8QM</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400GRSD / grau</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Fail To Import">
+		<ShipTo>
+			<CompanyOrName>Mair Maria</CompanyOrName>
+			<Attention>�sterreich 06646243056</Attention>
+			<Address1>Sonnenhang 34 Top 4</Address1>
+			<CityOrTown>Mehrnbach</CityOrTown>
+			<CountryTerritory>AT</CountryTerritory>
+			<PostalCode>4941</PostalCode>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>1</NumberOfPackages>
+			<ShipmentActualWeight>10,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>10,0</Weight>
+			<Reference1>MC4400TASD / taupe</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+			<Error>
+				<ErrorMessage>Empf�nger Telefonnummer ist entweder leer oder ung�ltig.</ErrorMessage>
+			</Error>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Gintare Kurz</CompanyOrName>
+			<Address1>Holder�cker Str 7</Address1>
+			<CityOrTown>Abtsgm�nd</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>73453</PostalCode>
+			<Telephone>015143274849</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>2</NumberOfPackages>
+			<ShipmentActualWeight>20,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>20,0</Weight>
+			<Reference1>MC4400TASD / taupe</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>60,67</Published>
+						<CCC>7,62</CCC>
+						<Negotiated>7,62</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>60,67</Published>
+						<CCC>7,62</CCC>
+						<Negotiated>7,62</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536847224778</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536848187781</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536847224778</TrackingNumber>
+				<TrackingNumber>1Z8VY0536848187781</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053HFQXS</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400TASD / taupe</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Monika Ullrich</CompanyOrName>
+			<Address1>Kapellenweg 10</Address1>
+			<CityOrTown>Eu�enheim</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>97776</PostalCode>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>1</NumberOfPackages>
+			<ShipmentActualWeight>10,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>10,0</Weight>
+			<Reference1>MC4400TASD / taupe</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>21,51</Published>
+						<CCC>4,24</CCC>
+						<Negotiated>4,24</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>21,51</Published>
+						<CCC>4,24</CCC>
+						<Negotiated>4,24</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536848155396</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536848155396</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053HLZN4</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400TASD / taupe</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Robert Pauls</CompanyOrName>
+			<Address1>Buchenstra�e 22</Address1>
+			<CityOrTown>Remscheid</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>42855</PostalCode>
+			<Telephone>+4915758547691</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>2</NumberOfPackages>
+			<ShipmentActualWeight>20,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>20,0</Weight>
+			<Reference1>MC4400SSD / schwarz</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>60,67</Published>
+						<CCC>7,62</CCC>
+						<Negotiated>7,62</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>60,67</Published>
+						<CCC>7,62</CCC>
+						<Negotiated>7,62</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536846443604</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536848728419</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536846443604</TrackingNumber>
+				<TrackingNumber>1Z8VY0536848728419</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053H9CGC</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400SSD / schwarz</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Wolfgang Angert</CompanyOrName>
+			<Address1>Goltsteinstr 33</Address1>
+			<CityOrTown>Inden</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>52459</PostalCode>
+			<Telephone>01729376191</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>2</NumberOfPackages>
+			<ShipmentActualWeight>20,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>20,0</Weight>
+			<Reference1>MC4400ANSD / anthrazit</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>60,67</Published>
+						<CCC>7,62</CCC>
+						<Negotiated>7,62</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>60,67</Published>
+						<CCC>7,62</CCC>
+						<Negotiated>7,62</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536846645824</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536848391836</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536846645824</TrackingNumber>
+				<TrackingNumber>1Z8VY0536848391836</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053HBHD3</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400ANSD / anthrazit</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Ingrid Wirth</CompanyOrName>
+			<Attention>Wilhelm Leuschner Stra�e 2</Attention>
+			<Address1>Wilhelm Leuschner Str 2</Address1>
+			<CityOrTown>R�dermark</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>63322</PostalCode>
+			<Telephone>0607497705</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>1</NumberOfPackages>
+			<ShipmentActualWeight>10,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>10,0</Weight>
+			<Reference1>MC4400TASD / taupe</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>25,31</Published>
+						<CCC>5,93</CCC>
+						<Negotiated>5,93</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>25,31</Published>
+						<CCC>5,93</CCC>
+						<Negotiated>5,93</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<ResidentialSurcharge>
+					<Rate>
+						<Published>3,15</Published>
+						<CCC>1,57</CCC>
+						<Negotiated>1,57</Negotiated>
+					</Rate>
+				</ResidentialSurcharge>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536846322440</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536846322440</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053H8MJC</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400TASD / taupe</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Roman Gr�ber</CompanyOrName>
+			<Address1>Kornstra�e 5</Address1>
+			<CityOrTown>Ingolstadt</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>85049</PostalCode>
+			<Telephone>+49841484874</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>2</NumberOfPackages>
+			<ShipmentActualWeight>20,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>20,0</Weight>
+			<Reference1>MC4400DBSD / Royal blau</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>64,47</Published>
+						<CCC>9,31</CCC>
+						<Negotiated>9,31</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>64,47</Published>
+						<CCC>9,31</CCC>
+						<Negotiated>9,31</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<ResidentialSurcharge>
+					<Rate>
+						<Published>3,15</Published>
+						<CCC>1,57</CCC>
+						<Negotiated>1,57</Negotiated>
+					</Rate>
+				</ResidentialSurcharge>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536847553654</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536847561467</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536847553654</TrackingNumber>
+				<TrackingNumber>1Z8VY0536847561467</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053HHMMQ</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400DBSD / Royal blau</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>ulrike Zitzwitz</CompanyOrName>
+			<Address1>Allmendweg 15</Address1>
+			<CityOrTown>waldshut-tiengen</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>79761</PostalCode>
+			<Telephone>07741/62664</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>2</NumberOfPackages>
+			<ShipmentActualWeight>20,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>20,0</Weight>
+			<Reference1>MC4400TASD / taupe</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>64,47</Published>
+						<CCC>9,31</CCC>
+						<Negotiated>9,31</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>64,47</Published>
+						<CCC>9,31</CCC>
+						<Negotiated>9,31</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<ResidentialSurcharge>
+					<Rate>
+						<Published>3,15</Published>
+						<CCC>1,57</CCC>
+						<Negotiated>1,57</Negotiated>
+					</Rate>
+				</ResidentialSurcharge>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536848781870</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536846210883</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536848781870</TrackingNumber>
+				<TrackingNumber>1Z8VY0536846210883</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053HQMCN</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400TASD / taupe</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Rackensberger</CompanyOrName>
+			<Attention>Rackensberger</Attention>
+			<Address1>Woogstra�e 9</Address1>
+			<CityOrTown>Rodgau</CityOrTown>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>63110</PostalCode>
+			<Telephone>06106646689</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>1</NumberOfPackages>
+			<ShipmentActualWeight>10,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>10,0</Weight>
+			<Reference1>MC4400TASD / taupe</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>25,31</Published>
+						<CCC>5,93</CCC>
+						<Negotiated>5,93</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>25,31</Published>
+						<CCC>5,93</CCC>
+						<Negotiated>5,93</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<ResidentialSurcharge>
+					<Rate>
+						<Published>3,15</Published>
+						<CCC>1,57</CCC>
+						<Negotiated>1,57</Negotiated>
+					</Rate>
+				</ResidentialSurcharge>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536846004490</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536846004490</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053H4SHG</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400TASD / taupe</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+	<OpenShipment ShipmentOption="" ProcessStatus="Processed">
+		<ShipTo>
+			<CompanyOrName>Dominik Lindlbauer</CompanyOrName>
+			<Attention>Dominik Lindlbauer</Attention>
+			<Address1>J�gerweg 18</Address1>
+			<CityOrTown>Ansfelden</CityOrTown>
+			<CountryTerritory>AT</CountryTerritory>
+			<PostalCode>4052</PostalCode>
+			<Telephone>06765014954</Telephone>
+		</ShipTo>
+		<ShipFrom>
+			<CompanyOrName>Wildstage GmbH</CompanyOrName>
+			<Attention>Kai Funk</Attention>
+			<Address1>Alleestr. 15-19</Address1>
+			<CountryTerritory>DE</CountryTerritory>
+			<PostalCode>33818</PostalCode>
+			<CityOrTown>Leopoldsh�he</CityOrTown>
+		</ShipFrom>
+		<ShipmentInformation>
+			<ServiceType>Standard</ServiceType>
+			<NumberOfPackages>1</NumberOfPackages>
+			<ShipmentActualWeight>10,0</ShipmentActualWeight>
+		</ShipmentInformation>
+		<Package>
+			<PackageType>Package</PackageType>
+			<Weight>10,0</Weight>
+			<Reference1>MC4400GRSD / grau</Reference1>
+			<Length>0</Length>
+			<Width>0</Width>
+			<Height>0</Height>
+		</Package>
+		<ProcessMessage>
+
+			<ShipmentRates>
+				<ShipmentCharges>
+					<Rate>
+						<Published>75,92</Published>
+						<CCC>10,79</CCC>
+						<Negotiated>10,79</Negotiated>
+					</Rate>
+				</ShipmentCharges>
+				<ShipperCharges>
+					<Rate>
+						<Published>75,92</Published>
+						<CCC>10,79</CCC>
+						<Negotiated>10,79</Negotiated>
+					</Rate>
+				</ShipperCharges>
+				<ReceiverCharges>
+					<Rate>
+						<Published>0,00</Published>
+						<CCC>0,00</CCC>
+						<Negotiated>0,00</Negotiated>
+					</Rate>
+				</ReceiverCharges>
+				<PackageRates>
+					<PackageRate>
+						<TrackingNumber>1Z8VY0536848078701</TrackingNumber>
+						<PackageCharges>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</PackageCharges>
+						<Dry_Ice>
+							<Rate>
+								<Published>0,00</Published>
+								<CCC>0,00</CCC>
+								<Negotiated>0,00</Negotiated>
+							</Rate>
+						</Dry_Ice>
+					</PackageRate>
+				</PackageRates>
+			</ShipmentRates>
+			<TrackingNumbers>
+				<TrackingNumber>1Z8VY0536848078701</TrackingNumber>
+			</TrackingNumbers>
+			<ShipID>8VY053HLMC7</ShipID>
+			<ImportID></ImportID>
+			<Reference1>MC4400GRSD / grau</Reference1>
+			<Reference2></Reference2>
+			<ShipmentID></ShipmentID>
+			<PRONumber></PRONumber>
+		</ProcessMessage>
+	</OpenShipment>
+</OpenShipments>
