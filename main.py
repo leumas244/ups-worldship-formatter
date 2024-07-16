@@ -125,7 +125,7 @@ def get_files_to_parse() -> list[str]:
 
 def write_packages_to_xml_file(packages: list[Package], excel_file: str) -> str:
     now_variable = datetime.now()
-    file_name = f"-{get_file_name_from_file_path(excel_file).replace('.xlsx', '')}-parsed_at_{now_variable.strftime('%d.%m.%Y_%H-%M-%S')}.xml"
+    file_name = f"{get_file_name_from_file_path(excel_file).replace('.xlsx', '')}-parsed_at_{now_variable.strftime('%d.%m.%Y_%H-%M-%S')}.xml"
     file_path = os.path.join(settings.xml_output_file_folder, file_name)
     xml_tree = export_manager.get_xml_tree(packages)
     xml_tree.write(file_path, encoding="utf-8", xml_declaration=True)
@@ -222,7 +222,7 @@ def print_adress_info(
     if package.recipientNameAddtional:
         print_info(f"zu H.: {package.recipientNameAddtional}", 2, False)
     print_info(f"Adresse: {package.address1}", 2, False)
-    print_info(f"PLZ: {str(package.postalCode)}", 2, False)
+    print_info(f"PLZ: {package.postalCode}", 2, False)
     print_info(f"Stadt: {package.city}", 2, False)
     print_info(f"Land: {package.country}", 2, False)
     if package.phoneNumber:

@@ -11,7 +11,7 @@ class Package:
         self.address2: str = None
         self.address3: str = None
         self.country: str = None
-        self.postalCode: int = None
+        self.postalCode: str = None
         self.city: str = None
         self.state: str = None
         self.phoneNumber: str = None

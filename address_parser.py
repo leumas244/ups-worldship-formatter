@@ -136,10 +136,10 @@ def sort_assignment_to_package(address_assignment: dict[str, str], package: Pack
     region = region_parts[0]
     region_parts = region.split(" ")
     if len(region_parts) == 2:
-        package.postalCode = int(region_parts[0])
+        package.postalCode = region_parts[0]
         package.city = region_parts[1]
     elif len(region_parts) > 2:
-        package.postalCode = int(region_parts[0])
+        package.postalCode = region_parts[0]
         package.city = concatenate_strings_from_second_element(region_parts)
     else:
         raise Exception(f"Es konnte keine PLZ und kein Ort aus '{address_assignment["region"]}' ermittelt werden!")

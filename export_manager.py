@@ -30,7 +30,7 @@ def get_xml_tree(packages: list[Package]) -> ET.ElementTree:
         CountryTerritory.text = package.country
         
         PostalCode = ET.SubElement(ShipTo, "PostalCode")
-        PostalCode.text = str(package.postalCode)
+        PostalCode.text = package.postalCode
         
         if package.phoneNumber:
             Telephone = ET.SubElement(ShipTo, "Telephone")
