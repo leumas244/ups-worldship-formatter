@@ -1,13 +1,15 @@
-from openpyxl import load_workbook
+import openpyxl
 import warnings
 
 from data_classes import Package
 
 warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
+def get_workbook(excel_file_name: str) -> openpyxl.Workbook:
+    return openpyxl.load_workbook(filename=excel_file_name)
 
 def get_packages_from_excel_file(excel_file: str) -> list[Package]:
-    workbook = load_workbook(filename=excel_file)
+    workbook = get_workbook(excel_file)
     sheet = workbook.active
 
     titleRow = None

@@ -20,6 +20,7 @@ class Package:
         self.service: str = None
         self.referenceNumbers: list[str] = []
         self.packageCount: str = None
+        self.trackingNumbers: list[str] = []
 
     def __str__(self) -> str:
         return f"Empfaenger: '{self.recipientName}'"
