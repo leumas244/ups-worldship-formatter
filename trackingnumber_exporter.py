@@ -87,31 +87,34 @@ def get_xml_tree(file_path: str) -> ElementTree:
     tree = ElementTree.parse(file_path)
     return tree.getroot()
 
+def get_proccesed_packages(xml_root: ElementTree) -> list[Package]:
+    proccesed_packages: list[Package] = []
+        
+    openShipments = xml_root.findall("{x-schema:OpenShipments.xdr}OpenShipment")
+    for openShipment in openShipments:
+        process_status = openShipment.get("ProcessStatus")
+        if process_status == "Processed":
+            shipTo = openShipment.find("{x-schema:OpenShipments.xdr}ShipTo")
+            shipmentInformation = openShipment.find("{x-schema:OpenShipments.xdr}ShipmentInformation")
+            package = Package(excelReciverString="", excel_row=0, excel_column=0, coordinate="")
+            package.recipientName = shipTo.find("{x-schema:OpenShipments.xdr}CompanyOrName").text
+            package.packageCount = int(shipmentInformation.find("{x-schema:OpenShipments.xdr}NumberOfPackages").text)
+                
+            trackingNumbers = openShipment.find("{x-schema:OpenShipments.xdr}ProcessMessage").find("{x-schema:OpenShipments.xdr}TrackingNumbers")
+            for trackingNumber in trackingNumbers:
+                package.trackingNumbers.append(trackingNumber.text)
+                    
+            proccesed_packages.append(package)
+    return proccesed_packages
+
 
 def start_routine() -> None:
-    excel_and_out_files = get_matching_excel_and_out_files()
+    matching_excel_and_out_files = get_matching_excel_and_out_files()
     
-    for excel_file_path, out_file_path in excel_and_out_files:
+    for excel_file_path, out_file_path in matching_excel_and_out_files:
         xml_root = get_xml_tree(out_file_path)
         
-        proccesed_packages: list[Package] = []
-        
-        openShipments = xml_root.findall("{x-schema:OpenShipments.xdr}OpenShipment")
-        for openShipment in openShipments:
-            process_status = openShipment.get("ProcessStatus")
-            if process_status == "Processed":
-                shipTo = openShipment.find("{x-schema:OpenShipments.xdr}ShipTo")
-                shipmentInformation = openShipment.find("{x-schema:OpenShipments.xdr}ShipmentInformation")
-                package = Package(excelReciverString="", excel_row=0, excel_column=0, coordinate="")
-                package.recipientName = shipTo.find("{x-schema:OpenShipments.xdr}CompanyOrName").text
-                package.packageCount = int(shipmentInformation.find("{x-schema:OpenShipments.xdr}NumberOfPackages").text)
-                
-                trackingNumbers = openShipment.find("{x-schema:OpenShipments.xdr}ProcessMessage").find("{x-schema:OpenShipments.xdr}TrackingNumbers")
-                for trackingNumber in trackingNumbers:
-                    package.trackingNumbers.append(trackingNumber.text)
-                    
-                proccesed_packages.append(package)
-        
+        proccesed_packages = get_proccesed_packages(xml_root)
         
         workbook = excel_converter.get_workbook(excel_file_path)
         sheet = workbook.active
@@ -152,7 +155,6 @@ def start_routine() -> None:
             and shippingServiceColum
             and trackingNumberColum
         ):
-            last_reciverString: str = "set"
             for row in range(titleRow + 1, 200):
                 if sheet.cell(row=row, column=reciverColum).value:
                     if not sheet.cell(row=row, column=trackingNumberColum).value:
@@ -180,7 +182,7 @@ def start_routine() -> None:
 
                     else:
                         break
-                last_reciverString = sheet.cell(row=row, column=reciverColum).value
+                    
             workbook.save(excel_file_path)
             
 start_routine()
