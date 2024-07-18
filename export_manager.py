@@ -74,13 +74,6 @@ def get_xml_tree(packages: list[Package]) -> ET.ElementTree:
                 Reference = ET.SubElement(Package, ("Reference" + str(referenceNumberCounter)))
                 Reference.text = referenceNumber
         
-        Length = ET.SubElement(Package, "Length")
-        Length.text = "0"
-        Width = ET.SubElement(Package, "Width")
-        Width.text = "0"
-        Height = ET.SubElement(Package, "Height")
-        Height.text = "0"
-        
     tree = ET.ElementTree(OpenShipments)
     
     return tree
