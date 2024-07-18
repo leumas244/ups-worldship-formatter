@@ -102,7 +102,7 @@ def start_routine() -> None:
             if process_status == "Processed":
                 shipTo = openShipment.find("{x-schema:OpenShipments.xdr}ShipTo")
                 shipmentInformation = openShipment.find("{x-schema:OpenShipments.xdr}ShipmentInformation")
-                package = Package(excelReciverString="", excel_row=0, excel_column=0)
+                package = Package(excelReciverString="", excel_row=0, excel_column=0, coordinate="")
                 package.recipientName = shipTo.find("{x-schema:OpenShipments.xdr}CompanyOrName").text
                 package.packageCount = int(shipmentInformation.find("{x-schema:OpenShipments.xdr}NumberOfPackages").text)
                 

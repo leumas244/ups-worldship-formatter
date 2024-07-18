@@ -1,10 +1,11 @@
 class Package:
     def __init__(
-        self, excelReciverString: str, excel_row: int, excel_column: int
+        self, excelReciverString: str, excel_row: int, excel_column: int, coordinate: str
     ) -> None:
         self.excelReciverString: str = excelReciverString
         self.excel_row: int = excel_row
         self.excel_column: int = excel_column
+        self.coordinate: str = coordinate
         self.recipientName: str = None
         self.recipientNameAddtional: str = None
         self.address1: str = None

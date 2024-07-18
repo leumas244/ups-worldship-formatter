@@ -51,10 +51,12 @@ def get_packages_from_excel_file(excel_file: str) -> list[Package]:
         for row in range(titleRow + 1, 200):
             if sheet.cell(row=row, column=reciverColum).value:
                 reciverString = sheet.cell(row=row, column=reciverColum).value
+                coordinate = sheet.cell(row=row, column=reciverColum).coordinate
                 newPackage = Package(
                     excelReciverString=reciverString,
                     excel_row=row,
                     excel_column=reciverColum,
+                    coordinate=coordinate
                 )
 
                 newPackage.referenceNumbers.append(

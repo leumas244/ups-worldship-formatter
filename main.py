@@ -82,10 +82,10 @@ def move_file(source_file: str) -> str:
         return
         
         
-def create_text_file_with_problem_information(folder_for_file: str, cell_list: list[str]) -> None:
+def create_text_file_with_problem_information(folder_for_file: str, packages: list[Package]) -> None:
     output = 'Bitte trage die folgenden Zellen selbst ein:\n'
-    for cell in cell_list:
-        output = output + f"- {cell}\n"
+    for package in packages:
+        output = output + f"- {package.coordinate}\n"
     file_name = os.path.join(folder_for_file, "SELBSTEINTRAGEN.txt")
     with open(file_name, "w", encoding="utf-8") as file_out:
         file_out.write(output)
@@ -184,6 +184,7 @@ def dublicate_package(package: Package) -> Package:
         excelReciverString=package.excelReciverString,
         excel_row=package.excel_row,
         excel_column=package.excel_column,
+        coordinate=package.coordinate
     )
     new_package.recipientName = package.recipientName
     new_package.recipientNameAddtional = package.recipientNameAddtional
@@ -248,6 +249,30 @@ def print_adress_info_with_incomplete_address(
         2,
         False,
     )
+    
+    
+def get_first_line_from_string(input: str) -> str:
+    if "\n" in input:
+        split = input.split("\n")
+        return split[0]
+    else:
+        return input
+    
+
+def print_result_info(number_of_packages, excel_file_has_a_problem: bool, problem_packages: dict[Package]) -> None:
+    if excel_file_has_a_problem: 
+        output = f"[{(number_of_packages-len(problem_packages))}/{number_of_packages}] Pakete wurden formatiert. Es gab Fehler bei der/den Zell(en) "
+        counter = 0
+        for package in problem_packages:
+            counter += 1
+            output = output + f"{package.coordinate} ({get_first_line_from_string(package.excelReciverString)})"
+            if counter == len(problem_packages):
+                output += "."
+            else:
+                output += ","
+    else:
+        output = f"[{number_of_packages}/{number_of_packages}] Pakete wurden formatiert."
+    print_info(output, tab=1)
 
 
 def main() -> None:
@@ -283,7 +308,7 @@ def main() -> None:
                 )
             except Exception as e:
                 excel_file_has_a_problem[0] = True
-                excel_file_has_a_problem[1].append(f"{int_to_alphabet(package.excel_column)}{package.excel_row}")
+                excel_file_has_a_problem[1].append(package)
                 print_adress_error(package.excel_row, package.excel_column, number_of_packages, packageCount)
                 continue
 
@@ -293,7 +318,7 @@ def main() -> None:
                 )
             except Exception as e:
                 excel_file_has_a_problem[0] = True
-                excel_file_has_a_problem[1].append(f"{int_to_alphabet(package.excel_column)}{package.excel_row}")
+                excel_file_has_a_problem[1].append(package)
                 print_adress_error(package.excel_row, package.excel_column, number_of_packages, packageCount)
                 continue
 
@@ -311,13 +336,15 @@ def main() -> None:
                 )
             else:
                 excel_file_has_a_problem[0] = True
-                excel_file_has_a_problem[1].append(f"{int_to_alphabet(package.excel_column)}{package.excel_row}")
+                excel_file_has_a_problem[1].append(package)
                 print_adress_info_with_incomplete_address(
                     package, package_state[1], packageCount, number_of_packages
                 )
             print()
 
         output_file_name = write_packages_to_xml_file(output_packages, excel_file)
+        
+        print_result_info(number_of_packages, excel_file_has_a_problem[0], excel_file_has_a_problem[1])
 
         if excel_file_has_a_problem[0]:
             output_folder = move_file(excel_file)

@@ -13,4 +13,3 @@
 - Telefonnummer für Ausland verpflichtetend
 - Pakete, die mehrer Zeilen (durch unterschiedliche Ref Nummern) haben, sollen 
 - cell merge einfügen
-- zusammenfassung am Ende einer Ausgabe mit wie vielen Paketen extrahiert wurden und wie viele nicht
