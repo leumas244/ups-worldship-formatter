@@ -182,3 +182,5 @@ def start_routine() -> None:
                         break
                 last_reciverString = sheet.cell(row=row, column=reciverColum).value
             workbook.save(excel_file_path)
+            
+start_routine()
