@@ -21,7 +21,7 @@ all_needed_folders: list[str] = [
 
 ## Anpassbare Variablen/Einstellungen
 # reguläre Ausdrücker
-street_pattern = re.compile(r"^[^\d /-]{1}.+ \d+[a-zA-Z]?$")
+street_pattern = re.compile(r"^[^\d /-]{1}.+ \d+([a-zA-Z]?(/?\d+)*)$")
 region_pattern = re.compile(r"^\d{4,5} [^\d/-]{1}.+$")
 phone_pattern = re.compile(r"^\+?\d+([ ]?[/-]?[ ]?\d+)*$")
 
