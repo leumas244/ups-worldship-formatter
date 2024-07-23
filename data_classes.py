@@ -19,9 +19,10 @@ class Package:
         self.email: str = None
         self.weight: float = None
         self.service: str = None
-        self.referenceNumbers: list[str] = []
+        self.referenceNumbers: list[tuple[str, int]] = []
         self.packageCount: str = None
         self.trackingNumbers: list[str] = []
+        self.excelTrackingAssignment: dict = {}
 
     def __str__(self) -> str:
         return f"Empfaenger: '{self.recipientName}'"

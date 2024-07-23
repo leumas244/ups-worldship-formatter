@@ -72,7 +72,7 @@ def get_xml_tree(packages: list[Package]) -> ET.ElementTree:
                 break
             else:
                 Reference = ET.SubElement(Package, ("Reference" + str(referenceNumberCounter)))
-                Reference.text = referenceNumber
+                Reference.text = referenceNumber[0]
         
     tree = ET.ElementTree(OpenShipments)
     

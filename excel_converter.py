@@ -5,8 +5,10 @@ from data_classes import Package
 
 warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
+
 def get_workbook(excel_file_name: str) -> openpyxl.Workbook:
     return openpyxl.load_workbook(filename=excel_file_name)
+
 
 def get_packages_from_excel_file(excel_file: str) -> list[Package]:
     workbook = get_workbook(excel_file)
@@ -56,12 +58,13 @@ def get_packages_from_excel_file(excel_file: str) -> list[Package]:
                     excelReciverString=reciverString,
                     excel_row=row,
                     excel_column=reciverColum,
-                    coordinate=coordinate
+                    coordinate=coordinate,
                 )
-
-                newPackage.referenceNumbers.append(
-                    sheet.cell(row=row, column=referenceColum).value
+                refrenceTuple: tuple = (
+                    sheet.cell(row=row, column=referenceColum).value,
+                    sheet.cell(row=row, column=packageCountColum).value,
                 )
+                newPackage.referenceNumbers.append(refrenceTuple)
                 newPackage.packageCount = int(
                     sheet.cell(row=row, column=packageCountColum).value
                 )
@@ -70,9 +73,11 @@ def get_packages_from_excel_file(excel_file: str) -> list[Package]:
             else:
                 if sheet.cell(row=row, column=referenceColum).value:
                     packages.remove(newPackage)
-                    newPackage.referenceNumbers.append(
-                        sheet.cell(row=row, column=referenceColum).value
+                    refrenceTuple: tuple = (
+                        sheet.cell(row=row, column=referenceColum).value,
+                        sheet.cell(row=row, column=packageCountColum).value,
                     )
+                    newPackage.referenceNumbers.append(refrenceTuple)
                     newPackage.packageCount = newPackage.packageCount + (
                         int(sheet.cell(row=row, column=packageCountColum).value)
                     )
