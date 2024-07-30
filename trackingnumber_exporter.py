@@ -114,7 +114,7 @@ def get_matching_excel_and_out_files() -> list[tuple[str, str]]:
     return matching_excel_and_out_files
 
 
-def get_xml_tree(file_path: str) -> ElementTree:
+def get_xml_tree(file_path: str) -> ElementTree.Element:
     tree = ElementTree.parse(file_path)
     return tree.getroot()
 
@@ -157,8 +157,50 @@ def create_trackingNumbers_and_refNumbers_assignment(package: Package) -> Packag
     return package
 
 
-def get_proccesed_packages(xml_root: ElementTree) -> list[Package]:
+def get_element_index(parent: ElementTree.Element, target: ElementTree.Element) -> int:
+    for idx, element in enumerate(parent):
+        if element == target:
+            return idx
+    return -1
+
+
+def get_rigth_xml_tree(out_file_path: str) -> ElementTree.Element:
+    xxx_file_path = out_file_path.replace(".Out", ".xxx")
+
+    out_tree = get_xml_tree(out_file_path)
+    xxx_tree = get_xml_tree(xxx_file_path)
+
+    for index, element in enumerate(out_tree):
+        shipTo_out = element.find("{x-schema:OpenShipments.xdr}ShipTo")
+        shipTo_xxx = xxx_tree[index].find("{x-schema:OpenShipments.xdr}ShipTo")
+        shipTo_index = get_element_index(element, shipTo_out)
+        element[shipTo_index] = shipTo_xxx
+
+        shipFrom_out = element.find("{x-schema:OpenShipments.xdr}ShipFrom")
+        shipFrom_xxx = xxx_tree[index].find("{x-schema:OpenShipments.xdr}ShipFrom")
+        shipFrom_index = get_element_index(element, shipFrom_out)
+        element[shipFrom_index] = shipFrom_xxx
+
+        shipmentInformation_out = element.find(
+            "{x-schema:OpenShipments.xdr}ShipmentInformation"
+        )
+        shipmentInformation_xxx = xxx_tree[index].find(
+            "{x-schema:OpenShipments.xdr}ShipmentInformation"
+        )
+        shipmentInformation_index = get_element_index(element, shipmentInformation_out)
+        element[shipmentInformation_index] = shipmentInformation_xxx
+
+        package_out = element.find("{x-schema:OpenShipments.xdr}Package")
+        package_xxx = xxx_tree[index].find("{x-schema:OpenShipments.xdr}Package")
+        package_index = get_element_index(element, package_out)
+        element[package_index] = package_xxx
+
+    return out_tree
+
+
+def get_proccesed_packages(xml_file_path: str) -> list[Package]:
     proccesed_packages: list[Package] = []
+    xml_root = get_rigth_xml_tree(xml_file_path)
 
     openShipments = xml_root.findall("{x-schema:OpenShipments.xdr}OpenShipment")
     for openShipment in openShipments:
@@ -265,7 +307,7 @@ def detect_packages_from_the_same_recipient(
             detected_packages.append(proccesed_package)
 
     return detected_packages
-        
+
 
 def get_merged_cell_value(sheet_, row, column):
     # Überprüfen Sie, ob die Zelle Teil einer zusammengeführten Zelle ist
@@ -278,15 +320,31 @@ def get_merged_cell_value(sheet_, row, column):
     return sheet_.cell(row=row, column=column).value
 
 
+def store_ups_files_in_history(filepath: str) -> None:
+    filepath_xxx = filepath.replace(".Out", ".xxx")
+    try:
+        file_name = os.path.basename(filepath)
+        destination_file = os.path.join(settings.ups_hostory_folder, file_name)
+        shutil.move(filepath, destination_file)
+
+        file_name_xxx = os.path.basename(filepath_xxx)
+        destination_file_xxx = os.path.join(settings.ups_hostory_folder, file_name_xxx)
+        shutil.move(filepath_xxx, destination_file_xxx)
+    except Exception as e:
+        print_info(
+            f"Konnte die Datei '{file_name}' nicht verschieben. Fehler: {str(e)}"
+        )
+
+
 def start_routine() -> None:
     print_info(f"Starte das Importieren der Tracking-Nummern in Excel-Files")
     matching_excel_and_out_files = get_matching_excel_and_out_files()
 
     for excel_file_path, out_file_path in matching_excel_and_out_files:
-        print_info(f"Bearbeite die Datei '{get_basename_from_file_path(excel_file_path)}'")
-        xml_root = get_xml_tree(out_file_path)
-
-        proccesed_packages = get_proccesed_packages(xml_root)
+        print_info(
+            f"Bearbeite die Datei '{get_basename_from_file_path(excel_file_path)}'"
+        )
+        proccesed_packages = get_proccesed_packages(out_file_path)
 
         formed_packages = detect_packages_from_the_same_recipient(proccesed_packages)
 
@@ -333,19 +391,22 @@ def start_routine() -> None:
                 if sheet.cell(row=row, column=reciverColum).value:
                     if not sheet.cell(row=row, column=trackingNumberColum).value:
                         reciverString = sheet.cell(row=row, column=reciverColum).value
+                        packageCountValue = sheet.cell(
+                            row=row, column=packageCountColum
+                        ).value
+                        refrencCoulmValue = sheet.cell(
+                            row=row, column=referenceColum
+                        ).value.strip()
 
                         for package in formed_packages:
                             if package.recipientName in reciverString:
                                 if len(package.trackingNumbers) == 1:
+
                                     if (
                                         len(package.trackingNumbers)
-                                        == sheet.cell(
-                                            row=row, column=packageCountColum
-                                        ).value
+                                        == packageCountValue
                                         and package.referenceNumbers[0][0]
-                                        == sheet.cell(
-                                            row=row, column=referenceColum
-                                        ).value
+                                        == refrencCoulmValue
                                     ):
                                         sheet.cell(
                                             row=row, column=shippingServiceColum
@@ -358,13 +419,9 @@ def start_routine() -> None:
                                 elif len(package.trackingNumbers) > 1:
                                     if (
                                         len(package.trackingNumbers)
-                                        == sheet.cell(
-                                            row=row, column=packageCountColum
-                                        ).value
+                                        == packageCountValue
                                         and package.referenceNumbers[0][0]
-                                        == sheet.cell(
-                                            row=row, column=referenceColum
-                                        ).value
+                                        == refrencCoulmValue
                                     ):
                                         sheet.cell(
                                             row=row, column=shippingServiceColum
@@ -381,20 +438,24 @@ def start_routine() -> None:
                 else:
                     if sheet.cell(row=row, column=referenceColum).value:
                         if not sheet.cell(row=row, column=trackingNumberColum).value:
-                            reciverString = get_merged_cell_value(sheet_=sheet, row=row, column=reciverColum)
+                            reciverString = get_merged_cell_value(
+                                sheet_=sheet, row=row, column=reciverColum
+                            )
+                            packageCountValue = sheet.cell(
+                                row=row, column=packageCountColum
+                            ).value
+                            refrencCoulmValue = sheet.cell(
+                                row=row, column=referenceColum
+                            ).value.strip()
 
                             for package in formed_packages:
                                 if package.recipientName in reciverString:
                                     if len(package.trackingNumbers) == 1:
                                         if (
                                             len(package.trackingNumbers)
-                                            == sheet.cell(
-                                                row=row, column=packageCountColum
-                                            ).value
+                                            == packageCountValue
                                             and package.referenceNumbers[0][0]
-                                            == sheet.cell(
-                                                row=row, column=referenceColum
-                                            ).value
+                                            == refrencCoulmValue
                                         ):
                                             sheet.cell(
                                                 row=row, column=shippingServiceColum
@@ -407,13 +468,9 @@ def start_routine() -> None:
                                     elif len(package.trackingNumbers) > 1:
                                         if (
                                             len(package.trackingNumbers)
-                                            == sheet.cell(
-                                                row=row, column=packageCountColum
-                                            ).value
+                                            == packageCountValue
                                             and package.referenceNumbers[0][0]
-                                            == sheet.cell(
-                                                row=row, column=referenceColum
-                                            ).value
+                                            == refrencCoulmValue
                                         ):
                                             sheet.cell(
                                                 row=row, column=shippingServiceColum
@@ -444,7 +501,8 @@ def start_routine() -> None:
                         break
 
             workbook.save(excel_file_path)
-            
+            store_ups_files_in_history(out_file_path)
+
     print_info(f"Beende das Importieren der Tracking-Nummern in Excel-Files")
 
 

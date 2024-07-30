@@ -11,12 +11,15 @@ ups_protocol_folder: str = (
 )
 # Ordner für csv Datei Ausgabe.
 xml_output_file_folder: str = "data/xml_Ausgabe_Dateien_fuer_UPS-WorldShip/"
+# Ordner für UPS Hisorie
+ups_hostory_folder: str = "data/UPS-Historie/"
 
 all_needed_folders: list[str] = [
     not_parsed_excel_file_folder,
     parsed_excel_file_folder,
     ups_protocol_folder,
     xml_output_file_folder,
+    ups_hostory_folder,
 ]
 
 ## Anpassbare Variablen/Einstellungen
