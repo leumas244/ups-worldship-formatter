@@ -11,7 +11,7 @@
 cd /d "%~dp0"
 
 :: Hier dein Python-Skript ausführen
-python main.py
+python src/main.py
 
 :: Das Fenster offen lassen
 pause

@@ -11,7 +11,7 @@
 cd /d "%~dp0"
 
 :: Hier dein Python-Skript ausführen
-python trackingnumber_exporter.py
+python src/trackingnumber_exporter.py
 
 :: Das Fenster offen lassen
 pause

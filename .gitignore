@@ -1,5 +1,4 @@
-/__pycache__/
-data/
+src/__pycache__/
 .vscode/
-ablage/
-test.py
+data/
+src/dev-scripts/

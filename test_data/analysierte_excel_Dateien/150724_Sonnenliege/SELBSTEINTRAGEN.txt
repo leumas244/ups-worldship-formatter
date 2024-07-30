@@ -1,4 +1,0 @@
-Bitte trage die folgenden Zellen selbst ein:
-- B4
-- B9
-- B22
