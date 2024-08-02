@@ -341,6 +341,8 @@ def get_packages_form_sheet_new_version(
                     is_there_error = True
                     print(f"Das Paket in Zeile {row}-{next_block_row-1} hat einen fehler: {str(e)}")
                     break
+            newPackage.service = "Standart"
+            newPackage.weight = 10.0 * newPackage.packageCount
                     
             if not is_there_error:
                 packages.append(newPackage)
