@@ -288,7 +288,11 @@ def main() -> None:
         excel_file_has_a_problem = [False, []]
 
         try:
-            packages = excel_converter.get_packages_from_excel_file(excel_file)
+            info_and_packages = excel_converter.get_packages_from_excel_file(excel_file)
+            excel_type = info_and_packages["type"]
+            packages = info_and_packages["packages"]
+            excel_file_has_a_problem = info_and_packages["excel_file_has_a_problem"]
+            
         except Exception as e:
             print_info(
                 f"Fehler beim Auswerten der Excel-Datei '{excel_file}': {e}. Die Datei wird übersprungen!"
@@ -302,25 +306,26 @@ def main() -> None:
         packageCount = 0
         for package in packages:
             packageCount += 1
-            try:
-                address_assignment = address_parser.parse_address(
-                    package.excelReciverString
-                )
-            except Exception as e:
-                excel_file_has_a_problem[0] = True
-                excel_file_has_a_problem[1].append(package)
-                print_adress_error(package.excel_row, package.excel_column, number_of_packages, packageCount)
-                continue
+            if excel_type == "old_version":
+                try:
+                    address_assignment = address_parser.parse_address(
+                        package.excelReciverString
+                    )
+                except Exception as e:
+                    excel_file_has_a_problem[0] = True
+                    excel_file_has_a_problem[1].append(package)
+                    print_adress_error(package.excel_row, package.excel_column, number_of_packages, packageCount)
+                    continue
 
-            try:
-                package = address_parser.sort_assignment_to_package(
-                    address_assignment, package
-                )
-            except Exception as e:
-                excel_file_has_a_problem[0] = True
-                excel_file_has_a_problem[1].append(package)
-                print_adress_error(package.excel_row, package.excel_column, number_of_packages, packageCount)
-                continue
+                try:
+                    package = address_parser.sort_assignment_to_package(
+                        address_assignment, package
+                    )
+                except Exception as e:
+                    excel_file_has_a_problem[0] = True
+                    excel_file_has_a_problem[1].append(package)
+                    print_adress_error(package.excel_row, package.excel_column, number_of_packages, packageCount)
+                    continue
 
             package_state = has_package_all_needed_informations(package)
 

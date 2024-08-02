@@ -112,6 +112,31 @@ def concatenate_strings_from_second_element(lst: list[str]) -> str:
     return result.strip()
 
 
+def get_plz_city_and_region_from_line(line: str) -> dict[str, str]:
+    result = {"state": None,
+              "postalCode": None,
+              "city": None
+              }
+    region = line.replace(u'\xa0', u' ')
+    region_parts = region.split(",")
+    if len(region_parts) > 1:
+        if region_parts[1]:
+            result["state"] = region_parts[1]
+
+    region = region_parts[0]
+    region_parts = region.split(" ")
+    if len(region_parts) == 2:
+        result["postalCode"] = region_parts[0]
+        result["city"] = region_parts[1]
+        return result
+    elif len(region_parts) > 2:
+        result["postalCode"] = region_parts[0]
+        result["city"] = concatenate_strings_from_second_element(region_parts)
+        return result
+    else:
+        raise Exception(f"Es konnte keine PLZ und kein Ort aus '{line}' ermittelt werden!")
+
+
 def sort_assignment_to_package(address_assignment: dict[str, str], package: Package) -> Package:
     package.recipientName = address_assignment["name"]
     package.address1 = address_assignment["street"]
@@ -127,21 +152,9 @@ def sort_assignment_to_package(address_assignment: dict[str, str], package: Pack
     elif address_assignment["country_name_short"] != "DE" and not address_assignment["company"]:
         package.recipientNameAddtional = package.recipientName
 
-    region = address_assignment["region"]
-    region_parts = region.split(",")
-    if len(region_parts) > 1:
-        if region_parts[1]:
-            package.state = region_parts[1]
-
-    region = region_parts[0]
-    region_parts = region.split(" ")
-    if len(region_parts) == 2:
-        package.postalCode = region_parts[0]
-        package.city = region_parts[1]
-    elif len(region_parts) > 2:
-        package.postalCode = region_parts[0]
-        package.city = concatenate_strings_from_second_element(region_parts)
-    else:
-        raise Exception(f"Es konnte keine PLZ und kein Ort aus '{address_assignment["region"]}' ermittelt werden!")
+    region_info = get_plz_city_and_region_from_line(address_assignment["region"])
+    package.state = region_info["state"]
+    package.postalCode = region_info["postalCode"]
+    package.city = region_info["city"]
 
     return package
