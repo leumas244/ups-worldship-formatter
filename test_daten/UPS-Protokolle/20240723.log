@@ -1,0 +1,68 @@
+XML Auto Import Log - 07/23/2024 09:04:54.982
+
+07/23/2024 09:04:54.987 - Sitzung wird gestartet
+
+07/23/2024 09:04:57.060 - 4 Datensatz/-sätze müssen importiert werden.
+
+07/23/2024 09:04:57.705 - Datensatz 1 wird importiert
+
+07/23/2024 09:04:57.762 -   Paketdatensatz wird erstellt: 1
+
+07/23/2024 09:04:57.904 - Datensatz 2 wird importiert
+
+07/23/2024 09:04:57.946 -   Paketdatensatz wird erstellt: 1
+
+07/23/2024 09:04:57.973 -   Paketdatensatz wird erstellt: 2
+
+07/23/2024 09:04:58.056 - Datensatz 3 wird importiert
+
+07/23/2024 09:04:58.098 -   Paketdatensatz wird erstellt: 1
+
+07/23/2024 09:04:58.183 - Datensatz 4 wird importiert
+
+07/23/2024 09:04:58.223 -   Paketdatensatz wird erstellt: 1
+
+07/23/2024 09:04:58.292 - 4 Datensatz/-sätze bearbeitet.
+Importing from Kopie von 230724_Sonnenliege-parsed_at_23.07.2024_09-04-09.xml
+Datensatz 1 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 2 wird importiert
+  Paketdatensatz wird erstellt: 1
+  Paketdatensatz wird erstellt: 2
+Datensatz 3 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 4 wird importiert
+  Paketdatensatz wird erstellt: 1
+4 Datensatz/-sätze bearbeitet.
+
+
+Margarete Schneiberg
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Die UPS Klassifikation für die aktuelle Empfängeradresse weicht von Ihrer aktuellen Klassifikation ab. Die Privatklassifikation wurde geändert.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Monika Gierschik
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Die UPS Klassifikation für die aktuelle Empfängeradresse weicht von Ihrer aktuellen Klassifikation ab. Die Privatklassifikation wurde geändert.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Reisebüro Gurtner
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Alexandra Kaiser
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+07/23/2024 09:05:57.354 - Sitzung wird angehalten.
+
+07/23/2024 09:05:57.402 - Importierte Sendungen: 4  Erfolgreiche Sendungen: 4   Fehlgeschlagene Sendungen  0

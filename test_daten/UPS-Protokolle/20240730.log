@@ -1,0 +1,252 @@
+XML Auto Import Log - 07/30/2024 09:01:50.130
+
+07/30/2024 09:01:50.200 - Sitzung wird gestartet
+
+07/30/2024 09:01:53.487 - 10 Datensatz/-sätze müssen importiert werden.
+
+07/30/2024 09:01:54.149 - Datensatz 1 wird importiert
+
+07/30/2024 09:01:54.190 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 09:01:54.320 - Datensatz 2 wird importiert
+
+07/30/2024 09:01:54.361 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 09:01:54.386 -   Paketdatensatz wird erstellt: 2
+
+07/30/2024 09:01:54.464 - Datensatz 3 wird importiert
+
+07/30/2024 09:01:54.500 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 09:01:54.578 - Datensatz 4 wird importiert
+
+07/30/2024 09:01:54.617 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 09:01:54.695 - Datensatz 5 wird importiert
+
+07/30/2024 09:01:54.734 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 09:01:54.812 - Datensatz 6 wird importiert
+
+07/30/2024 09:01:54.850 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 09:01:54.927 - Datensatz 7 wird importiert
+
+07/30/2024 09:01:54.965 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 09:01:55.041 - Datensatz 8 wird importiert
+
+07/30/2024 09:01:55.081 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 09:01:55.156 - Datensatz 9 wird importiert
+
+07/30/2024 09:01:55.195 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 09:01:55.221 -   Paketdatensatz wird erstellt: 2
+
+07/30/2024 09:01:55.297 - Datensatz 10 wird importiert
+
+07/30/2024 09:01:55.335 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 09:01:55.402 - 10 Datensatz/-sätze bearbeitet.
+Importing from 300724_Sonnenliege-parsed_at_30.07.2024_09-00-58.xml
+Datensatz 1 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 2 wird importiert
+  Paketdatensatz wird erstellt: 1
+  Paketdatensatz wird erstellt: 2
+Datensatz 3 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 4 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 5 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 6 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 7 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 8 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 9 wird importiert
+  Paketdatensatz wird erstellt: 1
+  Paketdatensatz wird erstellt: 2
+Datensatz 10 wird importiert
+  Paketdatensatz wird erstellt: 1
+10 Datensatz/-sätze bearbeitet.
+
+
+Gerald Tucho
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Sendungstransaktionstyp ist ungültig für ComplianceID  
+             5.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Margot Schüller-Pertzborn
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Hanne-Lore Ecker
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Sendungstransaktionstyp ist ungültig für ComplianceID  
+             5.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Renate Grandl
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Die UPS Klassifikation für die aktuelle Empfängeradresse weicht von Ihrer aktuellen Klassifikation ab. Die Privatklassifikation wurde geändert.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Siegmund Lopaczyk
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Bernd Runge
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Die UPS Klassifikation für die aktuelle Empfängeradresse weicht von Ihrer aktuellen Klassifikation ab. Die Privatklassifikation wurde geändert.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Karl-Heinz Krieg
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Die UPS Klassifikation für die aktuelle Empfängeradresse weicht von Ihrer aktuellen Klassifikation ab. Die Privatklassifikation wurde geändert.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Ehrmann Barbara
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Die UPS Klassifikation für die aktuelle Empfängeradresse weicht von Ihrer aktuellen Klassifikation ab. Die Privatklassifikation wurde geändert.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Jacqueline Barrein-Kompst
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Evamaria Trinczek
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Die UPS Klassifikation für die aktuelle Empfängeradresse weicht von Ihrer aktuellen Klassifikation ab. Die Privatklassifikation wurde geändert.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+07/30/2024 09:02:26.265 - Sitzung wird angehalten.
+
+07/30/2024 09:02:26.280 - Importierte Sendungen: 10  Erfolgreiche Sendungen: 10   Fehlgeschlagene Sendungen  0
+
+07/30/2024 12:47:55.616 - Sitzung wird gestartet
+
+07/30/2024 12:47:59.226 - 2 Datensatz/-sätze müssen importiert werden.
+
+07/30/2024 12:47:59.892 - Datensatz 1 wird importiert
+
+07/30/2024 12:47:59.932 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 12:48:00.035 - Datensatz 2 wird importiert
+
+07/30/2024 12:48:00.076 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 12:48:00.145 - 2 Datensatz/-sätze bearbeitet.
+Importing from 300724_02_Sonnenliege-parsed_at_30.07.2024_12-47-35.xml
+Datensatz 1 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 2 wird importiert
+  Paketdatensatz wird erstellt: 1
+2 Datensatz/-sätze bearbeitet.
+
+
+Doris Gerner
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Die UPS Klassifikation für die aktuelle Empfängeradresse weicht von Ihrer aktuellen Klassifikation ab. Die Privatklassifikation wurde geändert.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Denise Hersing
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+07/30/2024 12:48:10.615 - Sitzung wird angehalten.
+
+07/30/2024 12:48:10.627 - Importierte Sendungen: 2  Erfolgreiche Sendungen: 2   Fehlgeschlagene Sendungen  0
+
+07/30/2024 14:07:51.278 - Sitzung wird gestartet
+
+07/30/2024 14:07:53.309 - 4 Datensatz/-sätze müssen importiert werden.
+
+07/30/2024 14:07:53.967 - Datensatz 1 wird importiert
+
+07/30/2024 14:07:54.062 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 14:07:54.167 - Datensatz 2 wird importiert
+
+07/30/2024 14:07:54.220 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 14:07:54.327 - Datensatz 3 wird importiert
+
+07/30/2024 14:07:54.365 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 14:07:54.446 - Datensatz 4 wird importiert
+
+07/30/2024 14:07:54.514 -   Paketdatensatz wird erstellt: 1
+
+07/30/2024 14:07:54.542 -   Paketdatensatz wird erstellt: 2
+
+07/30/2024 14:07:54.613 - 4 Datensatz/-sätze bearbeitet.
+Importing from 300724_04_Sonnenliege-parsed_at_30.07.2024_14-07-39.xml
+Datensatz 1 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 2 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 3 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 4 wird importiert
+  Paketdatensatz wird erstellt: 1
+  Paketdatensatz wird erstellt: 2
+4 Datensatz/-sätze bearbeitet.
+
+
+Angelika Sadlo
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Die UPS Klassifikation für die aktuelle Empfängeradresse weicht von Ihrer aktuellen Klassifikation ab. Die Privatklassifikation wurde geändert.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Neubauer Christina
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Doris Ronellenfitsch
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Die UPS Klassifikation für die aktuelle Empfängeradresse weicht von Ihrer aktuellen Klassifikation ab. Die Privatklassifikation wurde geändert.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Kerstin Städler
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Die UPS Klassifikation für die aktuelle Empfängeradresse weicht von Ihrer aktuellen Klassifikation ab. Die Privatklassifikation wurde geändert.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  

@@ -1,0 +1,79 @@
+XML Auto Import Log - 07/19/2024 09:17:22.069
+
+07/19/2024 09:17:22.075 - Sitzung wird gestartet
+
+07/19/2024 09:17:24.535 - 5 Datensatz/-sätze müssen importiert werden.
+
+07/19/2024 09:17:25.160 - Datensatz 1 wird importiert
+
+07/19/2024 09:17:25.205 -   Paketdatensatz wird erstellt: 1
+
+07/19/2024 09:17:25.341 - Datensatz 2 wird importiert
+
+07/19/2024 09:17:25.379 -   Paketdatensatz wird erstellt: 1
+
+07/19/2024 09:17:25.460 - Datensatz 3 wird importiert
+
+07/19/2024 09:17:25.497 -   Paketdatensatz wird erstellt: 1
+
+07/19/2024 09:17:25.575 - Datensatz 4 wird importiert
+
+07/19/2024 09:17:25.617 -   Paketdatensatz wird erstellt: 1
+
+07/19/2024 09:17:25.695 - Datensatz 5 wird importiert
+
+07/19/2024 09:17:25.735 -   Paketdatensatz wird erstellt: 1
+
+07/19/2024 09:17:25.801 - 5 Datensatz/-sätze bearbeitet.
+Importing from Kopie von 190724_Sonnenliege-parsed_at_19.07.2024_09-16-49.xml
+Datensatz 1 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 2 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 3 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 4 wird importiert
+  Paketdatensatz wird erstellt: 1
+Datensatz 5 wird importiert
+  Paketdatensatz wird erstellt: 1
+5 Datensatz/-sätze bearbeitet.
+
+
+Michael Kobam
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Sendungstransaktionstyp ist ungültig für ComplianceID  
+             5.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Michael Kobam
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             3.  Warnung: Sendungstransaktionstyp ist ungültig für ComplianceID  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Michael Kobam
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             3.  Warnung: Sendungstransaktionstyp ist ungültig für ComplianceID  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Gertrud Zimmermann
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Die UPS Klassifikation für die aktuelle Empfängeradresse weicht von Ihrer aktuellen Klassifikation ab. Die Privatklassifikation wurde geändert.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+
+Bernd Lange
+             1.  Warnung: Adressüberprüfung übersprungen - Land/Gebiet wird nicht unterstützt.  
+             2.  Warnung: Adressklassifikation - Klassifikation unbekannt.  
+             3.  Warnung: Price:Data validation error.  Basic Incentive does not exists for this service Informational warning Tier Incentive does not exists for this service  
+             4.  Warnung: Überprüfung der Kundennummer nicht versucht; diese Systemvoreinstellung wurde nicht aktiviert.  
+
+07/19/2024 09:21:35.882 - Sitzung wird angehalten.
+
+07/19/2024 09:21:35.892 - Importierte Sendungen: 5  Erfolgreiche Sendungen: 5   Fehlgeschlagene Sendungen  0

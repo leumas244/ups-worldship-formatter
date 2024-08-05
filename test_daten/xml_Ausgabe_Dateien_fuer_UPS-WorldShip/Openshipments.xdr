@@ -1,0 +1,1927 @@
+<?xml version = "1.0" encoding = "WINDOWS-1252"?>
+<!--Schema for WS 19.0 -->
+<Schema name = "OpenShipments.xdr" xmlns = "urn:schemas-microsoft-com:xml-data" xmlns:dt = "urn:schemas-microsoft-com:datatypes" xmlns:wsi = "urn:schemas-ups-com:datatypes">
+	<ElementType name = "OpenShipments" content = "eltOnly" order = "many" model = "closed">
+		<element type = "OpenShipment" minOccurs = "1" maxOccurs = "*"/>
+	</ElementType>
+	<ElementType name = "OpenShipment" content = "eltOnly" order = "many" model = "closed">
+		<AttributeType name = "ProcessStatus" dt:type = "string" required = "yes"/>
+		<AttributeType name = "ShipmentOption" dt:type = "string" required = "no"/>
+		<AttributeType name = "ProcessAction" dt:type = "string" required = "no"/>
+		<attribute type = "ProcessStatus"/>
+		<attribute type = "ShipmentOption"/>
+		<attribute type = "ProcessAction"/>
+		<element type = "IsShipmentDocs" minOccurs = "0" maxOccurs = "1" />
+		<element type = "PrinterID" minOccurs = "0" maxOccurs = "1" />
+		<element type = "Receiver" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ReturnTo" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipFor" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Shipper" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Shipment" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Invoice" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipTo" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipFrom" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Producer" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UltimateConsignee" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Importer" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ThirdParty" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ThirdPartyReceiver" minOccurs = "0" maxOccurs = "1"/>
+    <!--TT 96709: Support UPSAccessPoint XML tag.  AccessPoint XML tag is deprecated.-->
+    <element type = "UPSAccessPoint" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "AccessPoint" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "ShipmentInformation" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LTLLineItem" minOccurs = "0" maxOccurs = "*"/>
+		<element type = "Package" minOccurs = "0" maxOccurs = "*"/>
+		<element type = "InternationalDocumentation" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Goods" minOccurs = "0" maxOccurs = "*"/>
+		<element type = "FreightShipmentInformation" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FreightCommodity" minOccurs = "0" maxOccurs = "*"/>
+		<element type = "FreightCODRemit" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FreightReferenceNumber" minOccurs = "0" maxOccurs = "*"/>
+		<element type = "ShipperLetterOfInstruction" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FreightIntermediateConsignee" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ProcessMessage" minOccurs = "0" maxOccurs = "*"/>
+		<element type = "PackingList" minOccurs = "0" maxOccurs = "*"/>
+		<element type = "UserForms" minOccurs = "0" maxOccurs = "*"/>
+    <element type = "HandlingUnit" minOccurs = "0" maxOccurs = "*"/>
+    <element type = "FreightPackingList" minOccurs = "0" maxOccurs ="1"/>
+    <element type = "FreightPackingListItem" minOccurs ="0" maxOccurs ="*"/>
+    <element type = "ComplianceIDs" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+
+	<ElementType name = "PrinterID" content = "eltOnly" order = "many" model = "closed">
+		<element type = "LabelID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ReportID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "WorldEaseID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DangerousGoodsID" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "RFID" minOccurs="0" maxOccurs="1"/>
+    <element type = "WorldEaseRFID" minOccurs="0" maxOccurs="1"/>
+	</ElementType>
+
+	<ElementType name = "IsShipmentDocs" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+ 
+	<ElementType name = "LabelID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "ReportID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "InvoiceID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "WorldEaseID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "DangerousGoodsID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <ElementType name = "RFID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <ElementType name = "WorldEaseRFID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+
+	<ElementType name = "Receiver" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CompanyName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ContactPerson" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "City" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateOrProvince" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Residential" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CustomerIDNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Phone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TaxIDNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LocationID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UpsAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "RecordOwner" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "EmailAddress1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "EmailAddress2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "EmailContact1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "EmailContact2" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ShipTo" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CustomerID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Attention" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CityOrTown" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateProvinceCounty" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Telephone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FaxNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "EmailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TaxIDNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ReceiverUpsAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LocationID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ResidentialIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SCSAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TariffAirportCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "USPSPOBox" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DensityRatingIndicator" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ReturnTo" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CompanyName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ContactPerson" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "City" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateOrProvince" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Residential" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Phone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TaxIDNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "EmailAddress1" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ShipFor" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CompanyName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ContactPerson" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "City" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateOrProvince" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Residential" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Phone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TaxIDNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "EmailAddress1" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ShipFrom" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CustomerID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Attention" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CityOrTown" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateProvinceCounty" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Telephone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FaxNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TaxIDNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TaxIDType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UpsAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ResidentialIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TariffAirportCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SCSAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "CompanyDisplayName" minOccurs = "0" maxOccurs = "1"/>
+ </ElementType>
+	<ElementType name = "Shipper" content = "eltOnly" order = "many" model = "closed">
+		<element type = "UpsAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Producer" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CustomerID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Attention" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CityOrTown" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateProvinceCounty" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Telephone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TaxIDNumber" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "UltimateConsignee" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CustomerID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Attention" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CityOrTown" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateProvinceCounty" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Telephone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TaxIDNumber" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "FreightIntermediateConsignee" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CustomerID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CompanyName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Attention" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "City" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateOrProvince" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Phone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TaxIDNumber" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+  <ElementType name = "AccessPoint" content = "eltOnly" order = "many" model = "closed">
+    <element type = "CustomerID" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "CompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Attention" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Address1" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Address2" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Address3" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "CountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "CityOrTown" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "StateProvinceCounty" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Telephone" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FaxNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "UpsAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "UPSAccessPointID" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <!--TT 96709: Support UPSAccessPoint XML tag.  AccessPoint XML tag is deprecated.-->
+  <ElementType name = "UPSAccessPoint" content = "eltOnly" order = "many" model = "closed">
+    <element type = "CustomerID" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "CompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Attention" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Address1" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Address2" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Address3" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "CountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "CityOrTown" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "StateProvinceCounty" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Telephone" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FaxNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "UpsAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "UPSAccessPointID" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+	<ElementType name = "CompanyName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "CompanyOrName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "ContactPerson" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "Attention" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "AddressLine1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "Address1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "AddressLine2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "Address2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "AddressLine3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "Address3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "City" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "30"/>
+	<ElementType name = "CityOrTown" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "30"/>
+	<ElementType name = "CountryCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "CountryTerritory" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PostalCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+	<ElementType name = "StateOrProvince" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "5"/>
+	<ElementType name = "StateProvinceCounty" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "5"/>
+	<ElementType name = "Residential" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ResidentialIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "SCSAccountNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+    <ElementType name = "USPSPOBox" content = "textOnly" dt:type = "string" model = "closed" wsi:minLength = "1" wsi:maxLength = "1"/>
+	<ElementType name = "TariffAirportCode" content = "textOnly" dt:type = "string" model = "closed" wsi:minLength = "3" wsi:maxLength = "3"/>
+	<ElementType name = "DensityRatingIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "CustomerIDNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "30"/>
+	<ElementType name = "CustomerID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "30"/>
+	<ElementType name = "Phone" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+	<ElementType name = "Telephone" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+	<ElementType name = "FaxNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+	<ElementType name = "TaxIDNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+	<ElementType name = "TaxIDType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "5"/>
+	<ElementType name = "LocationID" content = "textOnly" dt:type = "string" model = "closed" wsi:minLength = "3" wsi:maxLength = "10"/>
+	<ElementType name = "UpsAccountNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:minLength = "6" wsi:maxLength = "10"/>
+	<ElementType name = "ReceiverUpsAccountNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:minLength = "6" wsi:maxLength = "10"/>
+	<ElementType name = "ShipperNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:minLength = "6" wsi:maxLength = "10"/>
+	<ElementType name = "RecordOwner" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "EmailAddress1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "EmailAddress2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "EmailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "EmailContact1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "EmailContact2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+    <ElementType name = "CompanyDisplayName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+    <ElementType name = "UPSAccessPointID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "9"/>
+  <ElementType name = "Shipment" content = "eltOnly" order = "many" model = "closed">
+		<element type = "ServiceLevel" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PackageType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NumberOfPackages" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipmentActualWeight" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipmentDimensionalWeight" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DescriptionOfGoods" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CostAllocationCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DocumentOnly" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "GoodsNotInFreeCirculation" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "BillingOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ThirdParty" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SaturdayDelivery" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DeclareValue" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AdditionalHandling" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LargePackage" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "COD" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AODTag" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipNotification" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "QuantumViewNotifyDetails" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SpecialCommodities" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Signature-AdultSignatureRequired" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ReturnNotificationDetails" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CollectionDate" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "ImportID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UPSExchangeCollect" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ReturnService" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "MailInnovationsReturnService" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DeliverToAddresseeOnly" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "DirectDeliveryOnly" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PackageReleaseCodeOption" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ShipmentInformation" content = "eltOnly" order = "many" model = "closed">
+    <element type = "ProfileName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "VoidIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ServiceType" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "MasterCartonID" minOccurs ="0" maxOccurs ="1"/>
+		<element type = "Endorsement" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PackageType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NumberOfPackages" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipmentActualWeight" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipmentDimensionalWeight" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DescriptionOfGoods" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DocumentOnly" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "GoodsNotInFreeCirculation" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SpecialInstructionForShipment" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipperNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "BillingOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "BillTransportationTo" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "BillDutyTaxTo" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SplitDutyAndTax" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DDU" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DDP" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PrinterID" minOccurs = "0" maxOccurs = "1" />
+		<element type = "SaturdayDelivery" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SaturdayPickUp" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "WeekendCommercialDeliveryOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DeclaredValue" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "MerchandiseDescriptionForPackage" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AdditionalHandling" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LargePackage" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "COD" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ReturnOfDocument" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "QVNOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SpecialCommodities" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated - Beginning in WS2022 DeliveryConfirmation is replaced by SignatureServices-->
+    <element type = "DeliveryConfirmation" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "SignatureServices" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UserDefinedID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UPSExchangeCollect" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ReturnService" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "MailInnovationsReturnService" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ImportControl" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CommercialInvoiceRemoval" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ReturnsFlexibleAccess" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CarbonNeutral" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "StateDeptLicenseOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NotifyBeforeDelOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HandlingChargeOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FoodItems" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HundredWeightPricingApplied" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "USI" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SubProNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Length" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Width" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Height" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalSubclass" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated - Beginning in WS2017, Nonmachinable XML tag is not supported-->
+		<element type = "NonmachinableIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "BalloonIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "OversizeIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AdditionalDocuments" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ProactiveResponseOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "RefrigerationOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CollectionDate" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "UPSSynchronizedDeliveryOption" minOccurs = "0" maxOccurs = "1"/>    
+    <element type = "UPSSynchronizedDeliveryDeliverByDate" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "UPSReturnsExchangeOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UPSReturnsExchangeReturnOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UPSReturnsPackAndCollectOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PrealertNotificationOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PrintCopyOfPaperlessDocumentsIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ProcessAsPaperless" minOccurs ="0" maxOccurs ="1"/>
+		<element type = "PackingListMemo" minOccurs ="0" maxOccurs ="1"/>
+		<element type = "GroundFreightPricing" minOccurs ="0" maxOccurs ="1"/>
+    <element type = "DangerousGoodsSignatoryName" minOccurs ="0" maxOccurs ="1"/>
+    <element type = "DangerousGoodsSignatoryTitle" minOccurs ="0" maxOccurs ="1"/>
+    <element type = "DangerousGoodsSignatoryPlace" minOccurs ="0" maxOccurs ="1"/>
+    <element type = "DangerousGoodsSignatoryDate" minOccurs ="0" maxOccurs ="1"/>
+    <element type = "HoldatUPSAccessPointOption" minOccurs = "0" maxOccurs = "1"/>    
+    <element type = "DeliverToAddresseeOnly" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "DirectDeliveryOnly" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PackageReleaseCodeOption" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "VendorCollectIDNumber" minOccurs="0" maxOccurs="1"/>
+    <element type = "VendorCollectIDNumberExempt" minOccurs="0" maxOccurs="1"/>
+    <element type = "VendorCollectIDWhoAreYouShippingTo" minOccurs="0" maxOccurs="1"/>
+    <element type = "VendorCollectIDShipmentValueIsLessThanOrEqualToThresholdIndicator" minOccurs="0" maxOccurs="1"/>
+    <element type = "InternationalComplianceOriginCountryTotalValue" minOccurs="0" maxOccurs="1"/>
+    <element type = "InternationalComplianceDestinationCountryTotalValue" minOccurs="0" maxOccurs="1"/>
+    <element type = "InternationalComplianceShipmentSender" minOccurs="0" maxOccurs="1"/>
+    <element type = "InternationalComplianceShipmentReceiver" minOccurs="0" maxOccurs="1"/>
+  </ElementType>
+  
+   <ElementType name = "APNotificationType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "APNotificationValue" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <ElementType name = "APNotificationFailedEmailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <ElementType name = "APNotificationCountryTerritory" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+  <ElementType name = "APNotificationPhoneCountryCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+  <ElementType name = "APNotificationLanguage" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>  
+  <ElementType name = "UPSReturnsExchangeUseOutbound" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "UPSReturnsExchangeKey" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "UPSReturnsExchangeUPSDriverInstruction" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "UPSReturnsPackAndCollectType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <!--deprecated--><ElementType name = "PrealertNotificationTelephoneOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <!--deprecated--><ElementType name = "PrealertNotificationTelephoneCountryTerritory" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <!--deprecated--><ElementType name = "PrealertNotificationTelephoneNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+	<ElementType name = "PrealertNotificationSMSTextOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PrealertNotificationSMSTextCountryTerritory" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PrealertNotificationSMSTextPhoneNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+	<ElementType name = "PrealertNotificationEmailOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PrealertNotificationRecipientEmailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PrealertNotificationFailedEmailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PrealertNotificationLanguage" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "PrintCopyOfPaperlessDocumentsIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ProcessAsPaperless" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "DangerousGoodsSignatoryName" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength ="35"/>
+  <ElementType name = "DangerousGoodsSignatoryTitle" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength ="35"/>
+  <ElementType name = "DangerousGoodsSignatoryPlace" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength ="35"/>
+  <ElementType name = "DangerousGoodsSignatoryDate" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength ="8"/>
+  <ElementType name = "VendorCollectIDNumber" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength = "35" />
+  <ElementType name = "VendorCollectIDNumberExempt" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength = "1"/>
+  <ElementType name = "VendorCollectIDWhoAreYouShippingTo" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength = "1"/>
+  <ElementType name = "VendorCollectIDShipmentValueIsLessThanOrEqualToThresholdIndicator" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength = "1"/>
+  <ElementType name = "InternationalComplianceOriginCountryTotalValue" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength = "11" />
+  <ElementType name = "InternationalComplianceDestinationCountryTotalValue" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength = "11"/>
+  <ElementType name = "InternationalComplianceShipmentSender" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength = "1"/>
+  <ElementType name = "InternationalComplianceShipmentReceiver" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength = "1"/>
+
+  <ElementType name = "HoldatUPSAccessPointOption" content = "eltOnly" order = "many" model = "closed">
+    <element type = "APNotificationType" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "APNotificationValue" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "APNotificationFailedEmailAddress" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "APNotificationCountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "APNotificationPhoneCountryCode" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "APNotificationLanguage" minOccurs = "0" maxOccurs = "1"/>   
+  </ElementType>  
+  <ElementType name = "UPSReturnsExchangeOption" content = "eltOnly" order = "many" model = "closed">
+		<element type = "UPSReturnsExchangeUseOutbound" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UPSReturnsExchangeKey" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UPSReturnsExchangeUPSDriverInstruction" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "UPSReturnsExchangeReturnOption" content = "eltOnly" order = "many" model = "closed">
+		<element type = "UPSReturnsExchangeKey" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "UPSReturnsPackAndCollectOption" content = "eltOnly" order = "many" model = "closed">
+		<element type = "UPSReturnsPackAndCollectType" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "PrealertNotificationOption" content = "eltOnly" order = "many" model = "closed">
+    <!--deprecated--><element type = "PrealertNotificationTelephoneOption" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "PrealertNotificationTelephoneCountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "PrealertNotificationTelephoneNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PrealertNotificationSMSTextOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PrealertNotificationSMSTextCountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PrealertNotificationSMSTextPhoneNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PrealertNotificationEmailOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PrealertNotificationRecipientEmailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PrealertNotificationFailedEmailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PrealertNotificationLanguage" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ImportControl" content = "eltOnly" order = "many" model = "closed">
+		<element type = "ServiceType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "RecipientEmailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FailureOfDeliveryEmailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InstructionAndReceiptLanguage" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "MerchandiseDescOfPackage" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "CommercialInvoiceRemoval" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "NotifyBeforeDelOption" content = "eltOnly" order = "many" model = "closed">
+		<element type = "ContactPerson" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Phone" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "LTLLineItem" content = "eltOnly" order = "many" model = "closed">
+		<element type = "FreightClass" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LineDescription" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NumberOfIdenticalHandlingUnit" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HandlingUnitWeight" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PieceOnPallet" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Length" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Width" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Height" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PackagingType" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "FreightClass" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+	<ElementType name = "LineDescription" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+	<ElementType name = "SpecialInstructionForShipment" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "69"/>
+	<ElementType name = "NumberOfIdenticalHandlingUnit" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "HandlingUnitWeight" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "PieceOnPallet" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "PackagingType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "Package" content = "eltOnly" order = "many" model = "closed">
+		<element type = "PackageType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Endorsement" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Weight" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TrackingNumber" minOccurs = "0" maxOccurs = "1"/>
+		<!--Deprecated - RFC8331--><element type = "USPSDeliveryConfirmationOption" minOccurs = "0" maxOccurs = "1"/><!--Deprecated-->
+		<element type = "USPSNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LargePackageIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AdditionalHandlingOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipperReleaseOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "COD" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DeclaredValue" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated - Beginning in WS2022 DeliveryConfirmation is replaced by SignatureServices-->
+		<element type = "DeliveryConfirmation" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "SignatureServices" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "QVNOrReturnNotificationOption" minOccurs = "0" maxOccurs = "1"/>
+		<!--Deprecated - beginning in WS2021 Verbal Confirmation is no longer supported--><element type = "VerbalConfirmationOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DangerousGoodsOption" minOccurs = "0" maxOccurs = "1"/>
+	  <element type = "DangerousGoodsReferenceId1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DangerousGoodsReferenceId2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DangerousGoodsReferenceId3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DangerousGoodsPackagingType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DangerousGoodsPackageQValue" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated - RFC8628--><element type = "DangerousGoodsCustomPackage" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "DangerousGoodsContactName" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "DangerousGoodsPhoneNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "DangerousGoodsTransportationMode" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "DangerousGoodsInfectiousSubstanceCategoryA" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "ExceptedQuantitiesOption" minOccurs ="0" maxOccurs ="1"/>
+    <element type = "LithiumBatteriesOption" minOccurs ="0" maxOccurs ="1"/>
+    <element type = "Length" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Width" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Height" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PiecesOnPallet" minOccurs = "0" maxOccurs = "1"/>    
+		<element type = "MerchandiseDescription" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalSubclass" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated - Beginning in WS2017, Nonmachinable XML tag is not supported-->
+		<element type = "NonmachinableIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "BalloonIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "OversizeIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FlexibleParcelInsuranceOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ProactiveResponseOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "RefrigerationOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DryIceOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PackageID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "GroundFreightPricingFreightClass" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "GroundFreightPricingNMFC" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "GroundFreightPricingSub" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PremiumCare" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "ExcludedFromUPSSynchronizedDeliveryOption" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "UPSPremierOption" minOccurs ="0" maxOccurs ="1"/>
+    <element type = "SimpleRatePackageSize" minOccurs ="0" maxOccurs ="1"/>
+    <element type = "DDUOversize" minOccurs="0" maxOccurs="1"/>
+     <element type = "MinimumBillableWeight" minOccurs="0" maxOccurs="1"/>
+	</ElementType>
+  <!--Deprecated - Beginning in WS2022 DeliveryConfirmation is replaced by SignatureServices-->
+	<ElementType name = "DeliveryConfirmation" content = "eltOnly" order = "many" model = "closed">
+		<element type = "SignatureRequired" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AdultSignatureRequired" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+  <ElementType name = "SignatureServices" content = "eltOnly" order = "many" model = "closed">
+    <element type = "AdultSignatureRequired" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <!--beginning in WS2021 Verbal Confirmation is deprecated-->
+	<ElementType name = "VerbalConfirmationOption" content = "eltOnly" order = "many" model = "closed">
+    <!--Deprecated--><element type = "VerbalConfirmationContactName" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated--><element type = "VerbalConfirmationTelephone" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+  <!--Deprecated--><ElementType name = "VerbalConfirmationContactName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <!--Deprecated--><ElementType name = "VerbalConfirmationTelephone" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+	<ElementType name = "FlexibleParcelInsuranceOption" content = "eltOnly" order = "many" model = "closed">
+		<element type = "FlexibleParcelInsuranceType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FlexibleParcelInsuranceValue" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+  <ElementType name = "ProactiveResponseOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "RefrigerationOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "FlexibleParcelInsuranceType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "20"/>
+	<ElementType name = "FlexibleParcelInsuranceValue" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r4"/>
+	<ElementType name = "SignatureRequired" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "AdultSignatureRequired" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "VoidIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "CashierCheckorMoneyOrderOnlyIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "HundredWeightPricingApplied" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ShipperReleaseOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "MerchandiseDescription" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+	<ElementType name = "MerchandiseDescriptionForPackage" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "AddShippingChargesToCODIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "LargePackageIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+	<ElementType name = "DangerousGoodsOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "DangerousGoodsReferenceId1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <ElementType name = "DangerousGoodsReferenceId2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <ElementType name = "DangerousGoodsReferenceId3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <ElementType name = "DangerousGoodsPackagingType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <ElementType name = "DangerousGoodsPackageQValue" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <ElementType name = "DangerousGoodsCustomPackage" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <ElementType name = "DangerousGoodsContactName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <ElementType name = "DangerousGoodsPhoneNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+  <ElementType name = "DangerousGoodsTransportationMode " content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+  <ElementType name = "DangerousGoodsInfectiousSubstanceCategoryA" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "ExceptedQuantitiesOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "LithiumBatteriesOption" content = "eltOnly" order = "many" model = "closed">
+    <element type = "LithiumIonAlone" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "LithiumMetalAlone" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "LithiumIoninEquipment" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "LithiumMetalinEquipment" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "LithiumIonPackedwithEquipment" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "LithiumMetalPackedwithEquipment" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <ElementType name ="LithiumIonAlone" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name ="LithiumMetalAlone" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name ="LithiumIoninEquipment" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name ="LithiumMetalinEquipment" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name ="LithiumIonPackedwithEquipment" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name ="LithiumMetalPackedwithEquipment" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "USI" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "SubProNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "19"/>
+	<ElementType name = "Weight" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "Length" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "Width" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "Height" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+  <ElementType name = "PiecesOnPallet" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "5"/>
+	<ElementType name = "PostalSubclass" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <!--Deprecated - Beginning in WS2017, Nonmachinable XML tag is not supported-->
+	<ElementType name = "NonmachinableIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "BalloonIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "OversizeIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "ServiceLevel" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "ServiceType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "25"/>
+  <ElementType name = "MasterCartonID" content ="textOnly" dt:type ="string" model ="closed" wsi:maxLength ="30"/>
+	<ElementType name = "Endorsement" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PackageType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "NumberOfPackages" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "i4"/>
+	<ElementType name = "ShipmentActualWeight" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r4"/>
+	<ElementType name = "ShipmentDimensionalWeight" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r4"/>
+	<ElementType name = "DescriptionOfGoods" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+	<ElementType name = "CostAllocationCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "Reference1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "Reference2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "Reference3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "Reference4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "Reference5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "DocumentOnly" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "GoodsNotInFreeCirculation" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "BillingOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "BillTransportationTo" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "BillDutyTaxTo" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "SplitDutyAndTax" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "DDU" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "DDP" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "AdditionalDocuments" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "ExcludedFromUPSSynchronizedDeliveryOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "UPSPremierOption" content = "eltOnly" order = "many" model = "closed">
+    <element type = "PremierCategory" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PremierMeshID" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PremierHandlingNoSpecialHandlingInstructionsNeeded" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PremierHandlingReturnToShipper" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PremierHandlingUPSOperationsToContactPremierSupport" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PremierHandlingUpgradeToWeekendDelivery" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PremierHandlingHoldForShipperInstructions" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PremierHandlingHoldForWillCall" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PremierHandlingTemperatureRequirements" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PremierHandlingAlternatePackageFlow" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <ElementType name ="PremierCategory" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <ElementType name ="PremierMeshID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <ElementType name ="PremierHandlingNoSpecialHandlingInstructionsNeeded" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name ="PremierHandlingReturnToShipper" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name ="PremierHandlingUPSOperationsToContactPremierSupport" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name ="PremierHandlingUpgradeToWeekendDelivery" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name ="PremierHandlingHoldForShipperInstructions" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name ="PremierHandlingHoldForWillCall" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name ="PremierHandlingTemperatureRequirements" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+  <ElementType name ="PremierHandlingAlternatePackageFlow" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/> 
+  <ElementType name ="SimpleRatePackageSize" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <ElementType name ="DDUOversize" content ="textOnly" dt:type ="string" model ="closed"/>
+  <ElementType name ="MinimumBillableWeight" content ="textOnly" dt:type ="string" model ="closed"/>
+  
+	<ElementType name = "ThirdParty" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CustomerID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CompanyName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ContactPerson" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Attention" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "City" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CityOrTown" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateOrProvince" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateProvinceCounty" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Residential" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ResidentialIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CustomerIDNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Phone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Telephone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FaxNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TaxIDNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UpsAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SCSAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DensityRatingIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "RecordOwner" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ThirdPartyReceiver" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CustomerID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Attention" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CityOrTown" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateProvinceCounty" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Telephone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FaxNumber" minOccurs = "0" maxOccurs = "1"/> 
+		<element type = "UpsAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "SaturdayDelivery" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "SaturdayPickUp" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+  <ElementType name = "WeekendCommercialDeliveryOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ReturnOfDocument" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "DeclareValue" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Amount" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "DeclaredValue" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Amount" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipperPaid" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ShipperPaid" content = "textOnly" dt:type="string" model = "closed"/>
+	<ElementType name = "Amount" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "r8"/>
+	<ElementType name = "Currency" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "AdditionalHandling" content = "eltOnly" order = "many" model = "closed">
+		<element type = "NumberOfAdditionalHandling" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "AdditionalHandlingOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "NumberOfAdditionalHandling" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "LargePackage" content = "eltOnly" order = "many" model = "closed">
+		<element type = "NumberOfLargePackages" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "NumberOfLargePackages" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "COD" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CashOnly" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CashierCheckorMoneyOrderOnlyIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddShippingChargesToCODIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Amount" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Currency" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "CashOnly" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "AODTag" content = "eltOnly" order = "many" model = "closed">
+		<element type = "NumberOfAOD" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "NumberOfAOD" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "HandlingChargeOption" content = "eltOnly" order = "many" model = "closed">
+		<element type = "HandlingChargeType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HCAmountIncreaseDecreaseType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HandlingChargeFlatRate" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HandlingChargePercentage" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "HandlingChargeType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "22"/>
+	<ElementType name = "HCAmountIncreaseDecreaseType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "8"/>
+	<ElementType name = "HandlingChargeFlatRate" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r4"/>
+	<ElementType name = "HandlingChargePercentage" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r4"/>
+	<ElementType name = "FoodItems" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "CollectionDate" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "date" wsi:maxLength = "10"/>
+	<ElementType name = "UPSSynchronizedDeliveryOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "UPSSynchronizedDeliveryDeliverByDate" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "date" wsi:maxLength = "8"/>
+  <ElementType name = "ShipNotification" content = "eltOnly" order = "many" model = "closed">
+		<element type = "EmailText" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "EmailText" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "150"/>
+	<ElementType name = "QuantumViewNotifyDetails" content = "eltOnly" order = "many" model = "closed">
+		<element type = "QuantumViewNotify" minOccurs = "0" maxOccurs = "*"/>
+		<element type = "FailureNotificationEMailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipperCompanyName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SubjectLineOptions" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NotificationMessage" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "QVNOption" content = "eltOnly" order = "many" model = "closed">
+		<element type = "QVNRecipientAndNotificationTypes" minOccurs = "0" maxOccurs = "*"/>
+		<element type = "ShipFromCompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FailedEMailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SubjectLine" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Memo" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "IncludeDutiesAndTaxesInMemo" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "QVNRecipientAndNotificationTypes" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ContactName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "EMailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LabelCreation" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InTransit" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Ship" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Exception" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Delivery" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Ship" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "Exception" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "Delivery" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "LabelCreation" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "InTransit" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "QVNOrReturnNotificationOption" content = "eltOnly" order = "many" model = "closed">
+		<element type = "QVNOrReturnRecipientAndNotificationTypes" minOccurs = "0" maxOccurs = "*"/>
+		<element type = "ShipFromCompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FailedEMailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SubjectLine" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Memo" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "QVNOrReturnRecipientAndNotificationTypes" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ContactName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "EMailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LabelCreation" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InTransit" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Ship" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Exception" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Delivery" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name="DryIceOption" content="eltOnly" order="many" model="closed">
+		<element type = "Weight" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UnitOfMeasure" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "RegulationSet" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "IsMedical" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DryIcePackagingType" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "RegulationSet" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "5"/>
+	<ElementType name = "IsMedical" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+	<ElementType name = "DryIcePackagingType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "SpecialCommodities" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CommoditiesDetails" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ISC-AlcoholicBeverages" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ISC-DiagnosticSpecimens" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "ISC-E-Cigarettes" minOccurs ="0" maxOccurs ="1"/>
+    <element type = "ISC-HempCBD" minOccurs ="0" maxOccurs ="1"/>
+		<element type = "ISC-Perishables" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ISC-Plants" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ISC-Seeds" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ISC-SpecialException" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ISC-Tobacco" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "CommoditiesDetails" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "ISC-AlcoholicBeverages" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ISC-DiagnosticSpecimens" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "ISC-E-Cigarettes" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "ISC-HempCBD" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ISC-Perishables" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ISC-Plants" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ISC-Seeds" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ISC-SpecialException" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ISC-Tobacco" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "Signature-AdultSignatureRequired" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "QuantumViewNotify" content = "eltOnly" order = "many" model = "closed">
+		<element type = "NotificationEMailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NotificationRequest" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "NotificationEMailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "NotificationRequest" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "FailureNotificationEMailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "ShipperCompanyName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "SubjectLineOptions" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "NotificationMessage" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "ReturnNotificationDetails" content = "eltOnly" order = "many" model = "closed">
+		<element type = "ReturnNotification" minOccurs = "0" maxOccurs = "*"/>
+		<element type = "FailureNotificationEMailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipperCompanyName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SubjectLineOptions" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NotificationMessage" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ReturnNotification" content = "eltOnly" order = "many" model = "closed">
+		<element type = "NotificationEMailAddress" minOccurs = "0" maxOccurs = "*"/>
+	</ElementType>
+	<ElementType name = "ContactName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "ShipFromCompanyOrName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "EMailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "FailedEMailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "SubjectLine" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "75"/>
+	<ElementType name = "Memo" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "150"/>
+	<ElementType name = "ImportID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "20"/>
+	<ElementType name = "UserDefinedID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "20"/>
+	<ElementType name = "UPSExchangeCollect" content = "eltOnly" order = "many" model = "closed">
+		<element type = "BuyerEMailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SellerEMailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ExchangeCollectAmount" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Currency" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "BuyerPercentageOfServiceFee" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DescriptionOfGoods" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AdditionalComments" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "BuyerEMailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "SellerEMailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "BuyerPercentageOfServiceFee" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "r8"/>
+	<ElementType name = "ExchangeCollectAmount" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "r8"/>
+	<ElementType name = "ReturnService" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Options" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PrintAddressOnlyInvoice" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SenderCompanyName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "RecipientEmailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FailureOfDeliveryEmailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InstructionAndReceiptLanguage" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "MerchandiseDescOfPackage" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "MailInnovationsReturnService" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Options" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "RecipientEmailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FailureOfDeliveryEmailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InstructionAndReceiptLanguage" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "MerchandiseDescOfPackage" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ReturnsFlexibleAccess" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "CarbonNeutral" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "StateDeptLicenseOption" content ="textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "Options" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "PrintAddressOnlyInvoice" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "i4"/>
+	<ElementType name = "SenderCompanyName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "FailureOfDeliveryEmailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "InstructionAndReceiptLanguage" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "MerchandiseDescOfPackage" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "150"/>
+	<ElementType name = "RecipientEmailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "Invoice" content = "eltOnly" order = "many" model = "closed">
+		<element type = "ReasonForExport" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TermOfSale" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DeclarationStatement" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AdditionalComments" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceCurrency" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceLineTotal" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DiscountRebate" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Freight" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Insurance" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "OtherCharges" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TotalInvoiceAmount" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LineItem" minOccurs = "0" maxOccurs = "*"/>
+		<element type = "SoldTo" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ReasonForExport" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "TermOfSale" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "DeclarationStatement" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "253"/>
+	<ElementType name = "AdditionalComments" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "253"/>
+	<ElementType name = "InvoiceCurrency" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "InvoiceLineTotal" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r8"/>
+	<ElementType name = "CustomsValueTotal" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r8"/>
+	<ElementType name = "DiscountRebate" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r4"/>
+	<ElementType name = "Freight" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "r4"/>
+	<ElementType name = "Insurance" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r4"/>
+	<ElementType name = "OtherCharges" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r4"/>
+	<ElementType name = "TotalInvoiceAmount" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r8"/>
+	<ElementType name = "LineItem" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Product" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NumberOfUnits" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "NumberOfUnits" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "i4"/>
+	<ElementType name = "Product" content = "eltOnly" order = "many" model = "closed">
+		<element type = "ProductNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PartNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ProductName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HarmonizedCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ProductDescription" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UnitOfMeasure" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryOfOriginCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CurrencyCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UnitPrice" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ProductNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "PartNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "UPC" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+	<ElementType name = "ASIN" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+	<ElementType name = "ProductName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "HarmonizedCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "ProductDescription" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+	<ElementType name = "UnitOfMeasure" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "CountryOfOriginCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "CurrencyCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "UnitPrice" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "19" wsi:datatype = "sr"/>
+	<ElementType name = "TariffCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35" wsi:datatype = "sr"/>
+	<ElementType name = "Goods" content = "eltOnly" order = "many" model = "closed">
+		<element type = "PartNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UPC" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ASIN" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DescriptionOfGood" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Inv-NAFTA-TariffCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Inv-NAFTA-CO-CountryTerritoryOfOrigin" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceUnits" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceUnitOfMeasure" minOccurs = "0" maxOccurs = "1"/>
+	  <!--deprecated--><element type = "Invoice-SED-UnitPrice" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Invoice-EEI-UnitPrice" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceCurrencyCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceTaxPaid" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceNetWeight" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-CO-GrossWeight" minOccurs = "0" maxOccurs = "1"/>
+    <element type ="EEI-CO-GrossWeight" minOccurs ="0" maxOccurs ="1"/>
+    <!--deprecated--><element type = "SED-LbsOrKgs" minOccurs = "0" maxOccurs = "1"/>
+    <element type ="EEI-LbsOrKgs" minOccurs ="0" maxOccurs ="1"/>
+    <!--deprecated--><element type = "SED-PrintGoodOn-SED" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-PrintGoodOn-EEI" minOccurs ="0" maxOccurs ="1"/>
+    <!--deprecated--><element type = "Invoice-SED-CO-MarksAndNumbers" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Invoice-EEI-CO-MarksAndNumbers" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-ScheduleBNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-ScheduleBNumber" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-ScheduleBUnits1" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-ScheduleBUnits1" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-ScheduleBUnits2" minOccurs = "0" maxOccurs = "1"/>
+    <element type ="EEI-ScheduleBUnits2" minOccurs ="0" maxOccurs ="1"/>
+    <!--deprecated--><element type = "SED-UnitsOfMeasure1" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-UnitsOfMeasure1" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-UnitsOfMeasure2" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-UnitsOfMeasure2" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-ECCN" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-ECCN" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-Exception" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-LicenseType" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-LicenceNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-LicenseNumber" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-LicenceNumberExpirationDate" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-LicenseNumberExpirationDate" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-LicenseLineValue" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-ExportCode" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-ExportCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NAFTA-PrintGoodOn-NAFTA" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NAFTA-PreferenceCriterion" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NAFTA-Producer" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NAFTA-MultipleCountriesTerritoriesOfOrigin" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NAFTA-NetCostMethod" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NAFTA-NetCostPeriodStartDate" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NAFTA-NetCostPeriodEndDate" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CO-PrintGoodOn-CO" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CO-NumberOfPackageContainingGood" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "DFM" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DF" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SLI-PrintGoodOn-SLI" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "DDTCITARExemptionCode" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "DDTCACMNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DDTCLicenseLineNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DDTCRegistrationNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DDTCSignificantMilitaryEquipmentIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DDTCEligiblePartyCertificationIndicator" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DDTCUSMLCategoryCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DDTCUnitOfMeasure" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DDTCQuantity" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "GoodID" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "DescriptionOfGood" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+	<ElementType name = "NAFTA-PrintGoodOn-NAFTA" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "Inv-NAFTA-TariffCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+	<ElementType name = "Inv-NAFTA-CO-CountryTerritoryOfOrigin" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+	<ElementType name = "InvoiceUnits" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "i4"/>
+	<ElementType name = "InvoiceUnitOfMeasure" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <!--Deprecated--><ElementType name = "SED-UnitsOfMeasure1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <ElementType name = "EEI-UnitsOfMeasure1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <!--Deprecated--><ElementType name = "SED-UnitsOfMeasure2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <ElementType name = "EEI-UnitsOfMeasure2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <!--Deprecated--><ElementType name = "Invoice-SED-UnitPrice" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "19" wsi:datatype = "sr"/>
+  <ElementType name = "Invoice-EEI-UnitPrice" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "19" wsi:datatype = "sr"/>
+  <ElementType name = "InvoiceTaxPaid" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "InvoiceNetWeight" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+  <!--Deprecated--><ElementType name = "SED-CO-GrossWeight" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+  <ElementType name = "EEI-CO-GrossWeight" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+  <!--Deprecated--><ElementType name = "SED-LbsOrKgs" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+  <ElementType name = "EEI-LbsOrKgs" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+  <!--Deprecated--><ElementType name = "SED-PrintGoodOn-SED" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "EEI-PrintGoodOn-EEI" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <!--Deprecated--><ElementType name = "Invoice-SED-CO-MarksAndNumbers" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+  <ElementType name = "Invoice-EEI-CO-MarksAndNumbers" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+  <!--Deprecated--><ElementType name = "SED-ScheduleBNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+  <ElementType name = "EEI-ScheduleBNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+  <!--Deprecated--><ElementType name = "SED-ScheduleBUnits1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+  <ElementType name = "EEI-ScheduleBUnits1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+  <!--Deprecated--><ElementType name = "SED-ScheduleBUnits2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+  <ElementType name = "EEI-ScheduleBUnits2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+  <!--Deprecated--><ElementType name = "SED-ECCN" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+  <ElementType name = "EEI-ECCN" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+  <!--Deprecated--><ElementType name = "SED-Exception" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "24"/>
+  <ElementType name = "EEI-LicenseType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "24"/>
+  <!--Deprecated--><ElementType name = "SED-LicenceNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+  <ElementType name = "EEI-LicenseNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+  <!--Deprecated--><ElementType name = "SED-LicenceNumberExpirationDate" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+  <ElementType name = "EEI-LicenseNumberExpirationDate" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+  <ElementType name = "EEI-LicenseLineValue" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+	<ElementType name = "NAFTA-PreferenceCriterion" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "NAFTA-MultipleCountriesTerritoriesOfOrigin" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "NAFTA-NetCostMethod" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+	<ElementType name = "NAFTA-NetCostPeriodStartDate" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+	<ElementType name = "NAFTA-NetCostPeriodEndDate" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+	<ElementType name = "CO-PrintGoodOn-CO" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "CO-NumberOfPackageContainingGood" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+  <!--Deprecated--><ElementType name = "DFM" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+	<ElementType name = "DF" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+	<ElementType name = "SLI-PrintGoodOn-SLI" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "DDTCITARExemptionCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <ElementType name = "DDTCACMNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "11"/>
+	<ElementType name = "DDTCSignificantMilitaryEquipmentIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "DDTCEligiblePartyCertificationIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "DDTCRegistrationNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+	<ElementType name = "DDTCUSMLCategoryCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "4"/>
+	<ElementType name = "DDTCUnitOfMeasure" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "20"/>
+	<ElementType name = "DDTCQuantity" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "5"/>
+	<ElementType name = "InternationalDocumentation" content = "eltOnly" order = "many" model = "closed">
+        <element type = "CreateAnInvoice" minOccurs = "0" maxOccurs = "1"/>
+        <element type = "InvoiceImporterSameAsShipTo" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceTermOfSale" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceReasonForExport" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceDeclarationStatement" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceAdditionalComments" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceCurrencyCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceDiscount" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceChargesFreight" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceChargesInsurance" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceChargesOther" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InvoiceLineTotal" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CustomsValueTotal" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CustomsValueCurrencyCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CustomsValueOrigin" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-Code" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-FilingMethod" minOccurs ="0" maxOccurs ="1"/>
+    <!--deprecated--><element type = "SED-PartiesToTransaction" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-PartiesToTransaction" minOccurs ="0" maxOccurs ="1"/>
+    <!--deprecated--><element type = "SED-UltimateConsigneeSameAsShipTo" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-UltimateConsigneeSameAsShipTo" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-UltimateConsigneeType" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-CountryTerritoryOfUltimateDestination" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-AESTransactionNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type ="EEI-ShipmentReferenceNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type ="EEI-InternationalTransactionNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type ="EEI-AESExemptionLegend" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-AESTransactionNumberType" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-RoutedTransaction" minOccurs = "0" maxOccurs = "1"/>
+    <element type ="EEI-RoutedTransaction" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-CurrencyConversion" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-CurrencyConversion" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-NotificationIndicator" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-NotificationEmailAddress" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-InbondCode" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-InbondNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "EEI-InbondFTZ" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "SED-ExportCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CO-UPSPrepare-CO" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CO-OwnerOrAgent" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NAFTA-Producer" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NAFTA-BlanketPeriodStart" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NAFTA-BlanketPeriodEnd" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "MovementReferenceNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CN22GoodsType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CN22GoodsTypeOtherDescription" minOccurs = "0" maxOccurs = "1"/>
+    <!--deprecated--><element type = "RequestDutiesAndTaxes" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+    <ElementType name = "CreateAnInvoice" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "InvoiceImporterSameAsShipTo" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "InvoiceReasonForExport" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "255"/>
+	<ElementType name = "InvoiceTermOfSale" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "255"/>
+	<ElementType name = "InvoiceDeclarationStatement" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "255"/>
+	<ElementType name = "InvoiceAdditionalComments" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "300"/>
+	<ElementType name = "InvoiceCurrencyCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "InvoiceDiscount" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r4"/>
+	<ElementType name = "InvoiceChargesFreight" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "r4"/>
+	<ElementType name = "InvoiceChargesInsurance" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r4"/>
+	<ElementType name = "InvoiceChargesOther" content = "textOnly" dt:type = "string" model = "closed" wsi:minValue = "0" wsi:datatype = "r4"/>
+	<ElementType name = "CustomsValueCurrencyCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "CustomsValueOrigin" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "255"/>
+  <!--deprecated--><ElementType name = "SED-Code" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <ElementType name = "EEI-FilingMethod" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <!--deprecated--><ElementType name = "SED-PartiesToTransaction" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "255"/>
+  <ElementType name = "EEI-PartiesToTransaction" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "255"/>
+  <!--deprecated--><ElementType name = "SED-UltimateConsigneeSameAsShipTo" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "EEI-UltimateConsigneeSameAsShipTo" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "EEI-UltimateConsigneeType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <!--deprecated--><ElementType name = "SED-CountryTerritoryOfUltimateDestination" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+  <!--deprecated--><ElementType name = "SED-AESTransactionNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "17"/>
+  <ElementType name = "EEI-ShipmentReferenceNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "17"/>
+  <ElementType name = "EEI-InternationalTransactionNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+  <ElementType name = "EEI-AESExemptionLegend" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "20"/>
+  <!--deprecated--><ElementType name = "SED-AESTransactionNumberType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "7"/>
+  <!--deprecated--><ElementType name = "SED-RoutedTransaction" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "EEI-RoutedTransaction" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <!--deprecated--><ElementType name = "SED-CurrencyConversion" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "12"/>
+  <ElementType name = "EEI-CurrencyConversion" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "12"/>
+  <ElementType name = "EEI-NotificationIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "EEI-NotificationEmailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+  <ElementType name = "EEI-InbondCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+  <ElementType name = "EEI-InbondNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+  <ElementType name = "EEI-InbondFTZ" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "7"/>
+  <!--deprecated--><ElementType name = "SED-ExportCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+  <ElementType name = "EEI-ExportCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "CO-UPSPrepare-CO" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+	<ElementType name = "CO-OwnerOrAgent" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "255"/>
+	<ElementType name = "NAFTA-Producer" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "255"/>
+	<ElementType name = "NAFTA-BlanketPeriodStart" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "date" wsi:maxLength = "9"/>
+	<ElementType name = "NAFTA-BlanketPeriodEnd" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "date" wsi:maxLength = "9"/>
+  <ElementType name = "MovementReferenceNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "date" wsi:maxLength = "18"/>
+	<ElementType name = "CN22GoodsType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+	<ElementType name = "CN22GoodsTypeOtherDescription" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "20"/>
+  <!--deprecated--><ElementType name = "RequestDutiesAndTaxes" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+	<ElementType name = "Print-SLI" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "ProfileName" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "date" wsi:maxLength = "50"/>  
+	<ElementType name = "SoldTo" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CompanyName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ContactPerson" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AddressLine3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "City" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateOrProvince" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Residential" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CustomerIDNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Phone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TaxIDNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UpsAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "RecordOwner" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Importer" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CustomerID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CompanyOrName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Attention" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CityOrTown" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateProvinceCounty" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Telephone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TaxIDNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UpsAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "FreightShipmentInformation" content = "eltOnly" order = "many" model = "closed">
+		<element type = "NumberHandlingUnitType1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HandlingUnitType1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NumberHandlingUnitType2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HandlingUnitType2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SpecialInstructionsForHandling" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SpecialInstructionsForPickup" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SpecialInstructionsForDelivery" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FRUnitOfMeasure" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "BOLFormat" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AWBBOLOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AWBBOLEmail1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AWBBOLEmail2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AWBBOLEmail3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AWBBOLEmail4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AWBBOLEmail5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AWBBOLSubjectLine" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AWBBOLComments" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AWBBOLFailureEmail" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CustomClearance" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FRCustomsValue" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FRCustomsValueAmount" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FRDeclaredValue" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FRDeclaredValueAmount" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FRDeclaredValueCurrency" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FRDangerousGoodsOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DGEmergencyContactName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DGEmergencyPhone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DGTransportationMode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "EmailNotifyOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENShip1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENException1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENDelivery1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENCompany1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENEmail1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENShip2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENException2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENDelivery2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENCompany2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENEmail2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENShip3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENException3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENDelivery3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENCompany3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENEmail3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENShip4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENException4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENDelivery4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENCompany4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENEmail4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENShip5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENException5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENDelivery5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENCompany5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENEmail5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENMemo" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ENFailedEmail" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "IncludeDutiesAndTaxesInMemo" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DeliveryToDoor" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TotalVolumeValue" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CubicFeetValue" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CWTValue" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CallBeforeDelivery" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ConstructionSiteDelivery" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DropOffAtUPSLocation" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupAtUPSLocation" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HAPUOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HolidayDelivery" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HolidayPickup" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InsideDelivery" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InsidePickup" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LiftGateServiceForDelivery" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LiftGateServiceForPickup" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LiftGateServiceRequired" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ResidentialDelivery" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ResidentialPickup" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SortAndSegAtDest" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SortAndSegNumberPieces" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "WeekendDelivery" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "WeekendPickup" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LimitedAccessDelivery" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "LimitedAccessPickup" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FreezableProtection" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ExtremeLength" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "ExtremeLengthLongestSide" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FRCOD" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CODAmount" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CODPaymentMethod" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CODPaymentType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PRONumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipmentID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryOfOriginalManufacture1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryOfOriginalManufacture2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryOfOriginalManufacture3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryOfOriginalManufacture4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryOfOriginalManufacture5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SaturdayDeliveryOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "HandingUnitWeightApplies" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DropOffOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Date" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Time" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DropOffDate" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DropOffTime" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupDate" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupReadyTime" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupLocationClosingTime" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PaymentTerms" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ConsigneeRemarks" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotificationsForLTLShipment" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotificationReferenceNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotificationReferenceType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotificationCompanyName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotificationFailedEmailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyEmailAddress1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyPickupScheduled1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyDriverEnRoute1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyException1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyPickedUp1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyEmailAddress2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyPickupScheduled2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyDriverEnRoute2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyException2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyPickedUp2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyEmailAddress3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyPickupScheduled3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyDriverEnRoute3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyException3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyPickedUp3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyEmailAddress4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyPickupScheduled4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyDriverEnRoute4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyException4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyPickedUp4" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyEmailAddress5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyPickupScheduled5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyDriverEnRoute5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyException5" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PickupNotifyPickedUp5" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "NumberHandlingUnitType1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+	<ElementType name = "HandlingUnitType1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "NumberHandlingUnitType2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+	<ElementType name = "HandlingUnitType2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "SpecialInstructionsForHandling" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "400"/>
+	<ElementType name = "SpecialInstructionsForPickup" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "400"/>
+	<ElementType name = "SpecialInstructionsForDelivery" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "400"/>
+	<ElementType name = "FRUnitOfMeasure" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "255"/>
+	<ElementType name = "AWBBOLOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "BOLFormat" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "5"/>
+	<ElementType name = "AWBBOLEmail1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "AWBBOLEmail2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "AWBBOLEmail3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "AWBBOLEmail4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "AWBBOLEmail5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "AWBBOLSubjectLine" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "75"/>
+	<ElementType name = "AWBBOLComments" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "250"/>
+	<ElementType name = "AWBBOLFailureEmail" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "CustomClearance" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "FRCustomsValue" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "FRCustomsValueAmount" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "9"/>
+	<ElementType name = "FRDeclaredValue" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "FRDeclaredValueAmount" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "9"/>
+	<ElementType name = "FRDeclaredValueCurrency" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "FRDangerousGoodsOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "DGEmergencyContactName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "DGEmergencyPhone" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+	<ElementType name = "DGTransportationMode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+	<ElementType name = "EmailNotifyOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENShip1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENException1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENDelivery1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENCompany1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "ENEmail1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "ENShip2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENException2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENDelivery2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENCompany2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "ENEmail2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "ENShip3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENException3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENDelivery3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENCompany3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "ENEmail3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "ENShip4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENException4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENDelivery4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENCompany4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "ENEmail4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "ENShip5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENException5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENDelivery5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ENCompany5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "ENEmail5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "ENMemo" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "150"/>
+	<ElementType name = "ENFailedEmail" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "IncludeDutiesAndTaxesInMemo" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "DeliveryToDoor" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "TotalPieces" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "5"/>
+	<ElementType name = "TotalVolumeValue" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "5"/>
+	<ElementType name = "CubicFeetValue" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "5"/>
+	<ElementType name = "CWTValue" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "5"/>
+	<ElementType name = "CallBeforeDelivery" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ConstructionSiteDelivery" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "DropOffAtUPSLocation" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupAtUPSLocation" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "HAPUOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "HolidayDelivery" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "HolidayPickup" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "InsideDelivery" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "InsidePickup" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "LiftGateServiceForDelivery" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "LiftGateServiceForPickup" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "LiftGateServiceRequired" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ResidentialDelivery" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ResidentialPickup" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "SaturdayDeliveryOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "SortAndSegAtDest" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "SortAndSegNumberPieces" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+	<ElementType name = "WeekendDelivery" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "WeekendPickup" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "LimitedAccessDelivery" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "LimitedAccessPickup" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "FreezableProtection" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ExtremeLength" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "ExtremeLengthLongestSide" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2" wsi:datatype = "boolean"/>
+  <ElementType name = "FRCOD" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "CODAmount" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "20"/>
+	<ElementType name = "CODPaymentMethod" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "CODPaymentType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PRONumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "99"/>
+	<ElementType name = "ShipmentID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+	<ElementType name = "CountryOfOriginalManufacture1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "CountryOfOriginalManufacture2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "CountryOfOriginalManufacture3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "CountryOfOriginalManufacture4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "CountryOfOriginalManufacture5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "HandingUnitWeightApplies" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "DropOffOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "Date" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "8"/>
+	<ElementType name = "Time" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+	<ElementType name = "DropOffDate" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "8"/>
+	<ElementType name = "DropOffTime" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+	<ElementType name = "PickupDate" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "8"/>
+	<ElementType name = "PickupReadyTime" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+	<ElementType name = "PickupLocationClosingTime" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+	<ElementType name = "PaymentTerms" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "8"/>
+	<ElementType name = "ConsigneeRemarks" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "8"/>
+	<ElementType name = "PickupNotificationsForLTLShipment" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotificationReferenceNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "99"/>
+	<ElementType name = "PickupNotificationReferenceType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PickupNotificationCompanyName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "PickupNotificationFailedEmailAddress" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PickupNotifyEmailAddress1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PickupNotifyPickupScheduled1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyDriverEnRoute1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyException1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyPickedUp1" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyEmailAddress2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PickupNotifyPickupScheduled2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyDriverEnRoute2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyException2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyPickedUp2" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyEmailAddress3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PickupNotifyPickupScheduled3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyDriverEnRoute3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyException3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyPickedUp3" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyEmailAddress4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PickupNotifyPickupScheduled4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyDriverEnRoute4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyException4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyPickedUp4" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyEmailAddress5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "PickupNotifyPickupScheduled5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyDriverEnRoute5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyException5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "PickupNotifyPickedUp5" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ShipperLetterOfInstruction" content = "eltOnly" order = "many" model = "closed">
+		<element type = "RoutedExportTransactionRelated" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UltimateConsigneeSameAsShipTo" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "IntermediateConsignee" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "IsPartiesToTransactionRelated" minOccurs = "0" maxOccurs = "1"/>
+		<!--Deprecated--><element type = "DDTCRegistrationNumber" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated--><element type = "SME" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated--><element type = "EligiblePartyCertificationNumber" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated--><element type = "USMLCategoryCode" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated--><element type = "DDTCQuantity" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated--><element type = "UnitOfMeasure" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated--><element type = "DDTCLicenseLineNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Title" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TelephoneNo" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "EmailAddress" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AttachedCommercialInvoice" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AttachedCertificateOfOrigin" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AttachedPackingList" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AttachedLetterOfCredit" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AttachedBanking" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AttachedImportLicense" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AttachedExportLicense" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AttachedDangerousGoodsDeclaration" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AttachedGBLOption" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "AttachedGBLValue" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ProFormaInvoice" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CerticateOfOrigin" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ConsularInvoice" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Banking" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "InsuranceCertificate" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ExportLicense" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SpecialInstructions" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ExtraDescription" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CertificateOfOriginNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DulyAuthorizedOfficerOrEmployee" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Print-SLI" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "RoutedExportTransactionRelated" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "UltimateConsigneeSameAsShipTo" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "IntermediateConsignee" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "IsPartiesToTransactionRelated" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "SME" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "EligiblePartyCertificationNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+  <ElementType name = "USMLCategoryCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "30"/>
+  <ElementType name = "DDTCLicenseLineNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "255"/>
+	<ElementType name = "Title" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "40"/>
+	<ElementType name = "TelephoneNo" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+	<ElementType name = "AttachedCommercialInvoice" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "AttachedCertificateOfOrigin" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "AttachedPackingList" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "AttachedLetterOfCredit" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "AttachedBanking" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "AttachedImportLicense" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "AttachedExportLicense" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "AttachedDangerousGoodsDeclaration" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "AttachedGBLOption" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "AttachedGBLValue" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "25"/>
+	<ElementType name = "ProFormaInvoice" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "CerticateOfOrigin" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ConsularInvoice" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "Banking" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "InsuranceCertificate" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "ExportLicense" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "SpecialInstructions" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "255"/>
+	<ElementType name = "ExtraDescription" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "CertificateOfOriginNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "15"/>
+	<ElementType name = "DulyAuthorizedOfficerOrEmployee" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "30"/>
+	<ElementType name = "FreightCommodity" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Description" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "IsDangerousGood" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NumberOfPieces" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FCPackageType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NMFCCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NMFC" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Sub" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FCFreightClass" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FCWeight" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FCUnitWeight" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FCHeight" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FCWidth" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FCLength" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Description" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "755"/>
+	<ElementType name = "IsDangerousGood" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" wsi:datatype = "boolean"/>
+	<ElementType name = "NumberOfPieces" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+	<ElementType name = "FCPackageType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "NMFCCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "8"/>
+	<ElementType name = "NMFC" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+	<ElementType name = "Sub" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+	<ElementType name = "FCFreightClass" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+	<ElementType name = "FCWeight" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "8"/>
+	<ElementType name = "FCUnitWeight" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "8"/>
+	<ElementType name = "FCHeight" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "FCWidth" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "FCLength" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+	<ElementType name = "FreightReferenceNumber" content = "eltOnly" order = "many" model = "closed">
+		<element type = "ReferenceNumberType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ReferenceNumberValue" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ReferenceNumberType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "50"/>
+	<ElementType name = "ReferenceNumberValue" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+	<ElementType name = "FreightCODRemit" content = "eltOnly" order = "many" model = "closed">
+		<element type = "CustomerID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CompanyName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Attention" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Address3" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CountryTerritory" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PostalCode" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CityOrTown" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "StateProvinceCounty" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Telephone" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FaxNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UpsAccountNumber" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ProcessMessage" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Error" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipmentRates" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "TrackingNumbers" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "ShipID" minOccurs ="0" maxOccurs ="1"/>
+		<element type = "ImportID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference1" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Reference2" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipmentID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PRONumber" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+  <ElementType name = "ShipID" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "20"/>
+	<ElementType name = "Error" content = "eltOnly" order = "many" model = "closed">
+		<element type = "ErrorMessage"/>
+	</ElementType>
+	<ElementType name = "ShipmentRates" content = "eltOnly" order = "many" model = "closed">
+		<element type = "ShipmentCharges" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipperCharges" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ReceiverCharges" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ShipmentandHandlingCharges" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Declared_Value" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "C_O_D" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Return_Services" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ReturnsFlexibleAccessCharge" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "ReturnsFlexibleAccessConvenienceCharge" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CarbonNeutralCharge" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Saturday_Delivery" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Saturday_Pickup" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Proactive_Response" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated - Beginning in WS2022 DeliveryConfirmation is replaced by SignatureServices-->    
+		<element type = "Delivery_Confirmation" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Signature_Services" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Delivery_AreaSurcharge" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "QVN" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PackageRates" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Import_ControlCharges" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CommercialInvoiceRemovalCharges" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "RefrigerationCharges" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SecuritySurcharge" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "DestinationAreaSurcharge" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "OriginAreaSurcharge" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "ResidentialSurcharge" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FuelSurcharge" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "DutyTaxForwardingSurcharge" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ShipmentCharges" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ShipperCharges" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ReceiverCharges" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ShipmentandHandlingCharges" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Declared_Value" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "C_O_D" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Return_Services" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Import_ControlCharges" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "CommercialInvoiceRemovalCharges" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ReturnsFlexibleAccessCharge" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ReturnsFlexibleAccessConvenienceCharge" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "CarbonNeutralCharge" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Saturday_Delivery" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Saturday_Pickup" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Proactive_Response" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "RefrigerationCharges" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Delivery_Confirmation" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+  <ElementType name = "Signature_Services" content = "eltOnly" order = "many" model = "closed">
+    <element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+	<ElementType name = "Delivery_AreaSurcharge" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "SecuritySurcharge" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "DestinationAreaSurcharge" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "OriginAreaSurcharge" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "ResidentialSurcharge" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "NonmachinableCharge" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "NonDDUCharge" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "PackageRates" content = "eltOnly" order = "many" model = "closed">
+		<element type = "PackageRate" minOccurs = "0" maxOccurs = "*"/>
+	</ElementType>
+  <ElementType name = "FuelSurcharge" content = "eltOnly" order = "many" model = "closed">
+    <element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <ElementType name = "DutyTaxForwardingSurcharge" content = "eltOnly" order = "many" model = "closed">
+    <element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <ElementType name = "PackageRate" content = "eltOnly" order = "many" model = "closed">
+		<element type = "TrackingNumber" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "USPSNumber" minOccurs = "0" maxOccurs = "1"/>
+        <element type = "MailManifestId" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "PackageCharges" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Additional_Handling" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "C_O_D" minOccurs = "0" maxOccurs = "1"/>
+    <!--Deprecated - Beginning in WS2022 DeliveryConfirmation is replaced by SignatureServices-->
+    <element type = "Delivery_Confirmation" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "Signature_Services" minOccurs = "0" maxOccurs = "1"/>
+		<!--Deprecated -beginning in WS2021 Verbal Confirmation is deprecated-->
+    <element type = "Verbal_Confirmation" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Declared_Value" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "QVN" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Proactive_Response" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "RefrigerationCharges" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Dry_Ice" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Delivery_AreaSurcharge" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NonmachinableCharge" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NonDDUCharge" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "SecuritySurcharge" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PremiumCare_Charge" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FuelSurcharge" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "LargePackageSurcharge" minOccurs = "0" maxOccurs = "1"/>    
+	</ElementType>
+	<ElementType name = "PackageCharges" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Additional_Handling" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+  <!-- beginning in WS2021 Verbal Confirmation is deprecated-->
+	<ElementType name = "Verbal_Confirmation" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "QVN" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Dry_Ice" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Rate" content = "eltOnly" order = "many" model = "closed">
+		<element type = "Reference" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Published" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "CCC" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "Negotiated" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "Reference" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "r4"/>
+	<ElementType name = "Published" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "r4"/>
+	<ElementType name = "CCC" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "r4"/>
+	<ElementType name = "Negotiated" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "r4"/>
+	<ElementType name = "USPSNumbers" content = "eltOnly" order = "many" model = "closed">
+		<element type = "USPSNumber" minOccurs = "0" maxOccurs = "*"/>
+	</ElementType>
+    <ElementType name = "MailManifestIds" content = "eltOnly" order = "many" model = "closed">
+        <element type = "MailManifestId" minOccurs = "0" maxOccurs = "*"/>
+    </ElementType>
+	<ElementType name = "TrackingNumbers" content = "eltOnly" order = "many" model = "closed">
+		<element type = "TrackingNumber" minOccurs = "0" maxOccurs = "*"/>
+	</ElementType>
+	<ElementType name = "TrackingNumber" content = "textOnly" dt:type = "string" model = "closed"/>
+	<ElementType name = "USPSDeliveryConfirmationOption" content = "textOnly" dt:type = "string" model = "closed"/>
+	<ElementType name = "USPSNumber" content = "textOnly" dt:type = "string" model = "closed"/>
+  <ElementType name = "MailManifestId" content = "textOnly" dt:type= "string" model = "closed"/>
+	<ElementType name = "ErrorMessage" content = "textOnly" dt:type = "string" model = "closed"/>
+	<ElementType name = "PackingList" content = "eltOnly" order = "many" model = "closed">
+		<element type = "PackageID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "GoodID" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "UnitsInPackage" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "UserForms" content = "eltOnly" order = "many" model = "closed">
+		<element type = "FileName" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "FormType" minOccurs = "0" maxOccurs = "1"/>
+		<element type = "NumberOfForms" minOccurs = "0" maxOccurs = "1"/>
+	</ElementType>
+	<ElementType name = "PackageID" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "GoodID" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "PackingListMemo" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "500"/>
+	<ElementType name = "UnitsInPackage" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "FileName" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "500"/>
+	<ElementType name = "FormType" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "NumberOfForms" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "GroundFreightPricing" content = "textOnly" dt:type = "string" model = "closed" wsi:datatype = "i4"/>
+	<ElementType name = "GroundFreightPricingFreightClass" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "10"/>
+	<ElementType name = "GroundFreightPricingNMFC" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "8"/>
+	<ElementType name = "GroundFreightPricingSub" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+  <ElementType name = "HandlingUnit" content = "eltOnly" order = "many" model = "closed">
+    <element type = "HUDescription" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "HUNumUnits" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "HUType" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "HUHeight" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "HUWidth" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "HULength" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <ElementType name = "HUDescription" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+  <ElementType name = "HUNumUnits" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+  <ElementType name = "HUType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "35"/>
+  <ElementType name = "HUHeight" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+  <ElementType name = "HUWidth" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+  <ElementType name = "HULength" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+  <ElementType name = "FreightPackingList" content = "eltOnly" order = "many" model = "closed">
+    <element type = "FreightPackingListMemo" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "PaperlessPackingListIndicator" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FreightPackingListLanguage" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <ElementType name = "FreightPackingListMemo" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+  <ElementType name = "PaperlessPackingListIndicator" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "FreightPackingListLanguage" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "3"/>
+  <ElementType name = "FreightPackingListItem" content = "eltOnly" order = "many" model = "closed">
+    <element type = "FPLINumberOfPieces" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FPLIPackageType" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FPLIUnitPrice" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FPLIIsDangerousGood" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FPLIWeight" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FPLILength" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FPLIWidth" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FPLIHeight" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "FPLIDescription" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <ElementType name = "FPLINumberOfPieces" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+  <ElementType name = "FPLIPackageType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+  <ElementType name = "FPLIUnitPrice" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "6"/>
+  <ElementType name = "FPLIIsDangerousGood" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "FPLIWeight" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "FPLILength" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "FPLIWidth" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "FPLIHeight" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "FPLIDescription" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "105"/>
+  <ElementType name = "PremiumCare" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1" />
+  <ElementType name = "PremiumCare_Charge" content = "eltOnly" order = "many" model = "closed">
+    <element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <ElementType name = "LargePackageSurcharge" content = "eltOnly" order = "many" model = "closed">
+    <element type = "Rate" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <ElementType name = "DeliverToAddresseeOnly" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "DirectDeliveryOnly" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "PackageReleaseCode" content = "textOnly" dt:type = "string"  model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "PackageReleaseCodeOption" content = "eltOnly" order = "many" model = "closed">
+    <element type = "PackageReleaseCode" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <ElementType name = "ComplianceIDs" content = "eltOnly" order = "many" model = "closed">
+    <element type = "ComplianceID" minOccurs = "1" maxOccurs = "*"/>
+  </ElementType>
+  <ElementType name = "ComplianceID" content = "eltOnly" order = "many" model = "closed">
+    <element type = "ComplianceIDOwner" minOccurs="0" maxOccurs="1"/>
+    <element type = "ComplianceIDComplianceCountry" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "ComplianceIDTypeCode" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "ComplianceIDNumber" minOccurs = "0" maxOccurs = "1"/>
+    <element type = "ComplianceIDIssuingCountry" minOccurs="0" maxOccurs="1"/>
+    <element type = "ComplianceFieldType" minOccurs = "0" maxOccurs = "1"/>
+  </ElementType>
+  <ElementType name = "ComplianceIDOwner" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "1"/>
+  <ElementType name = "ComplianceIDComplianceCountry" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+  <ElementType name = "ComplianceIDTypeCode" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "4"/>
+  <ElementType name = "ComplianceIDNumber" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "20"/>
+  <ElementType name = "ComplianceIDIssuingCountry" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+  <ElementType name = "ComplianceFieldType" content = "textOnly" dt:type = "string" model = "closed" wsi:maxLength = "2"/>
+</Schema>
