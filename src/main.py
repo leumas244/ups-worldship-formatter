@@ -273,6 +273,19 @@ def print_result_info(number_of_packages, excel_file_has_a_problem: bool, proble
     else:
         output = f"[{number_of_packages}/{number_of_packages}] Pakete wurden formatiert."
     print_info(output, tab=1)
+    
+    
+def fill_packageName_and_additionalName(package: Package) -> Package:
+    if not package.recipientName.strip():
+        if package.recipientNameAddtional:
+            package.recipientName = package.recipientNameAddtional
+        else:
+            return package
+        
+    elif package.country != "DE" and not package.recipientNameAddtional:
+        package.recipientNameAddtional = package.recipientName
+    
+    return package
 
 
 def main() -> None:
@@ -285,7 +298,7 @@ def main() -> None:
 
     for excel_file in excel_files_to_parse:
         print_info(f"Starte Analyse von '{get_file_name_from_file_path(excel_file)}'")
-        excel_file_has_a_problem = [False, []]
+        excel_file_has_a_problem: list[bool, list] = [False, []]
 
         try:
             info_and_packages = excel_converter.get_packages_from_excel_file(excel_file)
@@ -326,6 +339,9 @@ def main() -> None:
                     excel_file_has_a_problem[1].append(package)
                     print_adress_error(package.excel_row, package.excel_column, number_of_packages, packageCount)
                     continue
+                
+            elif excel_type == "new_version":
+                package = fill_packageName_and_additionalName(package)
 
             package_state = has_package_all_needed_informations(package)
 

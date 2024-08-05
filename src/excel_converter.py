@@ -267,6 +267,7 @@ def get_packages_form_sheet_new_version(
     referenceColum = sheet_informations["referenceColum"]
     packageCountColum = sheet_informations["packageCountColum"]
 
+    empty_package_counter = 0
     row = titleRow + 1
     while row < 200:
         block_info = get_information_about_package_block(
@@ -274,6 +275,7 @@ def get_packages_form_sheet_new_version(
         )
         next_block_row = block_info["last_row_of_sender_cell"] + 1
         if block_info["there_is_package_information"]:
+            empty_package_counter = 0
             is_there_error = False
             reciverString = "new_Excel_Version"
             coordinate = sheet.cell(row=row, column=reciverRightSideColum).coordinate
@@ -349,7 +351,11 @@ def get_packages_form_sheet_new_version(
 
             row = next_block_row
         else:
-            break
+            if empty_package_counter < 3:
+                empty_package_counter += 1
+                row = next_block_row
+            else:
+                break
 
     return (package_has_an_error, packages)
 
