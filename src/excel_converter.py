@@ -161,7 +161,6 @@ def get_packages_form_sheet_old_version(
     packages: list[Package] = []
 
     titleRow = sheet_informations["titleRow"]
-    senderColum = sheet_informations["senderColum"]
     reciverColum = sheet_informations["reciverColum"]
     referenceColum = sheet_informations["referenceColum"]
     packageCountColum = sheet_informations["packageCountColum"]
@@ -269,7 +268,7 @@ def get_packages_form_sheet_new_version(
 
     empty_package_counter = 0
     row = titleRow + 1
-    while row < 200:
+    while row < 1000:
         block_info = get_information_about_package_block(
             sheet, senderColum, reciverRightSideColum, row
         )
