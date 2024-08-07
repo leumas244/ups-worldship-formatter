@@ -244,12 +244,20 @@ def get_information_about_package_block(
     current_row: int,
 ) -> dict[str]:
     result = {}
-    result["last_row_of_sender_cell"] = get_last_row_of_sender_cell(
-        sheet, senderColumn, current_row
-    )
-    result["there_is_package_information"] = there_is_package_information(
-        sheet, senderColumn, reciverRightSideColumn, current_row
-    )
+    sender_cell = sheet.cell(row=current_row, column=senderColumn)
+    is_cell_part_of_merged_cell_value = is_cell_part_of_merged_cell(sheet, sender_cell)
+    result["sender_cell_is_part_of_merged_cell"] = is_cell_part_of_merged_cell_value
+    if is_cell_part_of_merged_cell_value:
+        result["last_row_of_sender_cell"] = get_last_row_of_sender_cell(
+            sheet, senderColumn, current_row
+        )
+        result["there_is_package_information"] = there_is_package_information(
+            sheet, senderColumn, reciverRightSideColumn, current_row
+        )
+    else:
+        result["last_row_of_sender_cell"] = current_row
+        result["there_is_package_information"] = False
+        
     return result
 
 
@@ -273,7 +281,7 @@ def get_packages_form_sheet_new_version(
             sheet, senderColum, reciverRightSideColum, row
         )
         next_block_row = block_info["last_row_of_sender_cell"] + 1
-        if block_info["there_is_package_information"]:
+        if block_info["there_is_package_information"] and block_info["sender_cell_is_part_of_merged_cell"]:
             empty_package_counter = 0
             is_there_error = False
             reciverString = "new_Excel_Version"
