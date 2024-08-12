@@ -337,6 +337,26 @@ def store_ups_files_in_history(filepath: str) -> None:
         print_info(
             f"Konnte die Datei '{file_name}' nicht verschieben. Fehler: {str(e)}"
         )
+        
+
+def store_excel_file_in_final_destination(excel_file_path: str) -> None:
+    try:
+        file_name = os.path.basename(excel_file_path)
+        destination_file = os.path.join(settings.final_destination_folder, file_name)
+        shutil.move(excel_file_path, destination_file)
+    except Exception as e:
+        print_info(
+            f"Konnte die Datei '{file_name}' nicht verschieben. Fehler: {str(e)}"
+        )
+        return
+    try:
+        directory_name = os.path.dirname(excel_file_path)
+        shutil.rmtree(directory_name)
+    except:
+        print_info(
+            f"Konnte den Ordner '{directory_name}' nicht löschen. Fehler: {str(e)}"
+        )
+        return
 
 
 def wirte_tracking_numbers_in_old_excel_version(
@@ -449,7 +469,8 @@ def wirte_tracking_numbers_in_old_excel_version(
 def check_old_excel_list_on_trackingnumber_gaps(
     workbook: openpyxl.Workbook,
     sheet_information: dict[str, int],
-) -> None:
+) -> bool:
+    return_value = False
     sheet = workbook.active
     titleRow = sheet_information["titleRow"]
     reciverColum = sheet_information["reciverColum"]
@@ -460,13 +481,15 @@ def check_old_excel_list_on_trackingnumber_gaps(
         if sheet.cell(row=row, column=reciverColum).value:
             if not sheet.cell(row=row, column=trackingNumberColum).value:
                 print_info(f"- Bitte Zeile {row} selbst eintragen", tab=1)
+                return_value = True
         else:
             if sheet.cell(row=row, column=referenceColum).value:
                 if not sheet.cell(row=row, column=trackingNumberColum).value:
                     print_info(f"- Bitte Zeile {row} selbst eintragen", tab=1)
+                    return_value = True
             else:
                 break
-    return
+    return return_value
 
 def package_is_same_as_excel_block(
     package: Package,
@@ -584,7 +607,8 @@ def wirte_tracking_numbers_in_new_excel_version(
 
 def check_new_excel_list_on_trackingnumber_gaps(
     workbook: openpyxl.Workbook, sheet_informations: dict[str, int]
-) -> None:
+) -> bool:
+    return_value = False
     sheet = workbook.active
     titleRow = sheet_informations["titleRow"]
     senderColum = sheet_informations["senderColum"]
@@ -605,7 +629,8 @@ def check_new_excel_list_on_trackingnumber_gaps(
             empty_package_counter = 0
             if not sheet.cell(row=row, column=trackingNumberColum).value:
                 print_info(f"- Bitte Zeile {row} selbst eintragen", tab=1)
-
+                return_value = True
+                
             row = next_block_row
         else:
             if empty_package_counter < 3:
@@ -613,12 +638,14 @@ def check_new_excel_list_on_trackingnumber_gaps(
                 row = next_block_row
             else:
                 break
-    return
+    return return_value
 
 
 def start_routine() -> None:
     print_info(f"Starte das Importieren der Tracking-Nummern in Excel-Files")
     matching_excel_and_out_files = get_matching_excel_and_out_files()
+    
+    any_excel_file_has_an_error = False
 
     for excel_file_path, out_file_path in matching_excel_and_out_files:
         print_info(
@@ -637,21 +664,23 @@ def start_routine() -> None:
             print_info(
                 f"Die Trackingnummern für die Datei '{get_basename_from_file_path(excel_file_path)}' konnten nicht importiert werden. Fehler: '{str(e)}'", tab=1
             )
+            any_excel_file_has_an_error = True
             continue
 
         if sheet_info["excel_sheet_type"] == "new_version":
             workbook = wirte_tracking_numbers_in_new_excel_version(workbook, sheet_info, formed_packages)
-            check_new_excel_list_on_trackingnumber_gaps(workbook, sheet_info)
+            trackingnumber_had_gaps = check_new_excel_list_on_trackingnumber_gaps(workbook, sheet_info)
 
         elif sheet_info["excel_sheet_type"] == "old_version":
             workbook = wirte_tracking_numbers_in_old_excel_version(workbook, sheet_info, formed_packages)
-            check_old_excel_list_on_trackingnumber_gaps(workbook, sheet_info)
+            trackingnumber_had_gaps = check_old_excel_list_on_trackingnumber_gaps(workbook, sheet_info)
 
         else:
             print_info(
                 f"Die Trackingnummern für die Datei '{get_basename_from_file_path(excel_file_path)}' " /
                 "konnten nicht importiert werden. Das Format der Excel-Liste wird nicht unterstützt.", tab=1
             )
+            any_excel_file_has_an_error = True
             continue
         
         try:
@@ -661,11 +690,20 @@ def start_routine() -> None:
                 f"Die Datei '{get_basename_from_file_path(excel_file_path)}' " /
                 "konnten nicht gespeichert werden. Ist die Datei vielleicht geöffnet? Fehler: '{str(e)}'", tab=1
             )
+            any_excel_file_has_an_error = True
             continue
         
         store_ups_files_in_history(out_file_path)
+        if not trackingnumber_had_gaps:
+            store_excel_file_in_final_destination(excel_file_path)
+        else:
+            any_excel_file_has_an_error = True
+            
 
-    print_info(f"Beende das Importieren der Tracking-Nummern in Excel-Files")
+    if any_excel_file_has_an_error:
+        print_info(f"Beende FEHLERHAFT das Importieren der Tracking-Nummern in Excel-Files")
+    else:
+        print_info(f"Beende ERFOLGREICH das Importieren der Tracking-Nummern in Excel-Files")
 
 
-start_routine()
+# start_routine()
