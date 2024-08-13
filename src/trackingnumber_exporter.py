@@ -706,4 +706,4 @@ def start_routine() -> None:
         print_info(f"Beende ERFOLGREICH das Importieren der Tracking-Nummern in Excel-Files")
 
 
-# start_routine()
+start_routine()
