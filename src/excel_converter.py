@@ -334,15 +334,31 @@ def get_packages_form_sheet_new_version(
                         newPackage.phoneNumber = reciver_value_cell.value
 
                     if reference_cell.value:
-                        refrenceTuple: tuple = (
-                            reference_cell.value,
-                            packageCount_cell.value,
-                        )
-                        newPackage.referenceNumbers.append(refrenceTuple)
-                        if newPackage.packageCount:
-                            newPackage.packageCount = newPackage.packageCount + packageCount_cell.value
+                        if not "\n" in reference_cell.value:
+                            refrenceTuple: tuple = (
+                                reference_cell.value,
+                                packageCount_cell.value,
+                            )
+                            newPackage.referenceNumbers.append(refrenceTuple)
+                            if newPackage.packageCount:
+                                newPackage.packageCount = newPackage.packageCount + packageCount_cell.value
+                            else:
+                                newPackage.packageCount = packageCount_cell.value
                         else:
-                            newPackage.packageCount = packageCount_cell.value
+                            reference_cell_value_split = reference_cell.value.split("\n")
+                            packageCount_cell_value_split = packageCount_cell.value.split("\n")
+                            
+                            for reference_cell_value in reference_cell_value_split:
+                                index = reference_cell_value_split.index(reference_cell_value)
+                                refrenceTuple: tuple = (
+                                    reference_cell_value,
+                                    int(packageCount_cell_value_split[index]),
+                                )
+                                newPackage.referenceNumbers.append(refrenceTuple)
+                                if newPackage.packageCount:
+                                    newPackage.packageCount = newPackage.packageCount + int(packageCount_cell_value_split[index])
+                                else:
+                                    newPackage.packageCount = int(packageCount_cell_value_split[index])
                     
                 except Exception as e:
                     package_has_an_error[0] = True
