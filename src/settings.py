@@ -22,6 +22,10 @@ all_needed_folders: list[str] = [
     ups_hostory_folder,
 ]
 
+# Ordner, wohin die Excel dateien nach Beendigung der Trackingnummer Import verschoben werden sollen.
+final_destination_folder: str = "Z:/Wildstage"
+
+
 ## Anpassbare Variablen/Einstellungen
 # reguläre Ausdrücker
 street_pattern = re.compile(r"^[^\d /-]{1}.+ \d+([a-zA-Z]?(/?\d+)*)$")

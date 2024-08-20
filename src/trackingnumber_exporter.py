@@ -3,6 +3,9 @@ import shutil
 import xml.etree.ElementTree as ElementTree
 import os
 import re
+import openpyxl
+import openpyxl.worksheet
+import openpyxl.worksheet.worksheet
 
 import settings
 from data_classes import Package
@@ -266,42 +269,41 @@ def detect_packages_from_the_same_recipient(
                 and proccesed_package.postalCode == detected_package.postalCode
             ):
                 if (
-                    len(proccesed_package.referenceNumbers) == 1
-                    and len(detected_package.referenceNumbers) == 1
+                    proccesed_package.referenceNumbers[0]
+                    == detected_package.referenceNumbers[0]
                 ):
-                    if (
-                        proccesed_package.referenceNumbers[0]
-                        == detected_package.referenceNumbers[0]
-                    ):
-                        is_in_detected_packages = True
-                        new_detected_package = detected_package
-                        index_detected_package = detected_packages.index(
-                            detected_package
-                        )
-                        new_detected_package.packageCount += (
-                            proccesed_package.packageCount
-                        )
+                    is_in_detected_packages = True
+                    new_detected_package = detected_package
+                    index_detected_package = detected_packages.index(detected_package)
+                    new_detected_package.packageCount += proccesed_package.packageCount
+                    add_refNumber = False
+                    '''
+                    for ref_tuple in detected_package.referenceNumbers:
+                        if ref_tuple[0] == new_detected_package.referenceNumbers[0][0]:
+                            add_refNumber = True
+                            new_refrence_tuple = (
+                                detected_package.referenceNumbers[0][0],
+                                new_detected_package.packageCount,
+                            )
+                            new_detected_package.referenceNumbers = [new_refrence_tuple]
+                    if not add_refNumber:
                         new_refrence_tuple = (
-                            detected_package.referenceNumbers[0][0],
+                            new_detected_package.referenceNumbers[0][0],
                             new_detected_package.packageCount,
                         )
-                        new_detected_package.referenceNumbers = [new_refrence_tuple]
-                        for trackingNumber in proccesed_package.trackingNumbers:
-                            new_detected_package.trackingNumbers.append(trackingNumber)
+                        new_detected_package.referenceNumbers.append(new_refrence_tuple)
+                    '''
+                    for trackingNumber in proccesed_package.trackingNumbers:
+                        new_detected_package.trackingNumbers.append(trackingNumber)
 
-                        new_detected_package.excelTrackingAssignment["packageCount"] = (
-                            new_detected_package.referenceNumbers[0][1]
-                        )
-                        new_detected_package.excelTrackingAssignment[
-                            "trackingNumbers"
-                        ] = new_detected_package.trackingNumbers
+                    new_detected_package.excelTrackingAssignment["packageCount"] = (
+                        new_detected_package.referenceNumbers[0][1]
+                    )
+                    new_detected_package.excelTrackingAssignment["trackingNumbers"] = (
+                        new_detected_package.trackingNumbers
+                    )
 
-                        detected_packages[index_detected_package] = new_detected_package
-
-                elif len(proccesed_package.referenceNumbers) > 1:
-                    # ToDo: Fehler werfen
-                    is_in_detected_packages = True
-                    pass
+                    detected_packages[index_detected_package] = new_detected_package
 
         if not is_in_detected_packages:
             detected_packages.append(proccesed_package)
@@ -336,9 +338,341 @@ def store_ups_files_in_history(filepath: str) -> None:
         )
 
 
+def store_excel_file_in_final_destination(excel_file_path: str) -> None:
+    try:
+        file_name = os.path.basename(excel_file_path)
+        destination_file = os.path.join(settings.final_destination_folder, file_name)
+        shutil.move(excel_file_path, destination_file)
+    except Exception as e:
+        print_info(
+            f"Konnte die Datei '{file_name}' nicht verschieben. Fehler: {str(e)}"
+        )
+        return
+    try:
+        directory_name = os.path.dirname(excel_file_path)
+        shutil.rmtree(directory_name)
+    except:
+        print_info(
+            f"Konnte den Ordner '{directory_name}' nicht löschen. Fehler: {str(e)}"
+        )
+        return
+
+
+def wirte_tracking_numbers_in_old_excel_version(
+    workbook: openpyxl.Workbook,
+    sheet_information: dict[str, int],
+    formed_packages: list[Package],
+) -> openpyxl.Workbook:
+    sheet = workbook.active
+    titleRow = sheet_information["titleRow"]
+    reciverColum = sheet_information["reciverColum"]
+    referenceColum = sheet_information["referenceColum"]
+    packageCountColum = sheet_information["packageCountColum"]
+    shippingServiceColum = sheet_information["shippingServiceColum"]
+    trackingNumberColum = sheet_information["trackingNumberColum"]
+
+    for row in range(titleRow + 1, 200):
+        if sheet.cell(row=row, column=reciverColum).value:
+            if not sheet.cell(row=row, column=trackingNumberColum).value:
+                reciverString = sheet.cell(row=row, column=reciverColum).value
+                packageCountValue = sheet.cell(row=row, column=packageCountColum).value
+                refrencCoulmValue = sheet.cell(
+                    row=row, column=referenceColum
+                ).value.strip()
+
+                for package in formed_packages:
+                    if package.recipientName in reciverString:
+                        if len(package.trackingNumbers) == 1:
+
+                            if (
+                                len(package.trackingNumbers) == packageCountValue
+                                and package.referenceNumbers[0][0] == refrencCoulmValue
+                            ):
+                                sheet.cell(
+                                    row=row, column=shippingServiceColum
+                                ).value = "UPS"
+                                sheet.cell(
+                                    row=row, column=trackingNumberColum
+                                ).value = package.trackingNumbers[0]
+                                formed_packages.remove(package)
+                                break
+                        elif len(package.trackingNumbers) > 1:
+                            if (
+                                len(package.trackingNumbers) == packageCountValue
+                                and package.referenceNumbers[0][0] == refrencCoulmValue
+                            ):
+                                sheet.cell(
+                                    row=row, column=shippingServiceColum
+                                ).value = "UPS"
+                                out = ""
+                                for trackingNumber in package.trackingNumbers:
+                                    out = out + trackingNumber + ", "
+                                sheet.cell(
+                                    row=row, column=trackingNumberColum
+                                ).value = out
+                                formed_packages.remove(package)
+                                break
+
+        else:
+            if sheet.cell(row=row, column=referenceColum).value:
+                if not sheet.cell(row=row, column=trackingNumberColum).value:
+                    reciverString = get_merged_cell_value(
+                        sheet_=sheet, row=row, column=reciverColum
+                    )
+                    packageCountValue = sheet.cell(
+                        row=row, column=packageCountColum
+                    ).value
+                    refrencCoulmValue = sheet.cell(
+                        row=row, column=referenceColum
+                    ).value.strip()
+
+                    for package in formed_packages:
+                        if package.recipientName in reciverString:
+                            if len(package.trackingNumbers) == 1:
+                                if (
+                                    len(package.trackingNumbers) == packageCountValue
+                                    and package.referenceNumbers[0][0]
+                                    == refrencCoulmValue
+                                ):
+                                    sheet.cell(
+                                        row=row, column=shippingServiceColum
+                                    ).value = "UPS"
+                                    sheet.cell(
+                                        row=row, column=trackingNumberColum
+                                    ).value = package.trackingNumbers[0]
+                                    formed_packages.remove(package)
+                                    break
+                            elif len(package.trackingNumbers) > 1:
+                                if (
+                                    len(package.trackingNumbers) == packageCountValue
+                                    and package.referenceNumbers[0][0]
+                                    == refrencCoulmValue
+                                ):
+                                    sheet.cell(
+                                        row=row, column=shippingServiceColum
+                                    ).value = "UPS"
+                                    out = ""
+                                    for trackingNumber in package.trackingNumbers:
+                                        out = out + trackingNumber + ", "
+                                    sheet.cell(
+                                        row=row, column=trackingNumberColum
+                                    ).value = out
+                                    formed_packages.remove(package)
+                                    break
+
+            else:
+                break
+    return workbook
+
+
+def check_old_excel_list_on_trackingnumber_gaps(
+    workbook: openpyxl.Workbook,
+    sheet_information: dict[str, int],
+) -> bool:
+    return_value = False
+    sheet = workbook.active
+    titleRow = sheet_information["titleRow"]
+    reciverColum = sheet_information["reciverColum"]
+    referenceColum = sheet_information["referenceColum"]
+    trackingNumberColum = sheet_information["trackingNumberColum"]
+
+    for row in range(titleRow + 1, 200):
+        if sheet.cell(row=row, column=reciverColum).value:
+            if not sheet.cell(row=row, column=trackingNumberColum).value:
+                print_info(f"- Bitte Zeile {row} selbst eintragen", tab=1)
+                return_value = True
+        else:
+            if sheet.cell(row=row, column=referenceColum).value:
+                if not sheet.cell(row=row, column=trackingNumberColum).value:
+                    print_info(f"- Bitte Zeile {row} selbst eintragen", tab=1)
+                    return_value = True
+            else:
+                break
+    return return_value
+
+
+def package_is_same_as_excel_block(
+    package: Package,
+    sheet: openpyxl.worksheet.worksheet.Worksheet,
+    row: int,
+    last_row_of_sender_cell: int,
+    reciverColum: int,
+    reciverRightSideColum: int,
+    referenceColum: int,
+    packageCountColum: int,
+) -> bool:
+    same_Name = False
+    same_company = False
+    same_adress = False
+    same_postalCode = False
+    same_refnumbers = False
+
+    refnumbers = []
+
+    for block_row in range(row, last_row_of_sender_cell + 1):
+        reciver_tag_cell = sheet.cell(row=block_row, column=reciverColum)
+        reciver_value_cell = sheet.cell(row=block_row, column=reciverRightSideColum)
+        reference_cell = sheet.cell(row=block_row, column=referenceColum)
+        packageCount_cell = sheet.cell(row=block_row, column=packageCountColum)
+
+        if reciver_tag_cell.value == "Name":
+            if reciver_value_cell.value and package.recipientName:
+                if package.recipientName in reciver_value_cell.value:
+                    same_Name = True
+            else:
+                same_Name = True
+
+        elif reciver_tag_cell.value == "Firma":
+            if reciver_value_cell.value and package.recipientNameAddtional:
+                if package.recipientNameAddtional in reciver_value_cell.value:
+                    same_company = True
+            else:
+                same_company = True
+
+        elif reciver_tag_cell.value == "(Adresse)":
+            if package.address1 in reciver_value_cell.value:
+                same_adress = True
+
+        elif reciver_tag_cell.value == "PLZ Ort":
+            if package.postalCode in reciver_value_cell.value:
+                same_postalCode = True
+
+        if reference_cell.value:
+            if not "\n" in reference_cell.value:
+                refrenceTuple: tuple = (
+                    reference_cell.value,
+                    packageCount_cell.value,
+                )
+                refnumbers.append(refrenceTuple)
+            else:
+                reference_cell_value_split = reference_cell.value.split("\n")
+                packageCount_cell_value_split = packageCount_cell.value.split("\n")
+
+                for reference_cell_value in reference_cell_value_split:
+                    index = reference_cell_value_split.index(reference_cell_value)
+                    refrenceTuple: tuple = (
+                        reference_cell_value,
+                        int(packageCount_cell_value_split[index]),
+                    )
+                    refnumbers.append(refrenceTuple)
+
+    if refnumbers == package.referenceNumbers:
+        same_refnumbers = True
+
+    if (
+        same_Name
+        and same_company
+        and same_adress
+        and same_postalCode
+        and same_refnumbers
+    ):
+        return True
+    else:
+        return False
+
+
+def wirte_tracking_numbers_in_new_excel_version(
+    workbook: openpyxl.Workbook,
+    sheet_informations: dict[str, int],
+    formed_packages: list[Package],
+) -> openpyxl.Workbook:
+    sheet = workbook.active
+    titleRow = sheet_informations["titleRow"]
+    senderColum = sheet_informations["senderColum"]
+    reciverColum = sheet_informations["reciverColum"]
+    reciverRightSideColum = reciverColum + 1
+    referenceColum = sheet_informations["referenceColum"]
+    packageCountColum = sheet_informations["packageCountColum"]
+    shippingServiceColum = sheet_informations["shippingServiceColum"]
+    trackingNumberColum = sheet_informations["trackingNumberColum"]
+
+    empty_package_counter = 0
+    row = titleRow + 1
+    while row < 1000:
+        block_info = excel_converter.get_information_about_package_block(
+            sheet, senderColum, reciverRightSideColum, row
+        )
+        last_row_of_sender_cell = block_info["last_row_of_sender_cell"]
+        next_block_row = last_row_of_sender_cell + 1
+
+        if block_info["there_is_package_information"]:
+            empty_package_counter = 0
+            for package in formed_packages:
+                if package_is_same_as_excel_block(
+                    package,
+                    sheet,
+                    row,
+                    last_row_of_sender_cell,
+                    reciverColum,
+                    reciverRightSideColum,
+                    referenceColum,
+                    packageCountColum,
+                ):
+                    if not sheet.cell(row=row, column=trackingNumberColum).value:
+                        sheet.cell(row=row, column=shippingServiceColum).value = "UPS"
+                        out = ""
+                        for trackingNumber in package.trackingNumbers:
+                            if package.trackingNumbers.index(trackingNumber) < (
+                                len(package.trackingNumbers) - 1
+                            ):
+                                out = out + trackingNumber + ", \n"
+                            else:
+                                out = out + trackingNumber
+                        sheet.cell(row=row, column=trackingNumberColum).value = out
+                    formed_packages.remove(package)
+                    break
+
+            row = next_block_row
+        else:
+            if empty_package_counter < 3:
+                empty_package_counter += 1
+                row = next_block_row
+            else:
+                break
+    return workbook
+
+
+def check_new_excel_list_on_trackingnumber_gaps(
+    workbook: openpyxl.Workbook, sheet_informations: dict[str, int]
+) -> bool:
+    return_value = False
+    sheet = workbook.active
+    titleRow = sheet_informations["titleRow"]
+    senderColum = sheet_informations["senderColum"]
+    reciverColum = sheet_informations["reciverColum"]
+    reciverRightSideColum = reciverColum + 1
+    trackingNumberColum = sheet_informations["trackingNumberColum"]
+
+    empty_package_counter = 0
+    row = titleRow + 1
+    while row < 1000:
+        block_info = excel_converter.get_information_about_package_block(
+            sheet, senderColum, reciverRightSideColum, row
+        )
+        last_row_of_sender_cell = block_info["last_row_of_sender_cell"]
+        next_block_row = last_row_of_sender_cell + 1
+
+        if block_info["there_is_package_information"]:
+            empty_package_counter = 0
+            if not sheet.cell(row=row, column=trackingNumberColum).value:
+                print_info(f"- Bitte Zeile {row} selbst eintragen", tab=1)
+                return_value = True
+
+            row = next_block_row
+        else:
+            if empty_package_counter < 3:
+                empty_package_counter += 1
+                row = next_block_row
+            else:
+                break
+    return return_value
+
+
 def start_routine() -> None:
     print_info(f"Starte das Importieren der Tracking-Nummern in Excel-Files")
     matching_excel_and_out_files = get_matching_excel_and_out_files()
+
+    any_excel_file_has_an_error = False
 
     for excel_file_path, out_file_path in matching_excel_and_out_files:
         print_info(
@@ -351,159 +685,67 @@ def start_routine() -> None:
         workbook = excel_converter.get_workbook(excel_file_path)
         sheet = workbook.active
 
-        titleRow = None
-        senderColum = None
-        reciverColum = None
-        referenceColum = None
-        packageCountColum = None
-        shippingServiceColum = None
-        trackingNumberColum = None
+        try:
+            sheet_info = excel_converter.get_type_and_headerCells_from_excelSheet(sheet)
+        except Exception as e:
+            print_info(
+                f"Die Trackingnummern für die Datei '{get_basename_from_file_path(excel_file_path)}' konnten nicht importiert werden. Fehler: '{str(e)}'",
+                tab=1,
+            )
+            any_excel_file_has_an_error = True
+            continue
 
-        for rowCounter in range(1, 4):
-            if not titleRow:
-                for columCounter in range(1, 7):
-                    cell = sheet.cell(row=rowCounter, column=columCounter)
-                    if cell.value == "Sender":
-                        titleRow = rowCounter
-                        senderColum = columCounter
-                    elif cell.value == "Empfänger":
-                        titleRow = rowCounter
-                        reciverColum = columCounter
-                    elif cell.value == "Variante / Farbe":
-                        referenceColum = columCounter
-                    elif cell.value == "Menge":
-                        packageCountColum = columCounter
-                    elif cell.value == "Versand-Dienstleister":
-                        shippingServiceColum = columCounter
-                    elif cell.value == "Sendungs-Nummer":
-                        trackingNumberColum = columCounter
+        if sheet_info["excel_sheet_type"] == "new_version":
+            workbook = wirte_tracking_numbers_in_new_excel_version(
+                workbook, sheet_info, formed_packages
+            )
+            trackingnumber_had_gaps = check_new_excel_list_on_trackingnumber_gaps(
+                workbook, sheet_info
+            )
 
-        if (
-            titleRow
-            and senderColum
-            and reciverColum
-            and referenceColum
-            and packageCountColum
-            and shippingServiceColum
-            and trackingNumberColum
-        ):
-            for row in range(titleRow + 1, 200):
-                if sheet.cell(row=row, column=reciverColum).value:
-                    if not sheet.cell(row=row, column=trackingNumberColum).value:
-                        reciverString = sheet.cell(row=row, column=reciverColum).value
-                        packageCountValue = sheet.cell(
-                            row=row, column=packageCountColum
-                        ).value
-                        refrencCoulmValue = sheet.cell(
-                            row=row, column=referenceColum
-                        ).value.strip()
+        elif sheet_info["excel_sheet_type"] == "old_version":
+            workbook = wirte_tracking_numbers_in_old_excel_version(
+                workbook, sheet_info, formed_packages
+            )
+            trackingnumber_had_gaps = check_old_excel_list_on_trackingnumber_gaps(
+                workbook, sheet_info
+            )
 
-                        for package in formed_packages:
-                            if package.recipientName in reciverString:
-                                if len(package.trackingNumbers) == 1:
+        else:
+            print_info(
+                f"Die Trackingnummern für die Datei '{get_basename_from_file_path(excel_file_path)}' "
+                / "konnten nicht importiert werden. Das Format der Excel-Liste wird nicht unterstützt.",
+                tab=1,
+            )
+            any_excel_file_has_an_error = True
+            continue
 
-                                    if (
-                                        len(package.trackingNumbers)
-                                        == packageCountValue
-                                        and package.referenceNumbers[0][0]
-                                        == refrencCoulmValue
-                                    ):
-                                        sheet.cell(
-                                            row=row, column=shippingServiceColum
-                                        ).value = "UPS"
-                                        sheet.cell(
-                                            row=row, column=trackingNumberColum
-                                        ).value = package.trackingNumbers[0]
-                                        formed_packages.remove(package)
-                                        break
-                                elif len(package.trackingNumbers) > 1:
-                                    if (
-                                        len(package.trackingNumbers)
-                                        == packageCountValue
-                                        and package.referenceNumbers[0][0]
-                                        == refrencCoulmValue
-                                    ):
-                                        sheet.cell(
-                                            row=row, column=shippingServiceColum
-                                        ).value = "UPS"
-                                        out = ""
-                                        for trackingNumber in package.trackingNumbers:
-                                            out = out + trackingNumber + ", "
-                                        sheet.cell(
-                                            row=row, column=trackingNumberColum
-                                        ).value = out
-                                        formed_packages.remove(package)
-                                        break
-
-                else:
-                    if sheet.cell(row=row, column=referenceColum).value:
-                        if not sheet.cell(row=row, column=trackingNumberColum).value:
-                            reciverString = get_merged_cell_value(
-                                sheet_=sheet, row=row, column=reciverColum
-                            )
-                            packageCountValue = sheet.cell(
-                                row=row, column=packageCountColum
-                            ).value
-                            refrencCoulmValue = sheet.cell(
-                                row=row, column=referenceColum
-                            ).value.strip()
-
-                            for package in formed_packages:
-                                if package.recipientName in reciverString:
-                                    if len(package.trackingNumbers) == 1:
-                                        if (
-                                            len(package.trackingNumbers)
-                                            == packageCountValue
-                                            and package.referenceNumbers[0][0]
-                                            == refrencCoulmValue
-                                        ):
-                                            sheet.cell(
-                                                row=row, column=shippingServiceColum
-                                            ).value = "UPS"
-                                            sheet.cell(
-                                                row=row, column=trackingNumberColum
-                                            ).value = package.trackingNumbers[0]
-                                            formed_packages.remove(package)
-                                            break
-                                    elif len(package.trackingNumbers) > 1:
-                                        if (
-                                            len(package.trackingNumbers)
-                                            == packageCountValue
-                                            and package.referenceNumbers[0][0]
-                                            == refrencCoulmValue
-                                        ):
-                                            sheet.cell(
-                                                row=row, column=shippingServiceColum
-                                            ).value = "UPS"
-                                            out = ""
-                                            for (
-                                                trackingNumber
-                                            ) in package.trackingNumbers:
-                                                out = out + trackingNumber + ", "
-                                            sheet.cell(
-                                                row=row, column=trackingNumberColum
-                                            ).value = out
-                                            formed_packages.remove(package)
-                                            break
-
-                    else:
-                        break
-
-            for row in range(titleRow + 1, 200):
-                if sheet.cell(row=row, column=reciverColum).value:
-                    if not sheet.cell(row=row, column=trackingNumberColum).value:
-                        print_info(f"- Bitte Zeile {row} selbst eintragen", tab=1)
-                else:
-                    if sheet.cell(row=row, column=referenceColum).value:
-                        if not sheet.cell(row=row, column=trackingNumberColum).value:
-                            print_info(f"- Bitte Zeile {row} selbst eintragen", tab=1)
-                    else:
-                        break
-
+        try:
             workbook.save(excel_file_path)
-            store_ups_files_in_history(out_file_path)
+        except Exception as e:
+            print_info(
+                f"Die Datei '{get_basename_from_file_path(excel_file_path)}' "
+                / "konnten nicht gespeichert werden. Ist die Datei vielleicht geöffnet? Fehler: '{str(e)}'",
+                tab=1,
+            )
+            any_excel_file_has_an_error = True
+            continue
 
-    print_info(f"Beende das Importieren der Tracking-Nummern in Excel-Files")
+        store_ups_files_in_history(out_file_path)
+        if not trackingnumber_had_gaps:
+            store_excel_file_in_final_destination(excel_file_path)
+            pass
+        else:
+            any_excel_file_has_an_error = True
+
+    if any_excel_file_has_an_error:
+        print_info(
+            f"Beende FEHLERHAFT das Importieren der Tracking-Nummern in Excel-Files"
+        )
+    else:
+        print_info(
+            f"Beende ERFOLGREICH das Importieren der Tracking-Nummern in Excel-Files"
+        )
 
 
 start_routine()
