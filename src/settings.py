@@ -63,3 +63,6 @@ european_countrys: dict[str, str] = {
     "Netherlands": "NL",
     "Nederland": "NL",
 }
+
+# Platzhalter für MailAdresse, wenn das Paket ins Ausland geht.
+email_placeholder = "kaifunk@wildstage.de"

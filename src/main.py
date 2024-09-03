@@ -284,6 +284,7 @@ def fill_packageName_and_additionalName(package: Package) -> Package:
         
     elif package.country != "DE" and not package.recipientNameAddtional:
         package.recipientNameAddtional = package.recipientName
+        package.email = settings.email_placeholder
     
     return package
 
