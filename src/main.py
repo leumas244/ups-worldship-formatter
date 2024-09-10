@@ -276,12 +276,17 @@ def print_result_info(number_of_packages, excel_file_has_a_problem: bool, proble
     
     
 def fill_packageName_and_additionalName(package: Package) -> Package:
-    if not package.recipientName.strip():
+    if not package.recipientName:
         if package.recipientNameAddtional:
             package.recipientName = package.recipientNameAddtional
         else:
             return package
-        
+    elif not package.recipientName.strip():
+        if package.recipientNameAddtional:
+            package.recipientName = package.recipientNameAddtional
+        else:
+            return package
+    
     elif package.country != "DE" and not package.recipientNameAddtional:
         package.recipientNameAddtional = package.recipientName
         package.email = settings.email_placeholder
