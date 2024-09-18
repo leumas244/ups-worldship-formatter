@@ -37,7 +37,7 @@ def get_xml_tree(packages: list[Package]) -> ET.ElementTree:
             Telephone.text = package.phoneNumber
             
         if package.email:
-            Email = ET.SubElement(ShipTo, "Email")
+            Email = ET.SubElement(ShipTo, "EmailAddress")
             Email.text = package.email
         
         ShipFrom = ET.SubElement(OpenShipment, "ShipFrom")
